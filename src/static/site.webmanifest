@@ -1,0 +1,13 @@
+{
+  "name": "Canlander",
+  "short_name": "Canlander",
+  "description": "Canadian Highlander, the 100-card Magic: The Gathering format.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0f0d0b",
+  "theme_color": "#0f0d0b",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

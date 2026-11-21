@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 title: Learn the format
+seoTitle: "Learn to play Canadian Highlander · Canlander"
 description: The rules of Canadian Highlander, how the points list works, and practical advice for building and playing your first 100-card singleton deck.
 pageClass: learn
 permalink: /learn/
@@ -135,3 +136,14 @@ permalink: /learn/
 
   </article>
 </div>
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is Canlander an official Wizards of the Coast format?", "acceptedAnswer": { "@type": "Answer", "text": "It's a fan-run format with its own council and points list. Wizards has written about it and hosted events for it." } },
+    { "@type": "Question", "name": "Can I turn my Commander deck into a Canlander deck?", "acceptedAnswer": { "@type": "Answer", "text": "It's usually easier to start fresh. Canlander is a one-on-one duel at twenty life, so low curves and cheap interaction shine. Start from a Canlander list and swap in your favourite cards from your Commander decks, and check the points list." } },
+    { "@type": "Question", "name": "How often does the points list change?", "acceptedAnswer": { "@type": "Answer", "text": "A few times a year, on a roughly quarterly schedule. The council announces changes the day before they take effect and explains its reasoning in an article." } },
+    { "@type": "Question", "name": "Can a budget deck win?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Results archives are full of strong zero-point and low-point decks, and the ten-point cap keeps everyone on even footing." } },
+    { "@type": "Question", "name": "Where do I find people to play with?", "acceptedAnswer": { "@type": "Answer", "text": "The Canadian Highlander Discord runs weekly online events on webcam and Cockatrice and is the fastest way to find a game." } }
+  ]
+} | json | safe }}</script>

@@ -3,3 +3,9 @@
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
+
+https://canlander.westlywhite.workers.dev/*
+  X-Robots-Tag: noindex
+
+https://preview-canlander.westlywhite.workers.dev/*
+  X-Robots-Tag: noindex
