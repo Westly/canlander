@@ -2,15 +2,15 @@
   "title": "Canlander",
   "domain": "canlander.org",
   "url": "https://canlander.org",
-  "description": "A plain-spoken guide to Canadian Highlander: the 100-card, one-of-each, ten-points-to-spend Magic: The Gathering format from Victoria, BC.",
+  "description": "Canadian Highlander, the 100-card Magic format where Black Lotus is legal and every deck gets ten points to spend. Learn it, build it, play it.",
   "official": {
     "home": "https://canadianhighlander.ca/",
     "points": "https://canadianhighlander.ca/points-list/",
     "rules": "https://canadianhighlander.ca/about/",
     "articles": "https://canadianhighlander.ca/articles/",
-    "discord": "https://discord.gg/UtNxCXhSuP"
+    "discord": "https://discord.gg/WtCHsAjcPM"
   },
-  "repo": "https://github.com/Westly/canlander",
   "nextPointsUpdate": "2026-12-01",
-  "nextPointsUpdateNote": "The council announces changes the day before they take effect."
+  "nextPointsUpdateNote": "The council announces changes the day before they take effect.",
+  "discord": "https://discord.gg/WtCHsAjcPM"
 }

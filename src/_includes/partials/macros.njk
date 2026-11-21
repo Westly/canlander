@@ -22,7 +22,7 @@
 {#- A deck tile for the Moxfield carousel/grid. -#}
 {% macro decktile(d, authors) -%}
 {%- set au = authors[d.author] -%}
-<a class="deck" href="{{ d.url }}" rel="noopener">
+<a class="deck{% if d.pinned %} deck--pinned{% endif %}" href="{{ d.url }}">
   <span class="deck__art" style="background-image:url('{{ d.cover }}')"></span>
   <span class="deck__body">
     <span class="deck__top">
@@ -32,7 +32,7 @@
     <span class="deck__name">{{ d.name }}</span>
     <span class="deck__spend"><b>{{ d.points }} pts</b> {{ d.spend }}</span>
     <span class="deck__by">
-      <img class="deck__avatar" src="{{ au.avatar }}" alt="" width="28" height="28" loading="lazy">
+      {% if au.avatar %}<img class="deck__avatar" src="{{ au.avatar }}" alt="" width="28" height="28" loading="lazy">{% else %}<span class="deck__avatar deck__avatar--mono" aria-hidden="true">{{ d.author | initials }}</span>{% endif %}
       <span><span class="deck__author">{{ d.author }}</span><span class="deck__meta mono">Updated {{ d.updated | relDate }}</span></span>
       <span class="deck__go mono">Moxfield ↗</span>
     </span>

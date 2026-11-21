@@ -2,17 +2,15 @@
   { url: "/learn/", label: "Learn" },
   { url: "/build/", label: "Build" },
   { url: "/decks/", label: "Decks" },
-  { url: "/resources/", label: "Resources" },
-  { url: "/news/", label: "News" }
+  { url: "/play/", label: "Play" },
+  { url: "/story/", label: "Story" },
+  { url: "/council/", label: "Council" },
+  { url: "/resources/", label: "Resources" }
 ] -%}
 <header class="masthead">
   <div class="wrap masthead__inner">
     <a class="brand" href="/" aria-label="Canlander home">
-      <svg class="brand__mark" viewBox="0 0 28 36" aria-hidden="true">
-        <rect x="1.5" y="1.5" width="25" height="33" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/>
-        <rect x="5" y="5" width="18" height="26" rx="1.2" fill="none" stroke="currentColor" stroke-width=".8" opacity=".55"/>
-        <text x="14" y="22.6" text-anchor="middle" font-size="11.5" font-family="Fraunces, Georgia, serif" font-style="italic" fill="currentColor">10</text>
-      </svg>
+      {% include "partials/mark.njk" %}
       <span class="brand__word">Canlander<span class="brand__tld">.org</span></span>
     </a>
     <nav class="nav" aria-label="Primary">
@@ -21,7 +19,7 @@
         <li><a href="{{ item.url }}"{% if page.url.startsWith(item.url) %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
         {%- endfor %}
       </ul>
-      <a class="nav__cta" href="{{ site.official.discord }}" rel="noopener">Discord <span aria-hidden="true">↗</span></a>
+      <a class="nav__cta" href="{{ site.discord }}">Discord <span aria-hidden="true">↗</span></a>
     </nav>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav">
       <span class="menu-toggle__label">Menu</span>
@@ -32,7 +30,8 @@
       {%- for item in nav %}
       <li><a href="{{ item.url }}">{{ item.label }}</a></li>
       {%- endfor %}
-      <li><a href="{{ site.official.discord }}" rel="noopener">Discord ↗</a></li>
+      <li><a href="/news/">News</a></li>
+      <li><a href="{{ site.discord }}">Discord ↗</a></li>
     </ul>
   </div>
 </header>

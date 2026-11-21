@@ -1,0 +1,20 @@
+{
+  "_note": "Online play, from the council's New Player Primer and the Discord. Times are US Pacific; the page converts them to the reader's time zone.",
+  "source": "https://canadianhighlander.ca/2025/01/06/2026-new-player-primer/",
+  "discordMembers": "8,000",
+  "weeklies": [
+    { "name": "Webcam Weekly", "day": "Saturday", "dayIndex": 6, "hour": 10, "platform": "Webcam", "blurb": "Real cards (or proxies) on a real table, played over camera. The closest thing to sitting across from someone." },
+    { "name": "Cockatrice Weekly", "day": "Sunday", "dayIndex": 0, "hour": 10, "platform": "Cockatrice", "blurb": "Free client, every card ever printed, nothing to buy. The easiest way into a tournament if you don't own a paper deck yet." }
+  ],
+  "leagues": [
+    { "name": "Webcam Async League", "platform": "Webcam", "format": "Four rounds of Swiss or a round robin, then Top 8.", "lists": "None, or locked & open", "note": "The weekly's table, on your own time." },
+    { "name": "Cockatrice Async League", "platform": "Cockatrice", "format": "Four rounds of Swiss or a round robin, then Top 8.", "lists": "None, or locked & open", "note": "Free to play from anywhere with a laptop." },
+    { "name": "MTGO Async League", "platform": "Magic Online", "format": "Play five opponents of your choice, or a round robin, then Top 8.", "lists": "Locked & closed", "note": "For players who already own the cards online." }
+  ],
+  "clients": [
+    { "name": "SpellTable", "kind": "Webcam", "url": "https://spelltable.wizards.com/", "desc": "Wizards' free browser table. Point a camera at your battlefield and play with paper cards or proxies.", "cost": "Free" },
+    { "name": "Convoke", "kind": "Webcam", "url": "https://convoke.games/", "desc": "A newer webcam platform with card recognition and an easy setup.", "cost": "Free" },
+    { "name": "Cockatrice", "kind": "Digital", "url": "https://cockatrice.github.io/", "desc": "Open-source and free, with every card. The best way to test a list before you buy anything.", "cost": "Free" },
+    { "name": "Magic Online", "kind": "Digital", "url": "https://www.mtgo.com/", "desc": "The official digital client, used for the MTGO league. Many Canlander staples are far cheaper here than in paper.", "cost": "Paid cards" }
+  ]
+}

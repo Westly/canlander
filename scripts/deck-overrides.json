@@ -1,0 +1,12 @@
+{
+ "_note": "Hand fixes applied on top of every snapshot. Key = Moxfield deck id. Any of: name, colors, archetype.",
+ "_UoyidgdqU-tqwkkhjKWBg": { "colors": "BRG" },
+ "54hUJTCROUaDsH8_luoOrA": { "name": "Sultai Time Walk Midrange" },
+ "9foWGLjsZkWQpjd-Ry7upg": { "name": "Grixis Control" },
+ "XT3epBtyy0ObYdWar1Uhlw": { "name": "Simic Slaw" },
+ "hRbm2IPhv0a-LM117Sn7cw": { "name": "Thalia's Chicago Sunroof", "archetype": "Aggro-prison" },
+ "LMYnXSGs1EaIjBiNkhjnmg": { "name": "Jeskai Blink" },
+ "TULG15rTUEqPZ73FkQ9BVg": { "name": "4c Scapeshift (no black)" },
+ "JLLZiISC5UKBsRwTzdlbKQ": { "name": "Death and Taxes W/B" },
+ "JxKFJyTp80yOxfshBPYlFA": { "name": "4 Color Monsters" }
+}

@@ -140,4 +140,63 @@
       if (el) io.observe(el);
     });
   }
+
+  /* Hero vault: spend up to ten points */
+  const vault = $("[data-vault]");
+  if (vault) {
+    const budget = +vault.dataset.budget || 10;
+    const items = $$(".vault__item", vault);
+    const pips = $$(".vault__meter i", vault);
+    const status = $("[data-vault-status]", vault);
+    const next = $("[data-vault-next]", vault);
+    const spent = () => items.filter((b) => b.getAttribute("aria-pressed") === "true").reduce((n, b) => n + +b.dataset.pts, 0);
+    const render = (msg) => {
+      const s = spent(), left = budget - s;
+      pips.forEach((p, i) => p.classList.toggle("is-spent", i < s));
+      const picked = items.filter((b) => b.getAttribute("aria-pressed") === "true").map((b) => b.dataset.name);
+      if (msg) status.innerHTML = msg;
+      else if (left === 0) status.innerHTML = "<b>0</b> left. That's a deck.";
+      else status.innerHTML = `<b>${left}</b> point${left === 1 ? "" : "s"} left`;
+      next.hidden = left !== 0;
+      vault.dataset.picked = picked.join(", ");
+    };
+    items.forEach((b) => b.addEventListener("click", () => {
+      const on = b.getAttribute("aria-pressed") === "true";
+      if (!on && spent() + +b.dataset.pts > budget) {
+        b.classList.remove("is-denied"); void b.offsetWidth; b.classList.add("is-denied");
+        render(`<b>${budget - spent()}</b> left. ${b.dataset.name} costs ${b.dataset.pts}.`);
+        return;
+      }
+      b.setAttribute("aria-pressed", String(!on));
+      render();
+    }));
+  }
+
+  /* Weekly events: show the start time in the reader's own time zone */
+  const weeklies = $$("[data-weekly]");
+  if (weeklies.length && window.Intl) {
+    const tz = "America/Los_Angeles";
+    const offsetAt = (d) => {
+      const p = Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: tz, hourCycle: "h23", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" }).formatToParts(d).map((x) => [x.type, x.value]));
+      return (Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute) - d.getTime()) / 60000;
+    };
+    const nextStart = (dow, hour) => {
+      const now = new Date();
+      for (let add = 0; add < 8; add++) {
+        const guess = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + add, hour, 0));
+        const real = new Date(guess.getTime() - offsetAt(guess) * 60000);
+        const day = new Intl.DateTimeFormat("en-US", { timeZone: tz, weekday: "short" }).format(real);
+        if (["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][dow] === day && real > now) return real;
+      }
+      return null;
+    };
+    weeklies.forEach((el) => {
+      const when = nextStart(+el.dataset.day, +el.dataset.hour);
+      const out = $("[data-local]", el);
+      if (!when || !out) return;
+      const local = new Intl.DateTimeFormat(undefined, { weekday: "long", hour: "numeric", minute: "2-digit" }).format(when);
+      const days = Math.round((when - new Date()) / 864e5);
+      out.textContent = `Your time: ${local}${days <= 0 ? " · today" : days === 1 ? " · tomorrow" : ` · in ${days} days`}`;
+    });
+  }
 })();

@@ -44,7 +44,7 @@ permalink: /build/
   <div class="wrap">
     <p class="eyebrow">Build</p>
     <h1 class="page-head__title">How to build a <em>Canlander deck.</em></h1>
-    <p class="page-head__lede">Every Canlander list answers three questions: what do your ten points buy, how does the deck win, and how do you make a hundred singletons do the same thing every game? Here's how good players answer them.</p>
+    <p class="page-head__lede">Every Canlander list answers three questions: what do your ten points buy, how does the deck win, and how do you make a hundred singletons do the same thing every game?</p>
   </div>
 </header>
 
@@ -72,8 +72,8 @@ permalink: /build/
       </dl>
       <p>A combo deck should spend on its engine and the tutors to find it. A midrange deck usually wants raw power it can cast early. An aggro deck often wants very little, because its best cards are already free.</p>
 
-      <h3>Five ways players actually spend ten</h3>
-      <p>All of these come from real, current lists in the <a href="/decks/">deck rotation</a>.</p>
+      <h3>Five ways to spend ten</h3>
+      <p>See them in action in the <a href="/decks/">deck rotation</a>.</p>
       <div class="spends">
         <div class="spend">
           <p class="spend__name">The Mox package</p>
@@ -165,8 +165,9 @@ permalink: /build/
       <h3>You need fewer lands than you think</h3>
       <p>New players bring Commander instincts and register 36 to 40 lands. Competitive Canlander decks play far fewer, because the games are one-on-one, curves are low, and free cantrips like Brainstorm, Ponder and Preordain dig for land drops.</p>
       <div class="stat">
-        <p class="stat__big">32–36</p>
-        <p class="stat__label">Lands in the {{ decks.decks.length }} current lists in our deck rotation. The median is 33, plus one to three modal double-faced spells that can be played as lands.</p>
+        {%- set ls = decks.decks | landStats %}
+        <p class="stat__big">{{ ls.lo }}–{{ ls.hi }}</p>
+        <p class="stat__label">Lands in most decks on the rotation. Median {{ ls.median }}, often plus a modal double-faced spell or two.</p>
       </div>
       <p>A sensible starting point is <b>34 lands</b> for midrange, <b>32–33</b> for low-curve aggro and tempo, and <b>35–36</b> for control, ramp and decks with expensive top ends. If you run three or more fast-mana pieces (Moxen, Sol Ring, Mana Crypt, Ancient Tomb), shave a land.</p>
       <h3>Use the best lands, but respect the hate</h3>

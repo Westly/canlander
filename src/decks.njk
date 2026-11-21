@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 title: Decks
-description: Public Canadian Highlander decklists from Moxfield, credited to their builders, with how each one spends its ten points.
+description: Canadian Highlander decklists from Moxfield. What players are brewing right now, ready to copy.
 pageClass: decks
 permalink: /decks/
 ---
@@ -9,15 +9,15 @@ permalink: /decks/
 <header class="page-head">
   <div class="wrap">
     <p class="eyebrow">Decks</p>
-    <h1 class="page-head__title">Real lists, <em>ready to borrow.</em></h1>
-    <p class="page-head__lede">Public Canadian Highlander decks from Moxfield, each credited to the person who built it, with exactly how it spends its ten points. Open one, copy it, and play it tonight.</p>
+    <h1 class="page-head__title">Steal a deck. <em>Make it yours.</em></h1>
+    <p class="page-head__lede">What people are brewing this month. Find one that looks like fun and have it on the table tonight.</p>
   </div>
 </header>
 
 <div class="wrap">
   <div class="carousel carousel--feature" data-carousel>
     <div class="carousel__track" data-track tabindex="0" aria-label="Deck carousel">
-      {%- for d in decks.decks %}
+      {%- for d in decks.decks | rotation %}
       <div class="carousel__slide">{{ decktile(d, decks.authors) }}</div>
       {%- endfor %}
     </div>
@@ -28,18 +28,30 @@ permalink: /decks/
     </div>
   </div>
 
+  {%- set community = decks.decks | rejectattr("pinned") | list %}
+  {%- set pinned = decks.decks | selectattr("pinned") | list %}
   <div class="section__head section__head--row decks-all">
-    <h2 class="h3">All {{ decks.decks.length }} decks</h2>
-    <p class="mono decks-snap">Snapshot {{ decks.snapshot | longDate }}</p>
+    <h2 class="h3">Fresh from the community <span class="mono decks-count">{{ community.length }}</span></h2>
+    <p class="mono decks-snap">Updated {{ decks.snapshot | longDate }}</p>
   </div>
   <div class="deckgrid">
-    {%- for d in decks.decks %}{{ decktile(d, decks.authors) }}{% endfor %}
+    {%- for d in community %}{{ decktile(d, decks.authors) }}{% endfor %}
   </div>
+
+  {%- if pinned.length %}
+  <div class="section__head section__head--row decks-all">
+    <h2 class="h3">Saltboi's shelf <span class="mono decks-count">{{ pinned.length }}</span></h2>
+    <a class="link-arrow" href="{{ decks.authors.Saltboi.url }}">Saltboi on Moxfield <span aria-hidden="true">↗</span></a>
+  </div>
+  <div class="deckgrid">
+    {%- for d in pinned %}{{ decktile(d, decks.authors) }}{% endfor %}
+  </div>
+  {%- endif %}
 
   <aside class="suggest">
     <div>
       <h2 class="h3">Want your deck in the rotation?</h2>
-      <p>Make it public on Moxfield with the Canadian Highlander format selected, then <a href="{{ site.repo }}/issues/new?title=Deck%20for%20the%20rotation">send us the link</a>. Points shown are as Moxfield counted them on the snapshot date; a few lists from earlier in the year are over ten after the Fall 2026 update.</p>
+      <p>Make it public on Moxfield, set the format to Canadian Highlander, and keep tuning it. Recently updated lists with more than {{ decks.rules.minViews }} views make the rotation.</p>
     </div>
     <a class="btn btn--ghost" href="https://mtgdecks.net/Canadian-Highlander">Tournament results ↗</a>
   </aside>

@@ -1,6 +1,6 @@
 {
   "categories": [
-    { "id": "official", "name": "Official", "blurb": "Where the rules and the points list actually live. When in doubt, these win." },
+    { "id": "official", "name": "Official", "blurb": "The rules and the points list. When in doubt, these win." },
     { "id": "community", "name": "Community", "blurb": "Where players hang out, find games, and argue about Wrenn and Six." },
     { "id": "learn", "name": "Reading", "blurb": "Primers and introductions worth your time." },
     { "id": "listen", "name": "Podcasts & Video", "blurb": "For the drive home from the game store." },
@@ -43,7 +43,7 @@
     },
     {
       "name": "Canadian Highlander Discord",
-      "url": "https://discord.gg/UtNxCXhSuP",
+      "url": "https://discord.gg/WtCHsAjcPM",
       "category": "community",
       "featured": true,
       "description": "The main community server. Weekly Cockatrice and webcam events, deck help, points-update discussion."
@@ -66,6 +66,12 @@
       "category": "listen",
       "featured": true,
       "description": "LoadingReadyRun's Canlander podcast, running since 2017. Set reviews, deck techs, points-list talk."
+    },
+    {
+      "name": "LJT MTG",
+      "url": "https://www.youtube.com/@LJTMTG",
+      "category": "listen",
+      "description": "Liam, Jer and Trent (now on the council) making Canadian Highlander videos: gameplay, brews and more."
     },
     {
       "name": "What is Canadian Highlander? (LRR)",

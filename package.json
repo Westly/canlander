@@ -7,6 +7,7 @@
   "scripts": {
     "start": "eleventy --serve --port=8080",
     "build": "eleventy",
+    "decks": "node scripts/build-decks.mjs",
     "clean": "node -e \"require('fs').rmSync('_site',{recursive:true,force:true})\""
   },
   "engines": {

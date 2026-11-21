@@ -77,7 +77,19 @@ Card images are hotlinked from Scryfall. Each card the site shows has an entry i
 
 ### The deck rotation
 
-`src/_data/decks.json` is a snapshot of public Moxfield decks (name, author, avatar, cover art, points spend, land count). It's a snapshot because Moxfield doesn't allow automated access. To refresh it, ask Claude to re-snapshot the decks, or edit the entries by hand.
+`src/_data/decks.json` is generated. Don't edit it by hand.
+
+- **Pinned:** every public Canadian Highlander deck by Saltboi. One of these always leads the carousel.
+- **Community:** the most recently updated public Canadian Highlander decks on Moxfield with more than 100 views (up to 16).
+
+To refresh (about five minutes):
+
+1. Open https://moxfield.com in your browser, open DevTools → Console, paste all of `scripts/moxfield-snapshot.js` and press Enter. Moxfield blocks bots, so this runs as you, in your browser.
+2. When it prints "Done", the result is on your clipboard. Paste it over `scripts/moxfield-raw.json`.
+3. Run `npm run decks`. Points spend is recalculated from `src/_data/points.json`; colours come from the mana symbols in each list.
+4. Commit and push. Cloudflare rebuilds the site.
+
+Settings (pinned authors, minimum views, how many decks) are at the top of the snapshot script. To fix a name, colours or archetype for one deck, add it to `scripts/deck-overrides.json`; those fixes survive every refresh.
 
 ### After a points update
 
@@ -98,6 +110,9 @@ src/
   learn.njk       Learn page
   build.njk       Build guide (points grid + sandbox)
   decks.njk       Deck rotation
+  play.njk        Online play (data in _data/play.json)
+  story.njk       The format's history
+  council.njk     The council (data in _data/council.json)
   resources.njk   Resources page
   about.njk       About page
 eleventy.config.js

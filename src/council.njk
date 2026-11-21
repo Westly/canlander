@@ -1,0 +1,82 @@
+---
+layout: layouts/base.njk
+title: The Council
+description: Meet the seven volunteers on the Canadian Highlander Council who keep the points list, and the Victoria players who started the format.
+pageClass: council
+permalink: /council/
+---
+<header class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">The Council</p>
+    <h1 class="page-head__title">Seven players. <em>One list.</em></h1>
+    <p class="page-head__lede">Every number on the points list is set by a vote of the Canadian Highlander Council: volunteers who play the format every week and publish every vote by name. Nobody pays them.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <ul class="councillors">
+    {%- for m in council.members %}
+    <li class="councillor">
+      <div class="councillor__photo">
+        {%- if m.photo %}
+        <img src="{{ m.photo }}" alt="{{ m.name }}" width="120" height="120" loading="lazy">
+        {%- else %}
+        <span class="councillor__seal" aria-hidden="true"><span>{{ m.short | first }}</span></span>
+        {%- endif %}
+      </div>
+      <div class="councillor__body">
+        <p class="councillor__since mono">{{ m.since }}</p>
+        <h2 class="councillor__name">{{ m.name }}{% if m.handle %} <span class="councillor__handle mono">{{ m.handle }}</span>{% endif %}</h2>
+        <p class="councillor__role">{{ m.role }}</p>
+        <p class="councillor__bio">{{ m.bio }}</p>
+        {%- if m.links.length %}
+        <ul class="councillor__links">
+          {%- for l in m.links %}<li><a href="{{ l.url }}">{{ l.label }} <span aria-hidden="true">↗</span></a></li>{% endfor %}
+        </ul>
+        {%- endif %}
+      </div>
+    </li>
+    {%- endfor %}
+  </ul>
+</div>
+
+<section class="section section--felt">
+  <div class="wrap split">
+    <div class="split__aside">
+      <p class="eyebrow">How it works</p>
+      <h2 class="h2">Every vote, <em>on the record.</em></h2>
+    </div>
+    <div class="prose">
+      <p>The council meets ahead of each points window, argues over the decks that are overperforming and the cards that could fix them, and votes. A change needs a majority. When it's announced, the write-up lists how every councillor voted, including on the cards that didn't move.</p>
+      <p>Then they ask the players. After each update the council runs a community survey and publishes the results. The next window is <b>{{ site.nextPointsUpdate | longDate }}</b>.</p>
+      <p>In January 2026 the council grew from five seats to seven to give the Discord and international community a vote: the first time the council reached beyond Victoria, where the format was born.</p>
+      <p><a class="link-arrow" href="{{ site.official.articles }}">Read the council's write-ups <span aria-hidden="true">↗</span></a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--rule">
+  <div class="wrap two-up">
+    <div>
+      <p class="eyebrow">With thanks</p>
+      <h2 class="h3">The people who started it.</h2>
+      <p>The official history credits these players, among others, with getting a Victoria pet-card format off the ground. They kept showing up, and the format outlived the kitchen table.</p>
+      <ul class="founders">
+        {%- for f in council.founders %}<li>{{ f }}</li>{% endfor %}
+      </ul>
+      <a class="link-arrow" href="/story/">Read the story <span aria-hidden="true">→</span></a>
+    </div>
+    <div>
+      <p class="eyebrow">Past councillors</p>
+      <h2 class="h3">Thanks for your service.</h2>
+      <ul class="ledger">
+        {%- for f in council.former %}
+        <li class="ledger__row"><span class="ledger__date mono">{{ f.note }}</span><a class="ledger__title" href="{{ f.url }}">{{ f.name }} <span aria-hidden="true" class="ext">↗</span></a></li>
+        {%- endfor %}
+      </ul>
+      <p class="council__sources mono">Sources:
+        {%- for s in council.sources %} <a href="{{ s.url }}">{{ s.label }}</a>{% if not loop.last %} ·{% endif %}{% endfor %}
+      </p>
+    </div>
+  </div>
+</section>

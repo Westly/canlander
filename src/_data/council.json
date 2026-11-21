@@ -1,0 +1,97 @@
+{
+  "_note": "The Canadian Highlander Council as of the Fall 2026 update and the September 2026 council change. Photos are the public profile pictures each person uses on Moxfield; anyone without one gets a monogram. Sources are on canadianhighlander.ca.",
+  "asOf": "2026-11-21",
+  "members": [
+    {
+      "name": "Benjamin Wheeler",
+      "short": "Ben",
+      "since": "Victoria",
+      "role": "The voice of the points updates",
+      "bio": "Posts the council's announcements and walks through the changes in the council's points-update videos. Won 2014's Highlander for Staples at Yellowjacket with mono-green Craterhoof, and is a regular voice on LoadingReadyRun's North 100.",
+      "photo": "https://assets.moxfield.net/profile/profile-21611-1f34f376-612f-4ebb-862a-34aa7ecda536?s=256",
+      "links": [
+        { "label": "X / Twitter", "url": "https://x.com/BWheelerMTG" },
+        { "label": "Moxfield", "url": "https://moxfield.com/users/BWheelerMTG" },
+        { "label": "TappedOut", "url": "https://tappedout.net/users/BWheelerMTG/" }
+      ]
+    },
+    {
+      "name": "Robin Sorensen",
+      "short": "Robin",
+      "since": "Victoria · founding player",
+      "role": "There since the beginning",
+      "bio": "Named on the official site among the players who got the format off the ground in Victoria. There's a blue-green tempo deck that carries his name: \"UG Sorensen.\"",
+      "photo": null,
+      "links": [
+        { "label": "Points talk, Spring 2023", "url": "https://www.youtube.com/watch?v=RNv7TFy_ODI" }
+      ]
+    },
+    {
+      "name": "Spencer Kanaka",
+      "short": "Spencer",
+      "since": "Councillor before 2026",
+      "role": "Long-serving councillor",
+      "bio": "One of the five councillors who steered the format through 2025, before the council grew. Every vote is published by name, and his include being the lone yes on pointing Demonic Counsel in the Fall 2026 update.",
+      "photo": null,
+      "links": []
+    },
+    {
+      "name": "Evan Pepper",
+      "short": "Evan",
+      "since": "Councillor before 2026",
+      "role": "Write-ups and the reasoning behind them",
+      "bio": "Co-wrote the March 2026 points update with Josh and Kelvin, laying out why each card moved. One of the five councillors before the 2026 expansion.",
+      "photo": null,
+      "links": [
+        { "label": "March 2026 update", "url": "https://canadianhighlander.ca/2026/03/02/march-2026-points-update/" }
+      ]
+    },
+    {
+      "name": "Kelvin Chen",
+      "short": "Kelvin",
+      "since": "Joined January 2026",
+      "role": "Data, tournaments, and the manabase guide",
+      "bio": "Voted in when the council expanded to represent the Discord and international players. Organizes tournaments, gathers the data behind points decisions, and wrote the official guides to singleton manabases and deck-building questions.",
+      "photo": null,
+      "links": [
+        { "label": "Articles", "url": "https://canadianhighlander.ca/author/kelvin/" }
+      ]
+    },
+    {
+      "name": "Joshua Gottlieb",
+      "short": "Josh",
+      "handle": "Cyclopes8",
+      "since": "Joined January 2026",
+      "role": "Tournament organizer",
+      "bio": "Voted in alongside Kelvin as one of the first councillors from outside Victoria. Runs events, made format information easier to find, and led the March 2026 write-up.",
+      "photo": "https://assets.moxfield.net/profile/profile-30742-7c0160d0-ba54-415a-bccc-4a71ede4e805?s=256",
+      "links": [
+        { "label": "Moxfield", "url": "https://moxfield.com/users/Cyclopes8" },
+        { "label": "Articles", "url": "https://canadianhighlander.ca/author/cyclopes8/" }
+      ]
+    },
+    {
+      "name": "Trenton M.",
+      "short": "Trenton",
+      "handle": "Trentiano",
+      "since": "Joined September 2026",
+      "role": "The newest seat",
+      "bio": "A Victoria regular who wins events with a smile. Makes Canadian Highlander videos with Liam and Jer on LJT MTG, and has piloted everything from Jeskai and Jund to Cradlehoof, Mono Red and Flash Hulk.",
+      "photo": null,
+      "links": [
+        { "label": "LJT MTG on YouTube", "url": "https://www.youtube.com/@LJTMTG" },
+        { "label": "Moxfield", "url": "https://moxfield.com/users/Trentiano" }
+      ]
+    }
+  ],
+  "former": [
+    { "name": "Sacha Christensen", "note": "Councillor until September 2026", "url": "https://moxfield.com/users/SachasHideousLaughter" }
+  ],
+  "founders": ["Robin Sorensen", "Aaron Patten", "Sean Tambo", "Dylan Cross", "Mike Harrison", "Tyler Roberts", "Nelson Salahub", "Allison Macrae", "Nick Picard"],
+  "sources": [
+    { "label": "Council Expansion, January 2026", "url": "https://canadianhighlander.ca/2026/01/31/council-expansion-january-2026/" },
+    { "label": "An Update to the Council, September 2026", "url": "https://canadianhighlander.ca/2026/09/07/an-update-to-the-council/" },
+    { "label": "2026 New Player Primer", "url": "https://canadianhighlander.ca/2025/01/06/2026-new-player-primer/" },
+    { "label": "What is Canadian Highlander?", "url": "https://canadianhighlander.ca/about/" }
+  ]
+}

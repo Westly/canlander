@@ -63,6 +63,35 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("featured", (items) => items.filter((i) => i.featured));
   eleventyConfig.addFilter("json", (v) => JSON.stringify(v));
 
+  // Every link that leaves the site opens in a new tab.
+  eleventyConfig.addTransform("external-links", function (content) {
+    if (!(this.page.outputPath || "").endsWith(".html")) return content;
+    return content.replace(/<a\s([^>]*?)href="(https?:\/\/[^"]+)"([^>]*)>/g, (tag, pre, href, post) => {
+      if (/^https?:\/\/(www\.)?canlander\.org/i.test(href) || /\starget=/.test(tag)) return tag;
+      return `<a ${pre.replace(/\s?rel="[^"]*"/, "")}href="${href}"${post.replace(/\s?rel="[^"]*"/, "")} target="_blank" rel="noopener noreferrer">`;
+    });
+  });
+  // Deck rotation: a pinned (Saltboi) deck always leads, then two community
+  // decks for every pinned one, newest first within each group.
+  eleventyConfig.addFilter("rotation", (decks) => {
+    const pinned = (decks || []).filter((d) => d.pinned);
+    const community = (decks || []).filter((d) => !d.pinned);
+    const out = [];
+    while (pinned.length || community.length) {
+      if (pinned.length) out.push(pinned.shift());
+      out.push(...community.splice(0, 2));
+    }
+    return out;
+  });
+  // Middle-80% range and median of land counts across the deck rotation.
+  eleventyConfig.addFilter("landStats", (decks) => {
+    const l = (decks || []).map((d) => d.lands).filter(Number.isFinite).sort((a, b) => a - b);
+    if (!l.length) return { lo: 32, hi: 36, median: 33 };
+    const at = (q) => l[Math.min(l.length - 1, Math.max(0, Math.round(q * (l.length - 1))))];
+    return { lo: at(0.1), hi: at(0.9), median: at(0.5) };
+  });
+  eleventyConfig.addFilter("initials", (s) => String(s || "?").replace(/[^A-Za-z0-9]/g, "").slice(0, 2).toUpperCase());
+
   eleventyConfig.addGlobalData("buildTime", () => new Date());
 
   return {
