@@ -4,7 +4,7 @@
   "discordMembers": "8,000",
   "weeklies": [
     { "name": "Webcam Weekly", "day": "Saturday", "dayIndex": 6, "hour": 10, "platform": "Webcam", "blurb": "Paper cards (or proxies) on your own table, played over a camera. It's the closest thing to playing in person." },
-    { "name": "Cockatrice Weekly", "day": "Sunday", "dayIndex": 0, "hour": 10, "platform": "Cockatrice", "blurb": "Played on the free Cockatrice client, so you don't need to own a single card. A good first tournament if you're still building your paper deck." }
+    { "name": "Cockatrice Weekly", "day": "Sunday", "dayIndex": 0, "hour": 10, "platform": "Cockatrice", "blurb": "Played on Cockatrice, where every card ever printed is free to use. A good first tournament if you're still building your paper deck." }
   ],
   "leagues": [
     { "name": "Webcam Async League", "platform": "Webcam", "format": "Four rounds of Swiss or a round robin, then Top 8.", "lists": "None, or locked & open", "note": "Same as the weekly, just on your own schedule." },

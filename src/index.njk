@@ -93,7 +93,7 @@ pageClass: home
       <div class="hook__text">
         <p class="hook__n mono">02</p>
         <h3 class="hook__t">You'll argue about ten points forever.</h3>
-        <p>One Black Lotus or two Moxen? Ancestral, or a tutor and a Mana Drain? Everyone has an opinion, and the good decks don't all agree.</p>
+        <p>One Black Lotus or two Moxen? Ancestral, or a tutor and a Mana Drain? Everyone has an opinion, and great decks get built every which way.</p>
         {{ quote(quotes.tension) }}
         <a class="link-arrow hook__more" href="/build/">How to spend your points <span aria-hidden="true">→</span></a>
       </div>
@@ -105,7 +105,7 @@ pageClass: home
       </div>
       <div class="hook__text">
         <p class="hook__n mono">03</p>
-        <h3 class="hook__t">Games don't play out the same way twice.</h3>
+        <h3 class="hook__t">Every game plays out differently.</h3>
         <p>With a hundred singletons you're always drawing something different. Half the fun is the card you forgot you put in the deck.</p>
         {{ quote(quotes.hopkins) }}
         <a class="link-arrow hook__more" href="/learn/#playing">What a game feels like <span aria-hidden="true">→</span></a>
@@ -132,7 +132,7 @@ pageClass: home
       <div class="hook__text">
         <p class="hook__n mono">05</p>
         <h3 class="hook__t">It's one-on-one.</h3>
-        <p>Twenty life, one opponent, no commander and no table politics. There's a tournament on the Discord every Saturday and Sunday if you want one.</p>
+        <p>Twenty life, one opponent, just you and them. There's a tournament on the Discord every Saturday and Sunday whenever you're ready.</p>
         {{ quote(quotes.novelty) }}
         <a class="link-arrow hook__more" href="/play/">Find a game <span aria-hidden="true">→</span></a>
       </div>
@@ -145,7 +145,7 @@ pageClass: home
       <div class="hook__text">
         <p class="hook__n mono">06</p>
         <h3 class="hook__t">Proxies are welcome.</h3>
-        <p>The online weeklies are proxy friendly, so you don't need a real Lotus to play one. Everyone works with the same ten points anyway. (Timetwister costs zero, which still surprises people.)</p>
+        <p>The online weeklies are proxy friendly, so you can sleeve up a printed Lotus and play. Everyone works with the same ten points anyway. (Timetwister costs zero, which still surprises people.)</p>
         {{ quote(quotes.brewer) }}
         <a class="link-arrow hook__more" href="/play/#proxies">Proxy rules and free ways to play <span aria-hidden="true">→</span></a>
       </div>
@@ -172,9 +172,9 @@ pageClass: home
         <span class="mono">Deck construction</span>
       </div>
       <ol class="indexcard__list">
-        <li><b>100 cards</b>, minimum. No maximum, but you'll want exactly 100.</li>
+        <li><b>100 cards</b>, minimum. Most people play exactly 100.</li>
         <li><b>One copy of each card</b>, except basic lands and cards that say otherwise.</li>
-        <li><b>No sideboard</b>, which also means no companions.</li>
+        <li><b>One deck</b> plays every game. There's no sideboard.</li>
         <li><b>Ten points</b> to spend on cards from the points list. Everything else is free.</li>
         <li><b>Banned:</b> the Vintage banned list, plus a few oddballs (stickers, Acorn, silver border, dexterity, sub-games).</li>
       </ol>
@@ -190,7 +190,7 @@ pageClass: home
         <p class="eyebrow">The points list</p>
         <h2 class="h2">The most expensive cards in the format</h2>
       </div>
-      <p class="section__lede">{{ points.list.length }} cards cost points. These seven cost five or more, so if you take one, you've spent most of your budget. <a href="/build/#points">See all {{ points.list.length }}</a>, or check the <a href="{{ site.official.points }}">official list</a>.</p>
+      <p class="section__lede">{{ points.list.length }} cards cost points. These seven cost five or more. Pick one and build the rest of your deck around it. <a href="/build/#points">See all {{ points.list.length }}</a>, or check the <a href="{{ site.official.points }}">official list</a>.</p>
     </div>
     <div class="pricelist__row">
       {%- for c in points.list %}{% if c.points >= 5 %}
@@ -274,7 +274,7 @@ pageClass: home
       <li class="step">
         <span class="step__n">04</span>
         <h3 class="step__t">Make it yours</h3>
-        <p>After a few games, cut the cards you were never happy to draw and try something else.</p>
+        <p>After a few games, swap in new cards and start making the deck your own.</p>
         <a class="link-arrow" href="/build/">Build guide <span aria-hidden="true">→</span></a>
       </li>
     </ol>

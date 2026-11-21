@@ -4,7 +4,7 @@
     {
       "id": "learn",
       "title": "Learn to play",
-      "blurb": "Start here if you've never played. The Professor at Tolarian Community College covers the basics, and LoadingReadyRun explains it from Victoria, where the format started.",
+      "blurb": "Start here if you're new. The Professor at Tolarian Community College covers the basics, and LoadingReadyRun explains it from Victoria, where the format started.",
       "videos": [
         { "id": "GJe6zQURsSk", "title": "An Introduction To Canadian Highlander", "channel": "Tolarian Community College" },
         { "id": "MXCds_aH5WA", "title": "Highlander: The Best Format You Aren't Playing", "channel": "Tolarian Community College" },

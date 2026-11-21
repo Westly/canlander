@@ -6,7 +6,7 @@
     { "id": "listen", "name": "Podcasts & Video", "blurb": "For the drive home from the game store." },
     { "id": "decks", "name": "Decks & Results", "blurb": "What's winning, what people are playing, and lists to borrow." },
     { "id": "tools", "name": "Deckbuilding Tools", "blurb": "Builders that understand singleton and count your points for you." },
-    { "id": "play", "name": "Play Online", "blurb": "No local scene yet? These get you a game tonight." }
+    { "id": "play", "name": "Play Online", "blurb": "Play from home tonight." }
   ],
   "items": [
     {
@@ -39,7 +39,7 @@
       "name": "Vintage Banned & Restricted List",
       "url": "https://magic.wizards.com/en/banned-restricted-list",
       "category": "official",
-      "description": "Canlander starts from the Vintage banned list. Restricted cards are fine (it's singleton anyway)."
+      "description": "Canlander builds on the Vintage list. Restricted cards play like any other card here."
     },
     {
       "name": "Canadian Highlander Discord",
