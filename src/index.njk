@@ -3,69 +3,148 @@ layout: layouts/base.njk
 title: Canlander
 pageClass: home
 ---
+{%- from "partials/macros.njk" import mtgcard, quote, decktile -%}
 {%- set hand = [
-  { name: "Lightning Bolt", type: "Instant", pts: 0, tone: "r" },
-  { name: "Counterspell", type: "Instant", pts: 0, tone: "u" },
-  { name: "Swords to Plowshares", type: "Instant", pts: 0, tone: "w" },
-  { name: "Sol Ring", type: "Artifact", pts: 3, tone: "a" },
-  { name: "Black Lotus", type: "Artifact", pts: 7, tone: "a" }
+  { name: "Ragavan, Nimble Pilferer", pts: 0 },
+  { name: "Snapcaster Mage", pts: 0 },
+  { name: "Swords to Plowshares", pts: 0 },
+  { name: "Sol Ring", pts: 3 },
+  { name: "Black Lotus", pts: 7 }
 ] -%}
 <section class="hero">
   <div class="hero__lamp" aria-hidden="true"></div>
   <div class="wrap hero__grid">
     <div class="hero__copy">
-      <p class="eyebrow">Canadian Highlander · since 1999, Victoria BC</p>
-      <h1 class="hero__title">Every card ever printed.<br>One copy of each.<br><em>Ten points</em> to spend.</h1>
-      <p class="hero__lede">Canlander is a 100-card singleton format for people who love old, powerful, and ridiculous Magic. Almost nothing is banned. Instead, the strongest cards cost points, and you only get ten.</p>
+      <p class="eyebrow">Canadian Highlander · 100 cards · one of each · 1v1</p>
+      <h1 class="hero__title">Play anything.<br><em>Just not everything.</em></h1>
+      <p class="hero__lede">Black Lotus is legal here. So are Time Walk, all five Moxen, and almost every card printed since 1993. Canadian Highlander doesn't ban cards for being too strong. It puts a price on them. You get ten points to spend on the format's most powerful cards, and the rest of your hundred can be anything in Magic.</p>
       <div class="hero__actions">
         <a class="btn btn--brass" href="/learn/">Learn the format</a>
         <a class="link-arrow" href="{{ site.official.points }}">See the points list <span aria-hidden="true">↗</span></a>
       </div>
     </div>
-    <figure class="hand" aria-label="Five example cards that add up to exactly ten points">
+    <figure class="hand" aria-label="An opening hand of real cards that costs exactly ten points">
       <div class="hand__fan">
         {%- for c in hand %}
-        <div class="mcard mcard--{{ c.tone }}" style="--i:{{ loop.index0 }}">
-          <div class="mcard__top"><span class="mcard__badge{% if c.pts == 0 %} is-zero{% endif %}">{{ c.pts }}</span><span class="mcard__name">{{ c.name }}</span></div>
-          <div class="mcard__face">
-            <span class="mcard__pts{% if c.pts == 0 %} is-zero{% endif %}">{{ c.pts }}</span>
-            <span class="mcard__ptslabel">{{ "points" if c.pts != 1 else "point" }}</span>
-          </div>
-          <div class="mcard__type">{{ c.type }}</div>
-        </div>
+        <div class="hand__card" style="--i:{{ loop.index0 }}">{{ mtgcard(c.name, c.pts, "normal", true) }}</div>
         {%- endfor %}
       </div>
-      <figcaption class="hand__caption"><span class="mono">0 + 0 + 0 + 3 + 7 = 10</span> A legal hand. Lotus and Sol Ring use up the whole budget; the other ninety-eight cards have to be free.</figcaption>
+      <figcaption class="hand__caption"><span class="mono">0 + 0 + 0 + 3 + 7 = 10</span> Twenty-eight years of Magic in one opening hand. Lotus and Sol Ring spend all ten points; Ragavan, Snapcaster, and Swords are free.</figcaption>
     </figure>
   </div>
 
   <div class="wrap">
     <div class="ticker" data-countdown="{{ site.nextPointsUpdate }}">
-      <div class="ticker__cell">
+      <a class="ticker__cell" href="{{ site.official.articles }}">
         <span class="ticker__k">Next points update</span>
-        <span class="ticker__v"><time datetime="{{ site.nextPointsUpdate }}">{{ site.nextPointsUpdate | longDate }}</time> <span class="ticker__count" data-countdown-out></span></span>
-      </div>
-      {%- set latest = collections.news[0] %}
-      {%- if latest %}
-      <div class="ticker__cell ticker__cell--wide">
-        <span class="ticker__k">Latest</span>
-        <a class="ticker__v" href="{{ latest.url }}">{{ latest.data.title }}</a>
-      </div>
-      {%- endif %}
-      <div class="ticker__cell">
-        <span class="ticker__k">Points budget</span>
-        <span class="ticker__v">10 per deck</span>
-      </div>
+        <span class="ticker__v"><time datetime="{{ site.nextPointsUpdate }}">{{ site.nextPointsUpdate | longDate }}</time> <span class="ticker__count" data-countdown-out></span> <span class="ext" aria-hidden="true">↗</span></span>
+      </a>
+      {%- set latestPoints = collections.news | firstOfKind("Points update") %}
+      <a class="ticker__cell ticker__cell--wide" href="{{ latestPoints.url }}">
+        <span class="ticker__k">Latest points change</span>
+        <span class="ticker__v">{{ latestPoints.data.title }}</span>
+      </a>
+      <a class="ticker__cell" href="{{ site.official.points }}">
+        <span class="ticker__k">Official points list</span>
+        <span class="ticker__v">{{ points.list.length }} cards cost points <span class="ext" aria-hidden="true">↗</span></span>
+      </a>
     </div>
   </div>
 </section>
 
-<section class="section indexcard-section">
+<section class="section hooks">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">§ 1 &nbsp;The appeal</p>
+      <h2 class="h2">Why it gets its hooks in.</h2>
+      <p class="section__lede">Ask a room of Canlander players why they play and you'll hear the same six things.</p>
+    </div>
+
+    <div class="hook">
+      <div class="hook__cards hook__cards--three" aria-hidden="true">
+        {{ mtgcard("Time Walk", 5, "normal") }}{{ mtgcard("Mox Sapphire", 3, "normal") }}{{ mtgcard("Mana Drain", 1, "normal") }}
+      </div>
+      <div class="hook__text">
+        <p class="hook__n mono">01</p>
+        <h3 class="hook__t">The cards you were told you'd never get to play.</h3>
+        <p>Time Walk, Ancestral Recall, the Moxen, Mana Drain. Magic's most famous cards are banned or restricted almost everywhere else. In Canlander they're legal, they're played one-on-one, and the only thing standing between you and them is the points list.</p>
+        {{ quote(quotes.nonsense) }}
+      </div>
+    </div>
+
+    <div class="hook hook--flip">
+      <div class="hook__cards hook__cards--three" aria-hidden="true">
+        {{ mtgcard("Ancestral Recall", 8, "normal") }}{{ mtgcard("Demonic Tutor", 3, "normal") }}{{ mtgcard("Strip Mine", 1, "normal") }}
+      </div>
+      <div class="hook__text">
+        <p class="hook__n mono">02</p>
+        <h3 class="hook__t">Ten points is a real decision.</h3>
+        <p>Black Lotus costs seven. Ancestral Recall costs eight, the most of any card in the format. Three Moxen cost nine. Demonic Tutor and Sol Ring both cost three, and they do completely different things for a deck. Two players can sit down in the same colours with lists that share half their cards and still play nothing alike, because they spent ten points differently.</p>
+        {{ quote(quotes.tension) }}
+      </div>
+    </div>
+
+    <div class="hook">
+      <div class="hook__cards hook__cards--three" aria-hidden="true">
+        {{ mtgcard("Snapcaster Mage", 0, "normal") }}{{ mtgcard("Brainstorm", 0, "normal") }}{{ mtgcard("Lightning Bolt", 0, "normal") }}
+      </div>
+      <div class="hook__text">
+        <p class="hook__n mono">03</p>
+        <h3 class="hook__t">No two games play out the same.</h3>
+        <p>In a hundred-card singleton deck you'll see maybe a quarter of your cards in a typical game, and a different quarter the next. The play patterns that get solved in 60-card formats never settle here. You'll Snapcaster a removal spell you forgot you registered, lose to a card you've never seen, and find lines you'll be telling people about a week later.</p>
+        {{ quote(quotes.hopkins) }}
+      </div>
+    </div>
+
+    <div class="hook hook--flip">
+      <div class="hook__cards hook__cards--three" aria-hidden="true">
+        {{ mtgcard("Swords to Plowshares", 0, "normal") }}{{ mtgcard("Thalia, Guardian of Thraben", 0, "normal") }}{{ mtgcard("Psychic Frog", 1, "normal") }}
+      </div>
+      <div class="hook__text">
+        <p class="hook__n mono">04</p>
+        <h3 class="hook__t">Every card you've loved finally shares a deck.</h3>
+        <p>Alpha Swords next to Thalia next to whatever got previewed last week. Canlander uses the whole Vintage card pool, nothing rotates, and every new set is legal the day it's released. The deck you build this year is the deck you keep tuning for the next five.</p>
+        {{ quote(quotes.salahub) }}
+      </div>
+    </div>
+
+    <div class="hook">
+      <div class="hook__cards hook__cards--three" aria-hidden="true">
+        {{ mtgcard("Ragavan, Nimble Pilferer", 0, "normal") }}{{ mtgcard("Force of Will", 0, "normal") }}{{ mtgcard("Fable of the Mirror-Breaker", 0, "normal") }}
+      </div>
+      <div class="hook__text">
+        <p class="hook__n mono">05</p>
+        <h3 class="hook__t">It's a duel, not a pod.</h3>
+        <p>One opponent. Twenty life. No commander, no colour identity, no table politics. You build to win and so does the person across from you. Games move at the pace of Legacy, with turn-one Ragavans and Force of Will backups, and a match fits in a lunch break.</p>
+        {{ quote(quotes.novelty) }}
+      </div>
+    </div>
+
+    <div class="hook hook--flip">
+      <div class="hook__cards hook__cards--three" aria-hidden="true">
+        {{ mtgcard("Black Lotus", 7, "normal") }}{{ mtgcard("Timetwister", 0, "normal") }}{{ mtgcard("Sol Ring", 3, "normal") }}
+      </div>
+      <div class="hook__text">
+        <p class="hook__n mono">06</p>
+        <h3 class="hook__t">The biggest collection can't outspend you.</h3>
+        <p>Every deck is capped at the same ten points, so the person with a real Black Lotus is playing the same budget you are. That cap is a big part of why the community is relaxed about proxies at casual and webcam events, and you can try any list on Cockatrice for free before you buy a single card. (Fun fact: Timetwister, a member of the Power Nine, costs zero points.)</p>
+        {{ quote(quotes.brewer) }}
+      </div>
+    </div>
+
+    <figure class="bigquote">
+      <blockquote><p>“The most fun Constructed format I've ever played.”</p></blockquote>
+      <figcaption><span class="q__who">{{ quotes.sutcliffe.who }}</span>, writing for <a href="{{ quotes.sutcliffe.url }}">Wizards of the Coast</a> in 2016</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section indexcard-section section--rule">
   <div class="wrap split">
     <div class="split__aside">
-      <p class="eyebrow">§ 1 &nbsp;The rules</p>
+      <p class="eyebrow">§ 2 &nbsp;The rules</p>
       <h2 class="h2">The whole format fits on an index card.</h2>
-      <p>That's not a figure of speech. If you've played Commander or built a cube, you already know most of it. The rest is one list of cards with numbers next to them.</p>
+      <p>If you know how to play Magic, you're five rules away from playing Canlander. Everything interesting lives in the points list.</p>
       <a class="link-arrow" href="/learn/#rules">The rules, in more detail <span aria-hidden="true">→</span></a>
     </div>
     <div class="indexcard" role="group" aria-label="The rules of Canadian Highlander">
@@ -85,53 +164,78 @@ pageClass: home
   </div>
 </section>
 
-<section class="section section--felt">
+<section class="section section--felt pricelist">
   <div class="wrap">
-    <div class="essay">
-      <p class="eyebrow">§ 2 &nbsp;Why people fall for it</p>
-      <h2 class="h2 essay__title">It plays like a cube draft where you picked every card.</h2>
-      <div class="essay__cols">
-        <p>Most competitive formats settle into a handful of decks that play out the same way every time. Canlander doesn't, because it can't: with only one copy of anything, you almost never draw the same opening twice. Your best card shows up some games and not others, so you build around ideas instead of specific cards.</p>
-        <p>The points list is what keeps it honest. Black Lotus is legal, but it eats seven of your ten points. You can have all five Moxen, or you can have Time Walk and a couple of tutors, but you can't have everything. Every deck is a short list of hard choices, and that's where the fun is.</p>
-        <p>It's also friendlier to newer players than its card pool suggests. A well-built deck with zero points can and does win events. Many local scenes and webcam leagues are proxy-friendly, so you can try the format before you've bought a single expensive card.</p>
+    <div class="section__head section__head--split">
+      <div>
+        <p class="eyebrow">§ 3 &nbsp;The price list</p>
+        <h2 class="h2">The seven most expensive cards in the format.</h2>
       </div>
-      <blockquote class="pull">
-        <p>Nothing is banned for being too good. It just costs more.</p>
-      </blockquote>
+      <p class="section__lede">{{ points.list.length }} cards cost points. These seven cost five or more, which means you can afford one of them and not much else. <a href="/build/#points">See all {{ points.list.length }}</a>, or check the <a href="{{ site.official.points }}">official list</a>.</p>
+    </div>
+    <div class="pricelist__row">
+      {%- for c in points.list %}{% if c.points >= 5 %}
+      <a class="pricelist__card" href="{{ c.name | scryfallLink }}" rel="noopener">{{ mtgcard(c.name, c.points, "normal") }}<span class="pricelist__name">{{ c.name }}</span></a>
+      {%- endif %}{% endfor %}
+    </div>
+    <p class="pricelist__note mono">Values as of the {{ points.asOfLabel }}. The next update is <a href="{{ site.official.articles }}">{{ site.nextPointsUpdate | longDate }}</a>.</p>
+  </div>
+</section>
+
+<section class="section decks-section">
+  <div class="wrap">
+    <div class="section__head section__head--split">
+      <div>
+        <p class="eyebrow">§ 4 &nbsp;Decks to steal</p>
+        <h2 class="h2">Start from a real list.</h2>
+      </div>
+      <p class="section__lede">Public Canlander decks from Moxfield, credited to the people who built them. Copy one, play it, then make it yours. <a href="/decks/">See every deck</a>.</p>
+    </div>
+    <div class="carousel" data-carousel>
+      <div class="carousel__track" data-track tabindex="0" aria-label="Deck carousel">
+        {%- for d in decks.decks %}
+        <div class="carousel__slide">{{ decktile(d, decks.authors) }}</div>
+        {%- endfor %}
+      </div>
+      <div class="carousel__controls">
+        <button class="carousel__btn" type="button" data-prev aria-label="Previous decks">←</button>
+        <span class="carousel__count mono" data-count></span>
+        <button class="carousel__btn" type="button" data-next aria-label="Next decks">→</button>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section section--rule">
   <div class="wrap">
     <div class="section__head">
-      <p class="eyebrow">§ 3 &nbsp;Start here</p>
-      <h2 class="h2">Four steps from curious to sleeved up.</h2>
+      <p class="eyebrow">§ 5 &nbsp;Your first week</p>
+      <h2 class="h2">From curious to your first match.</h2>
     </div>
     <ol class="steps">
       <li class="step">
         <span class="step__n">01</span>
-        <h3 class="step__t">Learn the rules</h3>
-        <p>Ten minutes, tops. Read the short version, then skim the points list.</p>
+        <h3 class="step__t">Read the rules</h3>
+        <p>Ten minutes. Then skim the points list so you know what costs what.</p>
         <a class="link-arrow" href="/learn/">Learn <span aria-hidden="true">→</span></a>
       </li>
       <li class="step">
         <span class="step__n">02</span>
-        <h3 class="step__t">Borrow a decklist</h3>
-        <p>Copy a recent list from a weekly event and change it as you learn. Nobody minds.</p>
-        <a class="link-arrow" href="/resources/#decks">Find decks <span aria-hidden="true">→</span></a>
+        <h3 class="step__t">Pick a deck</h3>
+        <p>Grab a list above or from a recent event. Choose the one whose game plan sounds fun, not the one that sounds strongest.</p>
+        <a class="link-arrow" href="/decks/">Decks <span aria-hidden="true">→</span></a>
       </li>
       <li class="step">
         <span class="step__n">03</span>
-        <h3 class="step__t">Find a game</h3>
-        <p>Weekly Cockatrice and webcam events run online. Ask your local store, too.</p>
-        <a class="link-arrow" href="/resources/#play">Play online <span aria-hidden="true">→</span></a>
+        <h3 class="step__t">Play it online</h3>
+        <p>Load it into Cockatrice for free and jump into the Discord's weekly events.</p>
+        <a class="link-arrow" href="/resources/#play">Where to play <span aria-hidden="true">→</span></a>
       </li>
       <li class="step">
         <span class="step__n">04</span>
-        <h3 class="step__t">Say hello</h3>
-        <p>The Discord is where points updates get argued about and newcomers get help.</p>
-        <a class="link-arrow" href="{{ site.official.discord }}">Join Discord <span aria-hidden="true">↗</span></a>
+        <h3 class="step__t">Make it yours</h3>
+        <p>After ten games, swap the cards you were never happy to draw. That's when it starts to feel like your deck.</p>
+        <a class="link-arrow" href="/build/">Build guide <span aria-hidden="true">→</span></a>
       </li>
     </ol>
   </div>

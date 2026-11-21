@@ -1,4 +1,33 @@
+import { readFileSync } from "node:fs";
+
+const CARDS = JSON.parse(readFileSync(new URL("./src/_data/cards.json", import.meta.url), "utf8"));
+
 export default function (eleventyConfig) {
+  // Scryfall card images (hotlinked from Scryfall's image CDN; ids live in src/_data/cards.json)
+  const scry = (name, size = "normal") => {
+    const c = CARDS[name];
+    if (!c) throw new Error(`Card "${name}" is missing from src/_data/cards.json`);
+    const ext = size === "png" ? "png" : "jpg";
+    return `https://cards.scryfall.io/${size}/front/${c.id[0]}/${c.id[1]}/${c.id}.${ext}`;
+  };
+  eleventyConfig.addFilter("cardImg", scry);
+  eleventyConfig.addFilter("cardMeta", (name) => CARDS[name] || {});
+  eleventyConfig.addFilter("scryfallLink", (name) => `https://scryfall.com/search?q=${encodeURIComponent('!"' + name + '"')}`);
+  eleventyConfig.addFilter("pointsGroups", (list) => {
+    const groups = new Map();
+    for (const c of list) {
+      if (!groups.has(c.points)) groups.set(c.points, []);
+      groups.get(c.points).push(c);
+    }
+    return [...groups.entries()].sort((a, b) => b[0] - a[0]).map(([points, cards]) => ({ points, cards }));
+  });
+  eleventyConfig.addFilter("firstOfKind", (posts, kind) => (posts || []).find((p) => p.data.kind === kind) || (posts || [])[0]);
+  eleventyConfig.addFilter("pips", (colors) => String(colors || "").split(""));
+  eleventyConfig.addFilter("relDate", (d) => {
+    const dt = new Date(d);
+    return dt.toLocaleDateString("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
+  });
+
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/static": "/" });
 

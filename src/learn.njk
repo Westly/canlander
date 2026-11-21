@@ -5,11 +5,12 @@ description: The rules of Canadian Highlander, how the points list works, and pr
 pageClass: learn
 permalink: /learn/
 ---
+{%- from "partials/macros.njk" import mtgcard -%}
 {%- set toc = [
   { id: "rules", n: "01", label: "The rules" },
   { id: "points", n: "02", label: "How points work" },
   { id: "playing", n: "03", label: "Playing a game" },
-  { id: "building", n: "04", label: "Your first deck" },
+  { id: "building", n: "04", label: "Building a deck" },
   { id: "cards", n: "05", label: "Getting cards" },
   { id: "glossary", n: "06", label: "Glossary" },
   { id: "faq", n: "07", label: "Questions" }
@@ -53,39 +54,14 @@ permalink: /learn/
     <section id="points" class="docs__section">
       <p class="docs__num mono">02</p>
       <h2>How points work</h2>
-      <p>Most formats deal with overpowered cards by banning them. Canlander doesn't. Instead, a few dozen of the format's strongest cards have a point value, somewhere from 1 to 7 or more. Every other card in Magic is worth zero.</p>
+      <p>Most formats deal with overpowered cards by banning them. Canlander doesn't. Instead, {{ points.list.length }} of the format's strongest cards carry a point value, from 1 up to Ancestral Recall's 8. Every other card in Magic is worth zero.</p>
       <p>You get ten points per deck. You can spend them however you like: one huge card, a handful of small ones, or none at all. A deck with zero points is completely legal and often competitive.</p>
-      <p>The council revisits the list a few times a year. Cards get added when they start warping the format, get bumped up when they're still too strong, and occasionally come off the list when they've been tamed.</p>
-
-      <div class="sandbox" data-sandbox data-budget="{{ points.budget }}">
-        <div class="sandbox__head">
-          <div>
-            <p class="eyebrow">Try it</p>
-            <h3 class="sandbox__title">Spend ten points.</h3>
-          </div>
-          <p class="sandbox__asof mono">Sample values · {{ points.asOfLabel }}</p>
-        </div>
-        <div class="meter" aria-hidden="true">
-          {%- for i in range(0, points.budget) %}<span class="meter__pip"></span>{%- endfor %}
-        </div>
-        <p class="sandbox__status" aria-live="polite" data-status>Tap cards below to add them to your deck.</p>
-        <ul class="sandbox__cards">
-          {%- for c in points.sample %}
-          <li>
-            <button type="button" class="chip" data-pts="{{ c.points }}" data-name="{{ c.name }}" aria-pressed="false" title="{{ c.why }}">
-              <span class="chip__name">{{ c.name }}</span>
-              <span class="chip__pts mono">{{ c.points }}</span>
-            </button>
-          </li>
-          {%- endfor %}
-        </ul>
-        <div class="sandbox__foot">
-          <button type="button" class="link-btn" data-reset>Clear</button>
-          <a class="link-arrow" href="{{ site.official.points }}">Full, current list <span aria-hidden="true">↗</span></a>
-        </div>
-        <noscript><p class="aside-note">The sandbox needs JavaScript, but the numbers are above: Black Lotus 7, Sol Ring 3, and so on.</p></noscript>
+      
+      <div class="cardrow">
+        {{ mtgcard("Ancestral Recall", 8, "normal") }}{{ mtgcard("Black Lotus", 7, "normal") }}{{ mtgcard("Time Walk", 5, "normal") }}{{ mtgcard("Sol Ring", 3, "normal") }}{{ mtgcard("Strip Mine", 1, "normal") }}{{ mtgcard("Timetwister", 0, "normal") }}
       </div>
-      <p class="aside-note">The sandbox uses a small sample of cards and may lag behind the newest update. Always check the <a href="{{ site.official.points }}">official list</a> before an event.</p>
+      <p>Two things surprise new players. The prices track what cards do in this format, not how famous they are: Ancestral Recall costs more than Black Lotus, and Timetwister, a member of the Power Nine, costs nothing. And the list moves. Cards are added when they start to dominate and come back down when they've been tamed.</p>
+      <p><a class="link-arrow" href="/build/#points">See all {{ points.list.length }} pointed cards and try spending ten <span aria-hidden="true">→</span></a></p>
     </section>
 
     <section id="playing" class="docs__section">
@@ -98,16 +74,9 @@ permalink: /learn/
 
     <section id="building" class="docs__section">
       <p class="docs__num mono">04</p>
-      <h2>Your first deck</h2>
-      <p>The easiest way in is to copy a recent decklist from an <a href="/resources/#decks">event result</a> and adjust it to your collection. If you'd rather build from scratch, here's what experienced players tend to say.</p>
-      <ol class="numbered">
-        <li><b>Pick a plan, not a card.</b> Aggro, midrange, control, or combo. Since you'll rarely draw any specific card, build around a strategy that lots of cards support.</li>
-        <li><b>Spend points on purpose.</b> A point should buy something your deck actually wants. Zero points spent well beats ten points spent on cards that don't fit.</li>
-        <li><b>Get consistency from redundancy.</b> You can't play four Lightning Bolts, but you can play eight cheap burn spells. Group cards by job and make sure each job has enough bodies.</li>
-        <li><b>Count mana sources, not just lands.</b> Plenty of decks land somewhere around 36 to 42 lands; aggressive decks and decks full of cheap mana rocks go lower. Treat that as a starting point, not a rule.</li>
-        <li><b>Play flexible answers.</b> No sideboard means narrow hate cards sit dead in your hand half the time. Removal that hits many card types earns its slot.</li>
-        <li><b>Play it, then cut.</b> Your first hundred will have a few duds. The cards you're never happy to draw are the ones to replace.</li>
-      </ol>
+      <h2>Building a deck</h2>
+      <p>The fastest way in is to borrow a list. Pick one from the <a href="/decks/">deck rotation</a> or a recent <a href="/resources/#decks">event result</a>, play it for a week, then change it. When you're ready to build from scratch, the <a href="/build/">build guide</a> covers spending points, choosing a plan, land counts and filling a hundred slots.</p>
+      <p class="aside-note">The short version: decide what your ten points are for, play 32 to 36 lands, pack at least fourteen cheap interaction spells, and make every card good against every deck, because there's no sideboard to fix it later.</p>
     </section>
 
     <section id="cards" class="docs__section">

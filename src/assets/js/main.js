@@ -32,7 +32,7 @@
     const budget = Number(box.dataset.budget) || 10;
     const pips = $$(".meter__pip", box);
     const status = $("[data-status]", box);
-    const chips = $$(".chip", box);
+    const chips = $$(".chip, .pick", box);
 
     const render = () => {
       const picked = chips.filter((c) => c.getAttribute("aria-pressed") === "true");
@@ -42,14 +42,14 @@
       box.classList.toggle("is-full", total === budget);
 
       if (!picked.length) {
-        status.textContent = "Tap cards below to add them to your deck.";
+        status.textContent = "Tap cards to add them. Tap again to remove.";
       } else if (total > budget) {
         status.textContent = `${total} points. That's ${total - budget} too many. Something has to go.`;
       } else if (total === budget) {
-        status.textContent = `Exactly ${budget}. That's a legal deck. Everything else has to be free.`;
+        status.textContent = `Exactly ${budget}: ${picked.map((c) => c.dataset.name).join(", ")}. Legal. Everything else has to be free.`;
       } else {
         const left = budget - total;
-        status.textContent = `${total} spent, ${left} left.`;
+        status.textContent = `${total} spent, ${left} left: ${picked.map((c) => c.dataset.name).join(", ")}.`;
       }
     };
 
@@ -64,6 +64,39 @@
       chips.forEach((c) => c.setAttribute("aria-pressed", "false"));
       render();
     });
+  });
+
+
+  /* Deck carousel: auto-advances, pauses on hover/focus, loops */
+  $$("[data-carousel]").forEach((root) => {
+    const track = $("[data-track]", root);
+    const slides = $$(".carousel__slide", track);
+    const count = $("[data-count]", root);
+    if (!track || !slides.length) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const step = () => slides[0].getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0);
+    const perView = () => Math.max(1, Math.round(track.clientWidth / step()));
+    const index = () => Math.round(track.scrollLeft / step());
+    const update = () => {
+      const i = index(), n = perView();
+      if (count) count.textContent = `${i + 1}–${Math.min(i + n, slides.length)} of ${slides.length}`;
+    };
+    const go = (dir) => {
+      const max = track.scrollWidth - track.clientWidth - 2;
+      if (dir > 0 && track.scrollLeft >= max) track.scrollTo({ left: 0 });
+      else if (dir < 0 && track.scrollLeft <= 2) track.scrollTo({ left: track.scrollWidth });
+      else track.scrollBy({ left: dir * step() });
+    };
+    $("[data-next]", root)?.addEventListener("click", () => { go(1); hold(); });
+    $("[data-prev]", root)?.addEventListener("click", () => { go(-1); hold(); });
+    track.addEventListener("scroll", () => requestAnimationFrame(update), { passive: true });
+    window.addEventListener("resize", update);
+    let paused = false, timer;
+    const hold = () => { paused = true; clearTimeout(timer); timer = setTimeout(() => (paused = false), 12000); };
+    ["mouseenter", "focusin", "touchstart"].forEach((e) => root.addEventListener(e, () => (paused = true), { passive: true }));
+    ["mouseleave", "focusout"].forEach((e) => root.addEventListener(e, () => (paused = false)));
+    if (!reduce) setInterval(() => { if (!paused && !document.hidden) go(1); }, 5000);
+    update();
   });
 
   /* Resources filter */

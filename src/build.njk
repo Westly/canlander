@@ -1,0 +1,231 @@
+---
+layout: layouts/base.njk
+title: Build a deck
+description: How to build a Canadian Highlander deck. Spending ten points, choosing a plan, building a 100-card mana base, and making singleton play consistently.
+pageClass: build
+permalink: /build/
+---
+{%- from "partials/macros.njk" import mtgcard, quote -%}
+{%- set toc = [
+  { id: "points", n: "01", label: "Spend your ten points" },
+  { id: "plan", n: "02", label: "Pick a plan" },
+  { id: "mana", n: "03", label: "Build the mana" },
+  { id: "hundred", n: "04", label: "Fill the hundred" },
+  { id: "tune", n: "05", label: "Tune it" },
+  { id: "checklist", n: "06", label: "Before you sleeve up" }
+] -%}
+{%- set archetypes = [
+  { name: "Midrange", art: "Fable of the Mirror-Breaker", tag: "The most played family",
+    how: "Cheap interaction, efficient threats, and a stream of card advantage. Midrange wins by trading one-for-one early and being the last player with gas. Sultai, Jund, Rakdos and the four-colour “Jeskai Black” piles all live here.",
+    pts: "Moxen in your colours, Time Walk, or a spread of strong one-pointers like Psychic Frog, Tamiyo and Wrenn and Six.",
+    keys: "Thoughtseize, Orcish Bowmasters, Fable of the Mirror-Breaker, Psychic Frog, Abrupt Decay" },
+  { name: "Aggro", art: "Ragavan, Nimble Pilferer", tag: "Win before power matters",
+    how: "A low curve of one- and two-drops backed by burn. Aggro punishes stumbles, greedy mana bases and slow starts, and closes the game before the opponent's points start to matter.",
+    pts: "Often very little. Fast mana like Sol Ring or a Mox helps, but plenty of red decks spend their points on Strip Mine and a couple of one-pointers.",
+    keys: "Ragavan, Goblin Guide, Lightning Bolt, Chain Lightning, Fireblast" },
+  { name: "Death & Taxes", art: "Thalia, Guardian of Thraben", tag: "Tax, disrupt, attack",
+    how: "White creatures that each make the opponent's life harder: Thalia taxes spells, Aven Mindcensor blunts tutors and fetchlands, Strip Mine and Wasteland attack mana. Equipment turns small bodies into a clock.",
+    pts: "Sol Ring and Mox Pearl to deploy threats early, plus Strip Mine, Urza's Saga, Ancient Tomb and White Plume Adventurer.",
+    keys: "Thalia, Adeline, Aven Mindcensor, Stoneforge Mystic, Wasteland" },
+  { name: "Tempo & control", art: "Force of Will", tag: "Say no, then win",
+    how: "Counterspells, cheap card selection and a handful of threats that are hard to answer. Tempo decks get ahead and protect the lead. Control decks answer everything and win late. Blood Moon “Blue Moon” builds lock out greedy mana bases.",
+    pts: "Ancestral Recall, Time Walk, Mana Drain, or Mox Sapphire with True-Name Nemesis and Tamiyo.",
+    keys: "Force of Will, Counterspell, Brainstorm, Blood Moon, True-Name Nemesis" },
+  { name: "Artifact combo", art: "Time Vault", tag: "Infinite turns, infinite mana",
+    how: "Time Vault plus Voltaic Key or Manifold Key takes every turn from here on. Tolarian Academy and Paradox Engine decks generate absurd mana from artifacts. Both are fragile and terrifying.",
+    pts: "The engine itself (Time Vault is 7, Tolarian Academy 2) and the fast mana or tutors to find it.",
+    keys: "Time Vault, Voltaic Key, Paradox Engine, Urza's Saga, Mana Vault" },
+  { name: "Graveyard & creature combo", art: "Griselbrand", tag: "Cheat the big thing out",
+    how: "Reanimator puts a huge creature into the graveyard and brings it back on turn two. Flash Hulk flashes in Protean Hulk and lets its death trigger assemble a win. Natural Order and Cradle builds go creature-heavy.",
+    pts: "Reanimate and Natural Order are one point each; Flash costs seven; tutors fill the rest.",
+    keys: "Reanimate, Entomb, Griselbrand, Protean Hulk, Natural Order" }
+] -%}
+<header class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Build</p>
+    <h1 class="page-head__title">How to build a <em>Canlander deck.</em></h1>
+    <p class="page-head__lede">Every Canlander list answers three questions: what do your ten points buy, how does the deck win, and how do you make a hundred singletons do the same thing every game? Here's how good players answer them.</p>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <aside class="docs__toc" aria-label="On this page">
+    <p class="eyebrow">On this page</p>
+    <ol>
+      {%- for t in toc %}
+      <li><a href="#{{ t.id }}"><span class="mono">{{ t.n }}</span> {{ t.label }}</a></li>
+      {%- endfor %}
+    </ol>
+    <a class="docs__official" href="{{ site.official.points }}">Official points list <span aria-hidden="true">↗</span></a>
+  </aside>
+
+  <article class="docs__body prose prose--wide">
+
+    <section id="points" class="docs__section">
+      <p class="docs__num mono">01</p>
+      <h2>Spend your ten points</h2>
+      <p>Your points are your deck's thesis. Before you look at a single card, decide which of three things your deck needs most, because that's what points buy:</p>
+      <dl class="rules-table">
+        <div><dt>Raw power</dt><dd>Cards that are simply better than anything else at their job. Black Lotus, Time Walk, Ancestral Recall, the Moxen, Mana Crypt.</dd></div>
+        <div><dt>Consistency</dt><dd>Tutors that turn your deck into a smaller, more predictable one. Demonic, Vampiric, Mystical and Enlightened Tutor, Imperial Seal, Merchant Scroll.</dd></div>
+        <div><dt>An engine</dt><dd>The single card your combo is built around. Flash, Time Vault, Underworld Breach, Tinker, Tolarian Academy, Thassa's Oracle.</dd></div>
+      </dl>
+      <p>A combo deck should spend on its engine and the tutors to find it. A midrange deck usually wants raw power it can cast early. An aggro deck often wants very little, because its best cards are already free.</p>
+
+      <h3>Five ways players actually spend ten</h3>
+      <p>All of these come from real, current lists in the <a href="/decks/">deck rotation</a>.</p>
+      <div class="spends">
+        <div class="spend">
+          <p class="spend__name">The Mox package</p>
+          <p class="spend__math mono">Mox Emerald 3 · Mox Jet 3 · Mox Ruby 3 · Reanimate 1</p>
+          <p>Three free mana sources in your colours. Explosive openings and a lot of turn-two four-drops. The Moxen get worse the longer the game goes, so this suits decks that want to be ahead early.</p>
+        </div>
+        <div class="spend">
+          <p class="spend__name">One bomb, then change</p>
+          <p class="spend__math mono">Ancestral Recall 8 · Tamiyo 1 · Psychic Frog 1</p>
+          <p>The single best card-draw spell ever printed, plus two efficient threats. Or Time Walk at five with five one-pointers alongside it.</p>
+        </div>
+        <div class="spend">
+          <p class="spend__name">The engine and its tutors</p>
+          <p class="spend__math mono">Flash 7 · Vampiric Tutor 2 · Imperial Seal 1</p>
+          <p>Flash Hulk pays for the combo piece and the two cheapest ways to find it. Nothing else matters if the engine shows up.</p>
+        </div>
+        <div class="spend">
+          <p class="spend__name">Artifact acceleration</p>
+          <p class="spend__math mono">Mana Crypt 5 · Sol Ring 3 · Ancient Tomb 1 · Strip Mine 1</p>
+          <p>Ramp straight into large threats a turn or two early. Gruul and colourless decks love this.</p>
+        </div>
+        <div class="spend">
+          <p class="spend__name">Spread the ones</p>
+          <p class="spend__math mono">Sol Ring 3 · Mox Pearl 3 · Ancient Tomb · Urza's Saga · Strip Mine · White Plume Adventurer</p>
+          <p>Two fast-mana pieces, then four one-pointers that are each among the best cards a deck can play. More good draws, fewer games decided by a single card.</p>
+        </div>
+      </div>
+
+      <h3>Two questions to ask about every pointed card</h3>
+      <p><b>What does it do when I draw it on turn six?</b> Black Lotus wins games on turn one and is a blank late. Moxen fade the same way. Tutors and card advantage stay good. Spend on the cards that are strong when your deck needs them.</p>
+      <p><b>Would I play it at zero?</b> If the answer is “only because it's famous,” skip it. The list is priced on what cards do in this format, not on their reputation. Timetwister is in the Power Nine and costs nothing. Ancestral Recall costs more than Black Lotus.</p>
+      {{ quote(quotes.pay) }}
+
+      <div class="sandbox" data-sandbox data-budget="{{ points.budget }}">
+        <div class="sandbox__bar">
+          <div class="sandbox__head">
+            <div>
+              <p class="eyebrow">The full points list · tap to spend</p>
+              <h3 class="sandbox__title">Build a ten-point package.</h3>
+            </div>
+            <p class="sandbox__asof mono">{{ points.asOfLabel }} · <a href="{{ site.official.points }}">official list ↗</a></p>
+          </div>
+          <div class="meter" aria-hidden="true">
+            {%- for i in range(0, points.budget) %}<span class="meter__pip"></span>{%- endfor %}
+          </div>
+          <div class="sandbox__row">
+            <p class="sandbox__status" aria-live="polite" data-status>Tap cards to add them. Tap again to remove.</p>
+            <button type="button" class="link-btn" data-reset>Clear</button>
+          </div>
+        </div>
+        {%- for g in points.list | pointsGroups %}
+        <div class="tier">
+          <p class="tier__label mono"><b>{{ g.points }}</b> {{ "point" if g.points == 1 else "points" }} <span>· {{ g.cards.length }} {{ "card" if g.cards.length == 1 else "cards" }}</span></p>
+          <ul class="tier__grid">
+            {%- for c in g.cards %}
+            <li><button type="button" class="pick" data-pts="{{ c.points }}" data-name="{{ c.name }}" aria-pressed="false" aria-label="{{ c.name }}, {{ c.points }} {{ 'point' if c.points == 1 else 'points' }}">{{ mtgcard(c.name, c.points, "small") }}</button></li>
+            {%- endfor %}
+          </ul>
+        </div>
+        {%- endfor %}
+        <p class="aside-note">This mirrors the official list as of the {{ points.asOfLabel }}. The next update is {{ site.nextPointsUpdate | longDate }}; always check <a href="{{ site.official.points }}">canadianhighlander.ca</a> before an event.</p>
+      </div>
+    </section>
+
+    <section id="plan" class="docs__section">
+      <p class="docs__num mono">02</p>
+      <h2>Pick a plan</h2>
+      <p>Singleton punishes decks that try to do everything. Pick one way to win, then make sure most of your hundred cards push toward it. These are the families you'll meet at a Canlander table.</p>
+      <div class="archetypes">
+        {%- for a in archetypes %}
+        <article class="arch">
+          <div class="arch__art" style="background-image:url('{{ a.art | cardImg('art_crop') }}')" role="img" aria-label="{{ a.art }} art"></div>
+          <div class="arch__body">
+            <p class="arch__tag mono">{{ a.tag }}</p>
+            <h3 class="arch__name">{{ a.name }}</h3>
+            <p>{{ a.how }}</p>
+            <p class="arch__meta"><span class="mono">Points</span> {{ a.pts }}</p>
+            <p class="arch__meta"><span class="mono">Look for</span> {{ a.keys }}</p>
+          </div>
+        </article>
+        {%- endfor %}
+      </div>
+      <p>Not sure which one is you? Play a game with three of them on Cockatrice. The one you keep thinking about afterwards is your deck.</p>
+    </section>
+
+    <section id="mana" class="docs__section">
+      <p class="docs__num mono">03</p>
+      <h2>Build the mana</h2>
+      <h3>You need fewer lands than you think</h3>
+      <p>New players bring Commander instincts and register 36 to 40 lands. Competitive Canlander decks play far fewer, because the games are one-on-one, curves are low, and free cantrips like Brainstorm, Ponder and Preordain dig for land drops.</p>
+      <div class="stat">
+        <p class="stat__big">32–36</p>
+        <p class="stat__label">Lands in the {{ decks.decks.length }} current lists in our deck rotation. The median is 33, plus one to three modal double-faced spells that can be played as lands.</p>
+      </div>
+      <p>A sensible starting point is <b>34 lands</b> for midrange, <b>32–33</b> for low-curve aggro and tempo, and <b>35–36</b> for control, ramp and decks with expensive top ends. If you run three or more fast-mana pieces (Moxen, Sol Ring, Mana Crypt, Ancient Tomb), shave a land.</p>
+      <h3>Use the best lands, but respect the hate</h3>
+      <p>A hundred-card deck has room for every fetchland, original dual and shockland in your colours, and you should play them. Fetches also feed Wrenn and Six, delirium and landfall. But Blood Moon, Back to Basics, Wasteland and Strip Mine are all legal and all played. Run a few basics of your main colour, and fetch them early when you can afford to.</p>
+      <h3>Two or three colours beats four</h3>
+      <p>Four- and five-colour piles have the best card quality and the worst mana. The council has said it wants to <a href="https://canadianhighlander.ca/2025/03/26/2025-year-start-points-update-survey-report/">“promote lower color decks over four color decks”</a>, and the points list has been nudged that way. For a first deck, two colours with a light splash is the most forgiving choice.</p>
+    </section>
+
+    <section id="hundred" class="docs__section">
+      <p class="docs__num mono">04</p>
+      <h2>Fill the hundred</h2>
+      <h3>Build in jobs, not cards</h3>
+      <p>You can't play four Lightning Bolts. You can play Lightning Bolt, Chain Lightning, Burst Lightning, Fireblast and Lava Dart. Singleton consistency comes from functional copies. List the jobs your deck needs done, then make sure each job has enough bodies that you'll draw one when it matters.</p>
+      <div class="skeleton">
+        <p class="skeleton__title mono">A starting skeleton for midrange</p>
+        <table>
+          <thead><tr><th>Job</th><th>Slots</th><th>Examples</th></tr></thead>
+          <tbody>
+            <tr><td>Lands</td><td>33–35</td><td>Fetches, duals, shocks, a few basics, utility lands</td></tr>
+            <tr><td>Cheap interaction</td><td>14–18</td><td>Swords to Plowshares, Lightning Bolt, Fatal Push, Counterspell, Thoughtseize</td></tr>
+            <tr><td>Card advantage &amp; selection</td><td>8–12</td><td>Brainstorm, Ponder, Fact or Fiction, Fable of the Mirror-Breaker</td></tr>
+            <tr><td>Threats</td><td>20–25</td><td>Ragavan, Psychic Frog, Orcish Bowmasters, Murktide Regent</td></tr>
+            <tr><td>Flexible answers &amp; hate</td><td>6–10</td><td>Kolaghan's Command, Abrupt Decay, Council's Judgment, Force of Will</td></tr>
+          </tbody>
+        </table>
+        <p class="skeleton__note">Ranges, not rules. Aggro trades card advantage for more threats; control does the opposite.</p>
+      </div>
+      <h3>There's no sideboard, so every card plays every matchup</h3>
+      <p>Narrow hate cards are dead in half your games. Prefer answers that cover many problems: Kolaghan's Command, Abrupt Decay, Assassin's Trophy, Council's Judgment, Prismatic Ending. Force of Will costs zero points and answers anything. Play a dedicated hate card only if it also does something your deck wants anyway, or the local metagame is full of one strategy.</p>
+      <h3>Keep the curve low</h3>
+      <p>A one-on-one game at twenty life rewards tempo. Most competitive lists keep the bulk of their spells at one to three mana and only a handful above four. Expensive cards need to win the game or replace themselves.</p>
+    </section>
+
+    <section id="tune" class="docs__section">
+      <p class="docs__num mono">05</p>
+      <h2>Tune it</h2>
+      <ul>
+        <li><b>Build it on Moxfield.</b> Its Canadian Highlander format totals your points and flags an illegal list for you.</li>
+        <li><b>Goldfish opening hands.</b> Draw twenty seven-card hands. If you'd mulligan more than a few, fix the mana before anything else.</li>
+        <li><b>Play twenty games on Cockatrice.</b> Keep a list of every card you were unhappy to draw. Those are your first cuts.</li>
+        <li><b>Change ten cards at a time</b>, not one. Single swaps are too small to notice in a hundred-card deck.</li>
+        <li><b>Watch the points calendar.</b> Updates land roughly every quarter. A list that was legal in August can be eleven points in September.</li>
+      </ul>
+    </section>
+
+    <section id="checklist" class="docs__section">
+      <p class="docs__num mono">06</p>
+      <h2>Before you sleeve up</h2>
+      <ul class="checklist">
+        <li>Exactly 100 cards, one of each, basics excepted.</li>
+        <li>Ten points or fewer on <a href="{{ site.official.points }}">today's list</a>.</li>
+        <li>Your points serve the plan, not the other way round.</li>
+        <li>32–36 lands, adjusted for fast mana and curve.</li>
+        <li>At least fourteen pieces of cheap interaction.</li>
+        <li>A few basics, in case of Blood Moon.</li>
+        <li>Every card is live against every deck.</li>
+      </ul>
+      <p>Then go play. The deck will tell you what's wrong with it faster than any guide can.</p>
+    </section>
+
+  </article>
+</div>

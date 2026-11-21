@@ -1,0 +1,41 @@
+{#- A real Magic card from Scryfall, with an optional points badge. -#}
+{% macro mtgcard(name, pts=null, size="normal", eager=false, cls="") -%}
+<figure class="mtg {{ cls }}">
+  <img src="{{ name | cardImg(size) }}" alt="{{ name }}" width="488" height="680" {% if not eager %}loading="lazy" {% endif %}decoding="async">
+  {%- if pts !== null %}<span class="mtg__pts{% if pts == 0 %} is-zero{% endif %}" aria-label="{{ pts }} points">{{ pts }}</span>{% endif %}
+</figure>
+{%- endmacro %}
+
+{#- A real, attributed quote. -#}
+{% macro quote(q, cls="") -%}
+<blockquote class="q {{ cls }}">
+  <p>{{ q.text }}</p>
+  <footer><cite><span class="q__who">{{ q.who }}</span>, <a href="{{ q.url }}" rel="noopener">{{ q.where }}</a></cite></footer>
+</blockquote>
+{%- endmacro %}
+
+{#- Colour pips for a deck. -#}
+{% macro pips(colors) -%}
+<span class="pips" aria-label="Colours: {{ colors }}">{% for c in colors | pips %}<i class="pip pip--{{ c | lower }}" aria-hidden="true">{{ c }}</i>{% endfor %}</span>
+{%- endmacro %}
+
+{#- A deck tile for the Moxfield carousel/grid. -#}
+{% macro decktile(d, authors) -%}
+{%- set au = authors[d.author] -%}
+<a class="deck" href="{{ d.url }}" rel="noopener">
+  <span class="deck__art" style="background-image:url('{{ d.cover }}')"></span>
+  <span class="deck__body">
+    <span class="deck__top">
+      <span class="deck__arch">{{ d.archetype }}</span>
+      {{ pips(d.colors) }}
+    </span>
+    <span class="deck__name">{{ d.name }}</span>
+    <span class="deck__spend"><b>{{ d.points }} pts</b> {{ d.spend }}</span>
+    <span class="deck__by">
+      <img class="deck__avatar" src="{{ au.avatar }}" alt="" width="28" height="28" loading="lazy">
+      <span><span class="deck__author">{{ d.author }}</span><span class="deck__meta mono">Updated {{ d.updated | relDate }}</span></span>
+      <span class="deck__go mono">Moxfield ↗</span>
+    </span>
+  </span>
+</a>
+{%- endmacro %}

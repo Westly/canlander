@@ -1,0 +1,46 @@
+---
+layout: layouts/base.njk
+title: Decks
+description: Public Canadian Highlander decklists from Moxfield, credited to their builders, with how each one spends its ten points.
+pageClass: decks
+permalink: /decks/
+---
+{%- from "partials/macros.njk" import decktile -%}
+<header class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Decks</p>
+    <h1 class="page-head__title">Real lists, <em>ready to borrow.</em></h1>
+    <p class="page-head__lede">Public Canadian Highlander decks from Moxfield, each credited to the person who built it, with exactly how it spends its ten points. Open one, copy it, and play it tonight.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="carousel carousel--feature" data-carousel>
+    <div class="carousel__track" data-track tabindex="0" aria-label="Deck carousel">
+      {%- for d in decks.decks %}
+      <div class="carousel__slide">{{ decktile(d, decks.authors) }}</div>
+      {%- endfor %}
+    </div>
+    <div class="carousel__controls">
+      <button class="carousel__btn" type="button" data-prev aria-label="Previous decks">←</button>
+      <span class="carousel__count mono" data-count></span>
+      <button class="carousel__btn" type="button" data-next aria-label="Next decks">→</button>
+    </div>
+  </div>
+
+  <div class="section__head section__head--row decks-all">
+    <h2 class="h3">All {{ decks.decks.length }} decks</h2>
+    <p class="mono decks-snap">Snapshot {{ decks.snapshot | longDate }}</p>
+  </div>
+  <div class="deckgrid">
+    {%- for d in decks.decks %}{{ decktile(d, decks.authors) }}{% endfor %}
+  </div>
+
+  <aside class="suggest">
+    <div>
+      <h2 class="h3">Want your deck in the rotation?</h2>
+      <p>Make it public on Moxfield with the Canadian Highlander format selected, then <a href="{{ site.repo }}/issues/new?title=Deck%20for%20the%20rotation">send us the link</a>. Points shown are as Moxfield counted them on the snapshot date; a few lists from earlier in the year are over ten after the Fall 2026 update.</p>
+    </div>
+    <a class="btn btn--ghost" href="https://mtgdecks.net/Canadian-Highlander">Tournament results ↗</a>
+  </aside>
+</div>
