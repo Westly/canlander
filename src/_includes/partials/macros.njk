@@ -1,12 +1,7 @@
 {#- A real Magic card from Scryfall, with an optional points badge. -#}
 {% macro mtgcard(name, pts=null, size="normal", eager=false, cls="") -%}
-{%- set meta = name | cardMeta %}
-<figure class="mtg {{ cls }}{% if meta.ub %} mtg--text{% endif %}">
-  {%- if meta.ub %}
-  <span class="mtg__text" role="img" aria-label="{{ name }}"><span>{{ name }}</span></span>
-  {%- else %}
+<figure class="mtg {{ cls }}">
   <img src="{{ name | cardImg(size) }}" alt="{{ name }}" width="488" height="680" {% if not eager %}loading="lazy" {% endif %}decoding="async">
-  {%- endif %}
   {%- if pts !== null %}<span class="mtg__pts{% if pts == 0 %} is-zero{% endif %}" aria-label="{{ pts }} points">{{ pts }}</span>{% endif %}
 </figure>
 {%- endmacro %}

@@ -25,7 +25,7 @@ const overrides = read("scripts/deck-overrides.json", {});
 // Deck tiles use Scryfall art from src/_data/cards.json (never Moxfield covers),
 // so we control exactly which printings appear. Universes Beyond cards are skipped.
 const CARDS = read("src/_data/cards.json", {});
-const artOk = (name) => CARDS[name] && !CARDS[name].ub;
+const artOk = (name) => !!CARDS[name];
 const ARCHETYPE_ART = {
   "Death & Taxes": "Thalia, Guardian of Thraben", "Aggro-prison": "Thalia, Guardian of Thraben",
   Aggro: "Ragavan, Nimble Pilferer", Tempo: "Force of Will", Control: "Force of Will",

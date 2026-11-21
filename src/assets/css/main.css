@@ -834,7 +834,3 @@ a.ticker__v:hover { color: var(--brass-hi); }
 @media (max-width: 1000px) { .vidgrid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .vidgrid { grid-template-columns: 1fr; } }
 
-/* Text stand-in for cards we don't show art for */
-.mtg--text { background: linear-gradient(160deg, #2a241c, #15120e); border: 1px solid var(--hair-2); }
-.mtg__text { position: absolute; inset: 6%; display: grid; place-items: center; text-align: center; border: 1px solid var(--hair); border-radius: 3%; padding: 8%; }
-.mtg__text span { font-family: var(--serif); font-style: italic; font-size: clamp(.7rem, 1.6vw, 1rem); line-height: 1.2; color: var(--parchment); }
