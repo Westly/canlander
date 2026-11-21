@@ -1,0 +1,58 @@
+{
+  "_note": "YouTube videos for the Videos page. Titles and channels checked against YouTube in November 2026. Thumbnails load from i.ytimg.com.",
+  "sections": [
+    {
+      "id": "learn",
+      "title": "Learn to play",
+      "blurb": "Start here if you've never played. The Professor at Tolarian Community College covers the basics, and LoadingReadyRun explains it from Victoria, where the format started.",
+      "videos": [
+        { "id": "GJe6zQURsSk", "title": "An Introduction To Canadian Highlander", "channel": "Tolarian Community College" },
+        { "id": "MXCds_aH5WA", "title": "Highlander: The Best Format You Aren't Playing", "channel": "Tolarian Community College" },
+        { "id": "sLo76slMBAQ", "title": "What is Canadian Highlander?", "channel": "LRRMTG" },
+        { "id": "JUFZUudWvJc", "title": "Canadian Highlander - New Player's Guide", "channel": "Cryptic Keep" },
+        { "id": "v2GPRaodIxs", "title": "North 100 Ep02 - Building Your First Deck", "channel": "LoadingReadyRun" },
+        { "id": "cqzT7g8487U", "title": "(Please) Try Canadian Highlander", "channel": "H Puzzle" }
+      ]
+    },
+    {
+      "id": "first-time",
+      "title": "Trying it for the first time",
+      "blurb": "Watching someone else figure out the format is a good way to learn it yourself.",
+      "videos": [
+        { "id": "Y2qgPvU98Dw", "title": "Andrea Mengucci Tries Canadian Highlander", "channel": "Tolarian Community College" },
+        { "id": "-adOmMegMQc", "title": "Canadian Highlander w/ North 100 and Pascal Maynard", "channel": "Tolarian Community College" },
+        { "id": "X_dh9JLT2MY", "title": "EDH Players Try Canadian Highlander for the First Time", "channel": "Mox Monkeys" },
+        { "id": "QyMue0-MOR8", "title": "MTG World Champion Gets Schooled In Canadian Highlander", "channel": "MagicOnline" },
+        { "id": "Y0vM5XXzO6g", "title": "Building my FIRST Canadian Highlander Deck! Esper Reanimator", "channel": "Rogue Planeswalker's Guild" }
+      ]
+    },
+    {
+      "id": "gameplay",
+      "title": "Gameplay from North 100",
+      "blurb": "LoadingReadyRun's North 100 Showdown has over a hundred full matches with commentary. Here are a few to start with.",
+      "playlist": { "label": "Full North 100 Showdown playlist", "url": "https://www.youtube.com/playlist?list=PLzRiDUMuwrleJLb_yZbFk0XxDJZLcyOQ3" },
+      "videos": [
+        { "id": "E2jgx_9mtNU", "title": "Bant Nadu Lands vs Jund Delirium", "channel": "North 100 Showdown" },
+        { "id": "UJud43fdbkU", "title": "Blue Moon vs Gruul Lands Midrange", "channel": "North 100 Showdown" },
+        { "id": "vqraopCZkk8", "title": "Death & Taxes vs Paradox Academy", "channel": "North 100 Showdown" },
+        { "id": "VzR37m8TfCQ", "title": "Timmy Tinker vs Jund Midrange", "channel": "North 100 Showdown" },
+        { "id": "SZpwa-ENIzY", "title": "Boomer Storm vs Jeskai Black", "channel": "North 100 Showdown" },
+        { "id": "HNxudg_rr9I", "title": "Temur Scapeshift vs Dimir Ninjas w/ Gavin Verhey", "channel": "North 100 Showdown" },
+        { "id": "acxZvMMOWVo", "title": "EP100 Old-School Special: Simic Tempo vs Mardu Prison", "channel": "North 100 Showdown" },
+        { "id": "03yh22_aBDo", "title": "Nadu Breakfast vs 4c Strip Mine", "channel": "North 100 Showdown" }
+      ]
+    },
+    {
+      "id": "events",
+      "title": "Championships and more",
+      "blurb": "The big yearly event at Yellowjacket, plus some favourites from around the community.",
+      "videos": [
+        { "id": "UyaqvOUgFF4", "title": "2025 Canadian Highlander Championship", "channel": "LRRMTG" },
+        { "id": "Hw4puDjaAck", "title": "2024 Canadian Highlander Championship", "channel": "LRRMTG" },
+        { "id": "tv3bxXvnw9w", "title": "Cyclopes and Trent Talk About Canadian Highlander: Fall 2026", "channel": "Cyclopes8 Highlander" },
+        { "id": "XwNNqY9KIA0", "title": "We Ranked EVERY Deck in Canadian Highlander", "channel": "Mox Monkeys" },
+        { "id": "o4f4WfyAjlY", "title": "Playing Old School Canadian Highlander!", "channel": "LJT MTG" }
+      ]
+    }
+  ]
+}

@@ -16,9 +16,9 @@ pageClass: home
   <div class="hero__lamp" aria-hidden="true"></div>
   <div class="wrap hero__grid">
     <div class="hero__copy">
-      <p class="eyebrow">Canadian Highlander · 100 cards · one of each · 1v1</p>
-      <h1 class="hero__title">Play anything.<br><em>Just not everything.</em></h1>
-      <p class="hero__lede">Black Lotus is legal here. So is Time Walk. So is nearly every card printed since 1993. There's just one catch: you get ten points, and the best cards in Magic aren't free.</p>
+      <p class="eyebrow">Canadian Highlander · a Magic: The Gathering format</p>
+      <h1 class="hero__title">Black Lotus is<br><em>legal here.</em></h1>
+      <p class="hero__lede">So is Time Walk, and so are the Moxen. Canadian Highlander is a 100-card, one-of-each format from Victoria, BC, and every deck gets ten points to spend on the most powerful cards Magic ever printed. What you buy with yours is up to you.</p>
       <div class="hero__actions">
         <a class="btn btn--brass" href="/learn/">Learn the format</a>
         <a class="link-arrow" href="/play/">Find a game this weekend <span aria-hidden="true">→</span></a>
@@ -26,10 +26,10 @@ pageClass: home
     </div>
     <div class="vault" data-vault data-budget="10">
       <div class="vault__head">
-        <p class="vault__title">The vault is open.</p>
-        <p class="vault__sub">Pick what you'd play. You have ten points.</p>
+        <p class="vault__title">Spend your ten points</p>
+        <p class="vault__sub">Tap a card to add it to your deck.</p>
       </div>
-      <div class="vault__grid" role="group" aria-label="Pick cards from the vault, up to ten points">
+      <div class="vault__grid" role="group" aria-label="Pick cards, up to ten points">
         {%- for c in vault %}
         <button class="vault__item" type="button" aria-pressed="false" data-pts="{{ c.pts }}" data-name="{{ c.name }}" style="--i:{{ loop.index0 }}">
           <span class="vault__tag" aria-hidden="true"><span>{{ c.pts }}</span></span>
@@ -42,7 +42,7 @@ pageClass: home
         <div class="vault__meter" aria-hidden="true">{% for i in range(0, 10) %}<i></i>{% endfor %}</div>
         <p class="vault__status" data-vault-status aria-live="polite"><b data-vault-left>10</b> points left</p>
       </div>
-      <a class="vault__next link-arrow" href="/build/" data-vault-next hidden>Now find the other ninety-odd cards <span aria-hidden="true">→</span></a>
+      <a class="vault__next link-arrow" href="/build/" data-vault-next hidden>Now for the other 90-odd cards <span aria-hidden="true">→</span></a>
     </div>
   </div>
 
@@ -68,9 +68,9 @@ pageClass: home
 <section class="section hooks">
   <div class="wrap">
     <div class="section__head">
-      <p class="eyebrow">§ 1 &nbsp;The pull</p>
-      <h2 class="h2">Play it once and <em>everything else feels small.</em></h2>
-      <p class="section__lede">Ask anyone who plays what keeps them coming back. You'll hear one of these.</p>
+      <p class="eyebrow">Why people play it</p>
+      <h2 class="h2">Why people stick around</h2>
+      <p class="section__lede">Ask in the Discord and you'll hear some version of these.</p>
     </div>
 
     <div class="hook">
@@ -79,10 +79,10 @@ pageClass: home
       </div>
       <div class="hook__text">
         <p class="hook__n mono">01</p>
-        <h3 class="hook__t">The cards behind the glass.</h3>
-        <p>You know the ones. The cards you've only ever seen in binders, price guides and old tournament photos. Here they're sleeved up, on the table, getting cast.</p>
+        <h3 class="hook__t">Your favourite old cards are playable again.</h3>
+        <p>Time Walk, the Moxen, Mana Drain. Cards most people only ever see in binders get sleeved up and cast here every week.</p>
         {{ quote(quotes.nonsense) }}
-        <a class="link-arrow hook__more" href="/build/#points">See what they cost <span aria-hidden="true">→</span></a>
+        <a class="link-arrow hook__more" href="/build/#points">See what everything costs <span aria-hidden="true">→</span></a>
       </div>
     </div>
 
@@ -92,10 +92,10 @@ pageClass: home
       </div>
       <div class="hook__text">
         <p class="hook__n mono">02</p>
-        <h3 class="hook__t">Ten points. A thousand arguments.</h3>
-        <p>Lotus, or three Moxen? Ancestral, or a tutor and a Drain? Every deck answers differently, and every answer starts a debate at the table.</p>
+        <h3 class="hook__t">You'll argue about ten points forever.</h3>
+        <p>One Black Lotus or two Moxen? Ancestral, or a tutor and a Mana Drain? Everyone has an opinion, and the good decks don't all agree.</p>
         {{ quote(quotes.tension) }}
-        <a class="link-arrow hook__more" href="/build/">Spend your first ten <span aria-hidden="true">→</span></a>
+        <a class="link-arrow hook__more" href="/build/">How to spend your points <span aria-hidden="true">→</span></a>
       </div>
     </div>
 
@@ -105,10 +105,10 @@ pageClass: home
       </div>
       <div class="hook__text">
         <p class="hook__n mono">03</p>
-        <h3 class="hook__t">No game plays out twice.</h3>
-        <p>A hundred cards, one of each. The game you play tonight will never happen again, and that's exactly the point.</p>
+        <h3 class="hook__t">Games don't play out the same way twice.</h3>
+        <p>With a hundred singletons you're always drawing something different. Half the fun is the card you forgot you put in the deck.</p>
         {{ quote(quotes.hopkins) }}
-        <a class="link-arrow hook__more" href="/learn/#playing">How a game unfolds <span aria-hidden="true">→</span></a>
+        <a class="link-arrow hook__more" href="/learn/#playing">What a game feels like <span aria-hidden="true">→</span></a>
       </div>
     </div>
 
@@ -118,10 +118,10 @@ pageClass: home
       </div>
       <div class="hook__text">
         <p class="hook__n mono">04</p>
-        <h3 class="hook__t">A deck you keep for years.</h3>
-        <p>Nothing rotates. Alpha sits next to last week's preview. The deck you build this winter is the one you'll still be tuning in five years.</p>
+        <h3 class="hook__t">Nothing ever rotates.</h3>
+        <p>Your Alpha Swords and last month's new cards go in the same deck. Build it once and you'll be tinkering with it for years.</p>
         {{ quote(quotes.salahub) }}
-        <a class="link-arrow hook__more" href="/story/">Where it all began <span aria-hidden="true">→</span></a>
+        <a class="link-arrow hook__more" href="/story/">How it all started <span aria-hidden="true">→</span></a>
       </div>
     </div>
 
@@ -131,10 +131,10 @@ pageClass: home
       </div>
       <div class="hook__text">
         <p class="hook__n mono">05</p>
-        <h3 class="hook__t">Just you, and them.</h3>
-        <p>One opponent. Twenty life. No commander, no politics, no waiting for a pod. And a tournament every weekend, if you want one.</p>
+        <h3 class="hook__t">It's one-on-one.</h3>
+        <p>Twenty life, one opponent, no commander and no table politics. There's a tournament on the Discord every Saturday and Sunday if you want one.</p>
         {{ quote(quotes.novelty) }}
-        <a class="link-arrow hook__more" href="/play/">Find this weekend's game <span aria-hidden="true">→</span></a>
+        <a class="link-arrow hook__more" href="/play/">Find a game <span aria-hidden="true">→</span></a>
       </div>
     </div>
 
@@ -144,10 +144,10 @@ pageClass: home
       </div>
       <div class="hook__text">
         <p class="hook__n mono">06</p>
-        <h3 class="hook__t">The biggest binder doesn't win.</h3>
-        <p>Everyone gets the same ten points, and a proxy costs exactly what a real Lotus does. (Timetwister, by the way, costs zero.)</p>
+        <h3 class="hook__t">Proxies are welcome.</h3>
+        <p>The online weeklies are proxy friendly, so you don't need a real Lotus to play one. Everyone works with the same ten points anyway. (Timetwister costs zero, which still surprises people.)</p>
         {{ quote(quotes.brewer) }}
-        <a class="link-arrow hook__more" href="/play/#proxies">Play tonight, for free <span aria-hidden="true">→</span></a>
+        <a class="link-arrow hook__more" href="/play/#proxies">Proxy rules and free ways to play <span aria-hidden="true">→</span></a>
       </div>
     </div>
 
@@ -161,10 +161,10 @@ pageClass: home
 <section class="section indexcard-section section--rule">
   <div class="wrap split">
     <div class="split__aside">
-      <p class="eyebrow">§ 2 &nbsp;The rules</p>
-      <h2 class="h2">The whole format fits on an index card.</h2>
-      <p>If you know how to play Magic, you're five rules away from playing Canlander. Everything interesting lives in the points list.</p>
-      <a class="link-arrow" href="/learn/#rules">The rules, in more detail <span aria-hidden="true">→</span></a>
+      <p class="eyebrow">The rules</p>
+      <h2 class="h2">The rules fit on an index card</h2>
+      <p>If you already play Magic, you can learn these in about five minutes. The points list is where it gets interesting.</p>
+      <a class="link-arrow" href="/learn/#rules">Full rules <span aria-hidden="true">→</span></a>
     </div>
     <div class="indexcard" role="group" aria-label="The rules of Canadian Highlander">
       <div class="indexcard__head">
@@ -174,7 +174,7 @@ pageClass: home
       <ol class="indexcard__list">
         <li><b>100 cards</b>, minimum. No maximum, but you'll want exactly 100.</li>
         <li><b>One copy of each card</b>, except basic lands and cards that say otherwise.</li>
-        <li><b>No sideboard.</b> One game, one deck, no companions.</li>
+        <li><b>No sideboard</b>, which also means no companions.</li>
         <li><b>Ten points</b> to spend on cards from the points list. Everything else is free.</li>
         <li><b>Banned:</b> the Vintage banned list, plus a few oddballs (stickers, Acorn, silver border, dexterity, sub-games).</li>
       </ol>
@@ -187,10 +187,10 @@ pageClass: home
   <div class="wrap">
     <div class="section__head section__head--split">
       <div>
-        <p class="eyebrow">§ 3 &nbsp;The price list</p>
-        <h2 class="h2">The seven most expensive cards in the format.</h2>
+        <p class="eyebrow">The points list</p>
+        <h2 class="h2">The most expensive cards in the format</h2>
       </div>
-      <p class="section__lede">{{ points.list.length }} cards cost points. These seven cost five or more, which means you can afford one of them and not much else. <a href="/build/#points">See all {{ points.list.length }}</a>, or check the <a href="{{ site.official.points }}">official list</a>.</p>
+      <p class="section__lede">{{ points.list.length }} cards cost points. These seven cost five or more, so if you take one, you've spent most of your budget. <a href="/build/#points">See all {{ points.list.length }}</a>, or check the <a href="{{ site.official.points }}">official list</a>.</p>
     </div>
     <div class="pricelist__row">
       {%- for c in points.list %}{% if c.points >= 5 %}
@@ -205,10 +205,10 @@ pageClass: home
   <div class="wrap">
     <div class="section__head section__head--split">
       <div>
-        <p class="eyebrow">§ 4 &nbsp;Decks to steal</p>
-        <h2 class="h2">Borrow a deck <em>tonight.</em></h2>
+        <p class="eyebrow">Decks</p>
+        <h2 class="h2">Decks to get you started</h2>
       </div>
-      <p class="section__lede">What the community is brewing right now. <a href="/decks/">See every deck</a>.</p>
+      <p class="section__lede">Lists people are playing right now, pulled from Moxfield. Play one a few times, then start making changes. <a href="/decks/">All decks</a></p>
     </div>
     <div class="carousel" data-carousel>
       <div class="carousel__track" data-track tabindex="0" aria-label="Deck carousel">
@@ -231,16 +231,16 @@ pageClass: home
       <span class="teaser__art" style="background-image:url('{{ "Tinker" | cardImg("art_crop") }}')" aria-hidden="true"></span>
       <span class="teaser__body">
         <span class="eyebrow">The story</span>
-        <span class="teaser__title">A comic shop in Victoria. A Tinker problem. <em>A very good idea.</em></span>
-        <span class="link-arrow">Read how it began <span aria-hidden="true">→</span></span>
+        <span class="teaser__title">How a group of friends in Victoria ended up writing a points list</span>
+        <span class="link-arrow">Read the story <span aria-hidden="true">→</span></span>
       </span>
     </a>
     <a class="teaser teaser--council" href="/council/">
       <span class="teaser__art" style="background-image:url('{{ "Mana Drain" | cardImg("art_crop") }}')" aria-hidden="true"></span>
       <span class="teaser__body">
         <span class="eyebrow">The council</span>
-        <span class="teaser__title">Seven volunteers decide what every card costs. <em>Meet them.</em></span>
-        <span class="link-arrow">The council <span aria-hidden="true">→</span></span>
+        <span class="teaser__title">Meet the seven people who decide what every card costs</span>
+        <span class="link-arrow">Meet the council <span aria-hidden="true">→</span></span>
       </span>
     </a>
   </div>
@@ -249,32 +249,32 @@ pageClass: home
 <section class="section section--rule">
   <div class="wrap">
     <div class="section__head">
-      <p class="eyebrow">§ 5 &nbsp;Your first week</p>
-      <h2 class="h2">From curious to your first match.</h2>
+      <p class="eyebrow">Getting started</p>
+      <h2 class="h2">Your first week</h2>
     </div>
     <ol class="steps">
       <li class="step">
         <span class="step__n">01</span>
         <h3 class="step__t">Read the rules</h3>
-        <p>Ten minutes. Then skim the points list so you know what costs what.</p>
+        <p>It takes ten minutes. Then skim the points list so you know what costs what.</p>
         <a class="link-arrow" href="/learn/">Learn <span aria-hidden="true">→</span></a>
       </li>
       <li class="step">
         <span class="step__n">02</span>
         <h3 class="step__t">Pick a deck</h3>
-        <p>Grab a list above or from a recent event. Choose the one whose game plan sounds fun, not the one that sounds strongest.</p>
+        <p>Grab one of the lists above. Go with whatever sounds fun to play.</p>
         <a class="link-arrow" href="/decks/">Decks <span aria-hidden="true">→</span></a>
       </li>
       <li class="step">
         <span class="step__n">03</span>
         <h3 class="step__t">Play this weekend</h3>
-        <p>Two Discord tournaments every Saturday and Sunday. Free to enter, proxies welcome.</p>
+        <p>The Discord runs a tournament every Saturday and Sunday. They're free, and proxies are fine.</p>
         <a class="link-arrow" href="/play/">Where to play <span aria-hidden="true">→</span></a>
       </li>
       <li class="step">
         <span class="step__n">04</span>
         <h3 class="step__t">Make it yours</h3>
-        <p>After ten games, swap the cards you were never happy to draw. That's when it starts to feel like your deck.</p>
+        <p>After a few games, cut the cards you were never happy to draw and try something else.</p>
         <a class="link-arrow" href="/build/">Build guide <span aria-hidden="true">→</span></a>
       </li>
     </ol>

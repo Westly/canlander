@@ -27,12 +27,12 @@ permalink: /build/
     how: "White creatures that each make the opponent's life harder: Thalia taxes spells, Aven Mindcensor blunts tutors and fetchlands, Strip Mine and Wasteland attack mana. Equipment turns small bodies into a clock.",
     pts: "Sol Ring and Mox Pearl to deploy threats early, plus Strip Mine, Urza's Saga, Ancient Tomb and White Plume Adventurer.",
     keys: "Thalia, Adeline, Aven Mindcensor, Stoneforge Mystic, Wasteland" },
-  { name: "Tempo & control", art: "Force of Will", tag: "Say no, then win",
+  { name: "Tempo & control", art: "Force of Will", tag: "Counter things, then win",
     how: "Counterspells, cheap card selection and a handful of threats that are hard to answer. Tempo decks get ahead and protect the lead. Control decks answer everything and win late. Blood Moon “Blue Moon” builds lock out greedy mana bases.",
     pts: "Ancestral Recall, Time Walk, Mana Drain, or Mox Sapphire with True-Name Nemesis and Tamiyo.",
     keys: "Force of Will, Counterspell, Brainstorm, Blood Moon, True-Name Nemesis" },
   { name: "Artifact combo", art: "Time Vault", tag: "Infinite turns, infinite mana",
-    how: "Time Vault plus Voltaic Key or Manifold Key takes every turn from here on. Tolarian Academy and Paradox Engine decks generate absurd mana from artifacts. Both are fragile and terrifying.",
+    how: "Time Vault plus Voltaic Key or Manifold Key takes every turn from here on. Tolarian Academy and Paradox Engine decks generate absurd mana from artifacts. Both are powerful but easy to disrupt.",
     pts: "The engine itself (Time Vault is 7, Tolarian Academy 2) and the fast mana or tutors to find it.",
     keys: "Time Vault, Voltaic Key, Paradox Engine, Urza's Saga, Mana Vault" },
   { name: "Graveyard & creature combo", art: "Griselbrand", tag: "Cheat the big thing out",
@@ -43,8 +43,8 @@ permalink: /build/
 <header class="page-head">
   <div class="wrap">
     <p class="eyebrow">Build</p>
-    <h1 class="page-head__title">How to build a <em>Canlander deck.</em></h1>
-    <p class="page-head__lede">Every Canlander list answers three questions: what do your ten points buy, how does the deck win, and how do you make a hundred singletons do the same thing every game?</p>
+    <h1 class="page-head__title">How to build a Canlander deck</h1>
+    <p class="page-head__lede">Building a deck mostly comes down to three things: what you spend your ten points on, how the deck wins, and how to get a hundred one-ofs to work together.</p>
   </div>
 </header>
 
@@ -64,7 +64,7 @@ permalink: /build/
     <section id="points" class="docs__section">
       <p class="docs__num mono">01</p>
       <h2>Spend your ten points</h2>
-      <p>Your points are your deck's thesis. Before you look at a single card, decide which of three things your deck needs most, because that's what points buy:</p>
+      <p>Before picking cards, think about what your deck needs most from its points. It's usually one of these:</p>
       <dl class="rules-table">
         <div><dt>Raw power</dt><dd>Cards that are simply better than anything else at their job. Black Lotus, Time Walk, Ancestral Recall, the Moxen, Mana Crypt.</dd></div>
         <div><dt>Consistency</dt><dd>Tutors that turn your deck into a smaller, more predictable one. Demonic, Vampiric, Mystical and Enlightened Tutor, Imperial Seal, Merchant Scroll.</dd></div>
@@ -83,12 +83,12 @@ permalink: /build/
         <div class="spend">
           <p class="spend__name">One bomb, then change</p>
           <p class="spend__math mono">Ancestral Recall 8 · Tamiyo 1 · Psychic Frog 1</p>
-          <p>The single best card-draw spell ever printed, plus two efficient threats. Or Time Walk at five with five one-pointers alongside it.</p>
+          <p>Probably the best draw spell ever printed, plus two cheap threats. You could also do Time Walk at five with five one-pointers.</p>
         </div>
         <div class="spend">
           <p class="spend__name">The engine and its tutors</p>
           <p class="spend__math mono">Flash 7 · Vampiric Tutor 2 · Imperial Seal 1</p>
-          <p>Flash Hulk pays for the combo piece and the two cheapest ways to find it. Nothing else matters if the engine shows up.</p>
+          <p>Flash Hulk spends almost everything on the combo piece and a couple of tutors to find it.</p>
         </div>
         <div class="spend">
           <p class="spend__name">Artifact acceleration</p>
@@ -98,13 +98,13 @@ permalink: /build/
         <div class="spend">
           <p class="spend__name">Spread the ones</p>
           <p class="spend__math mono">Sol Ring 3 · Mox Pearl 3 · Ancient Tomb · Urza's Saga · Strip Mine · White Plume Adventurer</p>
-          <p>Two fast-mana pieces, then four one-pointers that are each among the best cards a deck can play. More good draws, fewer games decided by a single card.</p>
+          <p>Two fast mana pieces and four strong one-pointers. You draw something good more often, and no single card decides the game.</p>
         </div>
       </div>
 
       <h3>Two questions to ask about every pointed card</h3>
       <p><b>What does it do when I draw it on turn six?</b> Black Lotus wins games on turn one and is a blank late. Moxen fade the same way. Tutors and card advantage stay good. Spend on the cards that are strong when your deck needs them.</p>
-      <p><b>Would I play it at zero?</b> If the answer is “only because it's famous,” skip it. The list is priced on what cards do in this format, not on their reputation. Timetwister is in the Power Nine and costs nothing. Ancestral Recall costs more than Black Lotus.</p>
+      <p><b>Would I play it if it cost zero?</b> If the only reason is that it's a famous card, skip it.</p>
       {{ quote(quotes.pay) }}
 
       <div class="sandbox" data-sandbox data-budget="{{ points.budget }}">
@@ -156,7 +156,7 @@ permalink: /build/
         </article>
         {%- endfor %}
       </div>
-      <p>Not sure which one is you? Play a game with three of them on Cockatrice. The one you keep thinking about afterwards is your deck.</p>
+      <p>Not sure which suits you? Try a few on Cockatrice and see which one you enjoy playing.</p>
     </section>
 
     <section id="mana" class="docs__section">
@@ -179,8 +179,8 @@ permalink: /build/
     <section id="hundred" class="docs__section">
       <p class="docs__num mono">04</p>
       <h2>Fill the hundred</h2>
-      <h3>Build in jobs, not cards</h3>
-      <p>You can't play four Lightning Bolts. You can play Lightning Bolt, Chain Lightning, Burst Lightning, Fireblast and Lava Dart. Singleton consistency comes from functional copies. List the jobs your deck needs done, then make sure each job has enough bodies that you'll draw one when it matters.</p>
+      <h3>Think in roles</h3>
+      <p>You can't play four Lightning Bolts, but you can play Lightning Bolt, Chain Lightning, Burst Lightning, Fireblast and Lava Dart. Work out the roles your deck needs (removal, card draw, threats and so on) and play enough cards in each role that you'll find one when you need it.</p>
       <div class="skeleton">
         <p class="skeleton__title mono">A starting skeleton for midrange</p>
         <table>
@@ -219,13 +219,13 @@ permalink: /build/
       <ul class="checklist">
         <li>Exactly 100 cards, one of each, basics excepted.</li>
         <li>Ten points or fewer on <a href="{{ site.official.points }}">today's list</a>.</li>
-        <li>Your points serve the plan, not the other way round.</li>
+        <li>Your points help your game plan.</li>
         <li>32–36 lands, adjusted for fast mana and curve.</li>
         <li>At least fourteen pieces of cheap interaction.</li>
         <li>A few basics, in case of Blood Moon.</li>
         <li>Every card is live against every deck.</li>
       </ul>
-      <p>Then go play. The deck will tell you what's wrong with it faster than any guide can.</p>
+      <p>Then go play some games. You'll learn more from ten games than from any guide.</p>
     </section>
 
   </article>

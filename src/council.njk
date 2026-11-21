@@ -8,8 +8,8 @@ permalink: /council/
 <header class="page-head">
   <div class="wrap">
     <p class="eyebrow">The Council</p>
-    <h1 class="page-head__title">Seven players. <em>One list.</em></h1>
-    <p class="page-head__lede">Every number on the points list is set by a vote of the Canadian Highlander Council: volunteers who play the format every week and publish every vote by name. Nobody pays them.</p>
+    <h1 class="page-head__title">The Council</h1>
+    <p class="page-head__lede">The points list is looked after by seven volunteers who all play the format. They vote on every change and publish how each of them voted. None of them get paid for it, so if you see them in the Discord, say thanks.</p>
   </div>
 </header>
 
@@ -27,7 +27,6 @@ permalink: /council/
       <div class="councillor__body">
         <p class="councillor__since mono">{{ m.since }}</p>
         <h2 class="councillor__name">{{ m.name }}{% if m.handle %} <span class="councillor__handle mono">{{ m.handle }}</span>{% endif %}</h2>
-        <p class="councillor__role">{{ m.role }}</p>
         <p class="councillor__bio">{{ m.bio }}</p>
         {%- if m.links.length %}
         <ul class="councillor__links">
@@ -44,12 +43,12 @@ permalink: /council/
   <div class="wrap split">
     <div class="split__aside">
       <p class="eyebrow">How it works</p>
-      <h2 class="h2">Every vote, <em>on the record.</em></h2>
+      <h2 class="h2">How points changes happen</h2>
     </div>
     <div class="prose">
-      <p>The council meets ahead of each points window, argues over the decks that are overperforming and the cards that could fix them, and votes. A change needs a majority. When it's announced, the write-up lists how every councillor voted, including on the cards that didn't move.</p>
-      <p>Then they ask the players. After each update the council runs a community survey and publishes the results. The next window is <b>{{ site.nextPointsUpdate | longDate }}</b>.</p>
-      <p>In January 2026 the council grew from five seats to seven to give the Discord and international community a vote: the first time the council reached beyond Victoria, where the format was born.</p>
+      <p>Before each update the council looks at which decks are doing too well and which cards are behind it, then votes. A change needs a majority. The announcement lists every councillor's vote, including votes on cards that didn't end up changing.</p>
+      <p>After each update they run a survey so players can say what they think, and they publish the results. The next update is <b>{{ site.nextPointsUpdate | longDate }}</b>.</p>
+      <p>In January 2026 the council grew from five seats to seven so the Discord and international players would have a vote. Until then every councillor had been from Victoria.</p>
       <p><a class="link-arrow" href="{{ site.official.articles }}">Read the council's write-ups <span aria-hidden="true">↗</span></a></p>
     </div>
   </div>
@@ -59,8 +58,8 @@ permalink: /council/
   <div class="wrap two-up">
     <div>
       <p class="eyebrow">With thanks</p>
-      <h2 class="h3">The people who started it.</h2>
-      <p>The official history credits these players, among others, with getting a Victoria pet-card format off the ground. They kept showing up, and the format outlived the kitchen table.</p>
+      <h2 class="h3">The people who started it</h2>
+      <p>The official history names these players, along with others, as the people who got the format going in Victoria.</p>
       <ul class="founders">
         {%- for f in council.founders %}<li>{{ f }}</li>{% endfor %}
       </ul>
@@ -68,7 +67,7 @@ permalink: /council/
     </div>
     <div>
       <p class="eyebrow">Past councillors</p>
-      <h2 class="h3">Thanks for your service.</h2>
+      <h2 class="h3">Thanks for everything</h2>
       <ul class="ledger">
         {%- for f in council.former %}
         <li class="ledger__row"><span class="ledger__date mono">{{ f.note }}</span><a class="ledger__title" href="{{ f.url }}">{{ f.name }} <span aria-hidden="true" class="ext">↗</span></a></li>

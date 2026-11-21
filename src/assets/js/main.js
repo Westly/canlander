@@ -155,7 +155,7 @@
       pips.forEach((p, i) => p.classList.toggle("is-spent", i < s));
       const picked = items.filter((b) => b.getAttribute("aria-pressed") === "true").map((b) => b.dataset.name);
       if (msg) status.innerHTML = msg;
-      else if (left === 0) status.innerHTML = "<b>0</b> left. That's a deck.";
+      else if (left === 0) status.innerHTML = "All ten spent. Nice.";
       else status.innerHTML = `<b>${left}</b> point${left === 1 ? "" : "s"} left`;
       next.hidden = left !== 0;
       vault.dataset.picked = picked.join(", ");
@@ -164,7 +164,7 @@
       const on = b.getAttribute("aria-pressed") === "true";
       if (!on && spent() + +b.dataset.pts > budget) {
         b.classList.remove("is-denied"); void b.offsetWidth; b.classList.add("is-denied");
-        render(`<b>${budget - spent()}</b> left. ${b.dataset.name} costs ${b.dataset.pts}.`);
+        render(`${b.dataset.name} costs ${b.dataset.pts}. You've got <b>${budget - spent()}</b> left.`);
         return;
       }
       b.setAttribute("aria-pressed", String(!on));

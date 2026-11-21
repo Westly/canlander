@@ -1,15 +1,15 @@
 ---
 layout: layouts/base.njk
 title: Play online
-description: Weekly Discord tournaments every Saturday and Sunday, monthly async leagues on webcam, Cockatrice and MTGO, and pickup games any hour. How Canadian Highlander is played online.
+description: "Where to play Canadian Highlander online: weekly Discord tournaments, monthly leagues on webcam, Cockatrice and MTGO, and pickup games."
 pageClass: play
 permalink: /play/
 ---
 <header class="page-head page-head--play">
   <div class="wrap">
     <p class="eyebrow">Play</p>
-    <h1 class="page-head__title">There's a game on <em>this weekend.</em></h1>
-    <p class="page-head__lede">More than {{ play.discordMembers }} players. Two tournaments every week, three leagues every month, and someone looking for a match right now. No store, no travel, no entry fee.</p>
+    <h1 class="page-head__title">Play Canlander online</h1>
+    <p class="page-head__lede">Most of the action happens in the Canadian Highlander Discord. It has over {{ play.discordMembers }} members, a tournament every Saturday and Sunday, monthly leagues, and people looking for games at most hours. It's free to join and free to play.</p>
     <div class="hero__actions">
       <a class="btn btn--brass" href="{{ site.discord }}">Join the Discord</a>
       <a class="link-arrow" href="#weeklies">See the schedule <span aria-hidden="true">↓</span></a>
@@ -21,10 +21,10 @@ permalink: /play/
   <div class="wrap">
     <div class="section__head section__head--split">
       <div>
-        <p class="eyebrow">§ 1 &nbsp;The weeklies</p>
-        <h2 class="h2">Two tournaments. <em>Every weekend.</em></h2>
+        <p class="eyebrow">Weekly tournaments</p>
+        <h2 class="h2">Every Saturday and Sunday</h2>
       </div>
-      <p class="section__lede">Three Swiss rounds, fifty minutes each, then a final. No decklist to submit. Show up at start time, sign in on the Discord, and play whatever you brought.</p>
+      <p class="section__lede">Both weeklies are three rounds of Swiss, fifty minutes a round, then a final. You don't submit a decklist, so you can show up with whatever you feel like playing that day.</p>
     </div>
 
     <div class="board">
@@ -48,10 +48,10 @@ permalink: /play/
     </div>
 
     <ol class="howto">
-      <li><span class="howto__n mono">01</span><div><h3>Join and say hi</h3><p>Hop into the <a href="{{ site.discord }}">Discord</a> and find the tournament channels. Sign-ups and pairings are posted there, along with the full event rules.</p></div></li>
-      <li><span class="howto__n mono">02</span><div><h3>Have your table ready</h3><p>Webcam events want a camera that can see your battlefield and a deck that's legal and sleeved. Cockatrice events want the free client installed and your list loaded.</p></div></li>
-      <li><span class="howto__n mono">03</span><div><h3>Play your rounds</h3><p>Message your opponent, start the clock, report the result. Fifty minutes goes faster than you think.</p></div></li>
-      <li><span class="howto__n mono">04</span><div><h3>Make the final</h3><p>The best records after three rounds play it out. Strong finishes over the year can earn an invitation to the year-end invitational.</p></div></li>
+      <li><span class="howto__n mono">01</span><div><h3>Join the Discord</h3><p>Sign-ups, pairings and the full event rules are all posted in the tournament channels on the <a href="{{ site.discord }}">Discord</a>.</p></div></li>
+      <li><span class="howto__n mono">02</span><div><h3>Get set up</h3><p>For webcam, you need a camera pointed at your play area. For Cockatrice, install the client and load your list before the start time.</p></div></li>
+      <li><span class="howto__n mono">03</span><div><h3>Play your rounds</h3><p>Message your opponent, play your match and report the result. Keep an eye on the clock, fifty minutes goes quickly.</p></div></li>
+      <li><span class="howto__n mono">04</span><div><h3>Top of the table</h3><p>The best records after three rounds play the final. Good finishes through the year can get you invited to the year-end invitational.</p></div></li>
     </ol>
   </div>
 </section>
@@ -60,10 +60,10 @@ permalink: /play/
   <div class="wrap">
     <div class="section__head section__head--split">
       <div>
-        <p class="eyebrow">§ 2 &nbsp;Async leagues</p>
-        <h2 class="h2">Can't do Saturday morning? <em>Play on your schedule.</em></h2>
+        <p class="eyebrow">Monthly leagues</p>
+        <h2 class="h2">Can't make the weekend?</h2>
       </div>
-      <p class="section__lede">Every month the Discord runs three asynchronous leagues. You get paired, you message your opponent, and the two of you play whenever suits you both before the round closes. Then the top eight play it out.</p>
+      <p class="section__lede">There are three async leagues each month. You get your pairings, sort out a time with your opponent, and play before the round closes. The top eight play off at the end of the month.</p>
     </div>
     <div class="leagues">
       {%- for l in play.leagues %}
@@ -76,16 +76,16 @@ permalink: /play/
       </article>
       {%- endfor %}
     </div>
-    <p class="glossnote"><b>Locked</b> means you play the list you registered all month. <b>Open</b> means anyone can see it; <b>closed</b> means only the organizers can.</p>
+    <p class="glossnote"><b>Locked</b> means you play the same list all month. <b>Open</b> lists are public, <b>closed</b> lists are only seen by the organizers.</p>
   </div>
 </section>
 
 <section class="section" id="pickup">
   <div class="wrap split">
     <div class="split__aside">
-      <p class="eyebrow">§ 3 &nbsp;Pickup games</p>
-      <h2 class="h2">Want a game <em>right now?</em></h2>
-      <p>Post in the looking-for-game channel with how you want to play: webcam, Cockatrice or MTGO. Someone is usually around, at most hours, in most time zones. Say if it's your first time. People will happily slow down, explain triggers, and tell you what that card you've never seen does.</p>
+      <p class="eyebrow">Pickup games</p>
+      <h2 class="h2">Just want a game?</h2>
+      <p>Post in the looking-for-game channel and say how you want to play (webcam, Cockatrice or MTGO). There's usually someone around. If it's your first time, mention it. People are happy to slow down and explain what their cards do.</p>
       <a class="btn btn--ghost" href="{{ site.discord }}">Find a match ↗</a>
     </div>
     <div class="lfg" aria-label="What to post when looking for a game">
@@ -103,8 +103,8 @@ permalink: /play/
 <section class="section section--rule" id="tables">
   <div class="wrap">
     <div class="section__head">
-      <p class="eyebrow">§ 4 &nbsp;Pick your table</p>
-      <h2 class="h2">Four ways to sit down.</h2>
+      <p class="eyebrow">Clients</p>
+      <h2 class="h2">Ways to play online</h2>
     </div>
     <div class="tables">
       {%- for t in play.clients %}
@@ -122,23 +122,23 @@ permalink: /play/
 <section class="section section--rule" id="proxies">
   <div class="wrap split">
     <div class="split__aside">
-      <p class="eyebrow">§ 5 &nbsp;Proxies</p>
-      <h2 class="h2">Nobody's checking <em>for a real Lotus.</em></h2>
+      <p class="eyebrow">Proxies</p>
+      <h2 class="h2">Proxy friendly</h2>
     </div>
     <div class="prose">
-      <p>The Discord's webcam tournaments are fully proxy-friendly. The only rules: a proxy has to show the card's full Oracle text, and it can't be something that could pass for a real card. A printout in a sleeve in front of a basic land is perfect.</p>
-      <p>In paper, it depends on the store. Yellowjacket Comics in Victoria, where the format was born, allows ten proxies per deck. Plenty of other stores allow more. Ask before you sleeve up.</p>
-      <p>Want a paper game near you? The community keeps a <a href="{{ site.official.home }}">worldwide list of regular events</a> linked from the official site, and the Discord has regional channels.</p>
+      <p>The Discord's webcam tournaments allow proxies. They need to show the card's full Oracle text and can't look like a real card. A printout sleeved in front of a basic land works fine.</p>
+      <p>In paper it depends on the store. Yellowjacket Comics in Victoria, where the format started, allows ten proxies per deck, and a lot of stores allow more. Check before the event.</p>
+      <p>Looking for paper games near you? There's a <a href="{{ site.official.home }}">list of regular events</a> linked from the official site, and the Discord has regional channels.</p>
     </div>
   </div>
 </section>
 
 <section class="section cta-band">
   <div class="wrap cta-band__inner">
-    <h2 class="h2">Saturday, 10 am Pacific. <em>Pull up a chair.</em></h2>
+    <h2 class="h2">The next weekly is Saturday at 10 am Pacific</h2>
     <div class="hero__actions">
       <a class="btn btn--brass" href="{{ site.discord }}">Join the Discord</a>
-      <a class="link-arrow" href="/decks/">Borrow a deck first <span aria-hidden="true">→</span></a>
+      <a class="link-arrow" href="/decks/">Need a deck? <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>

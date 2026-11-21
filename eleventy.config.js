@@ -71,15 +71,15 @@ export default function (eleventyConfig) {
       return `<a ${pre.replace(/\s?rel="[^"]*"/, "")}href="${href}"${post.replace(/\s?rel="[^"]*"/, "")} target="_blank" rel="noopener noreferrer">`;
     });
   });
-  // Deck rotation: a pinned (Saltboi) deck always leads, then two community
-  // decks for every pinned one, newest first within each group.
+  // Deck rotation: pinned (Saltboi) and community decks alternate, starting
+  // with a pinned one, so every row of the grid (2 or 3 wide) has a Saltboi deck.
   eleventyConfig.addFilter("rotation", (decks) => {
     const pinned = (decks || []).filter((d) => d.pinned);
     const community = (decks || []).filter((d) => !d.pinned);
     const out = [];
     while (pinned.length || community.length) {
       if (pinned.length) out.push(pinned.shift());
-      out.push(...community.splice(0, 2));
+      if (community.length) out.push(community.shift());
     }
     return out;
   });

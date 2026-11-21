@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 title: Decks
-description: Canadian Highlander decklists from Moxfield. What players are brewing right now, ready to copy.
+description: Canadian Highlander decklists from Moxfield to help you pick your first deck.
 pageClass: decks
 permalink: /decks/
 ---
@@ -9,8 +9,8 @@ permalink: /decks/
 <header class="page-head">
   <div class="wrap">
     <p class="eyebrow">Decks</p>
-    <h1 class="page-head__title">Steal a deck. <em>Make it yours.</em></h1>
-    <p class="page-head__lede">What people are brewing this month. Find one that looks like fun and have it on the table tonight.</p>
+    <h1 class="page-head__title">Decks to get you started</h1>
+    <p class="page-head__lede">Canadian Highlander lists people are playing and updating on Moxfield. Find one that looks fun, copy it, and give it a few games before you start changing things.</p>
   </div>
 </header>
 
@@ -28,30 +28,18 @@ permalink: /decks/
     </div>
   </div>
 
-  {%- set community = decks.decks | rejectattr("pinned") | list %}
-  {%- set pinned = decks.decks | selectattr("pinned") | list %}
   <div class="section__head section__head--row decks-all">
-    <h2 class="h3">Fresh from the community <span class="mono decks-count">{{ community.length }}</span></h2>
-    <p class="mono decks-snap">Updated {{ decks.snapshot | longDate }}</p>
+    <h2 class="h3">All decks <span class="mono decks-count">{{ decks.decks.length }}</span></h2>
+    <p class="mono decks-snap">Last refreshed {{ decks.snapshot | longDate }}</p>
   </div>
   <div class="deckgrid">
-    {%- for d in community %}{{ decktile(d, decks.authors) }}{% endfor %}
+    {%- for d in decks.decks | rotation %}{{ decktile(d, decks.authors) }}{% endfor %}
   </div>
-
-  {%- if pinned.length %}
-  <div class="section__head section__head--row decks-all">
-    <h2 class="h3">Saltboi's shelf <span class="mono decks-count">{{ pinned.length }}</span></h2>
-    <a class="link-arrow" href="{{ decks.authors.Saltboi.url }}">Saltboi on Moxfield <span aria-hidden="true">↗</span></a>
-  </div>
-  <div class="deckgrid">
-    {%- for d in pinned %}{{ decktile(d, decks.authors) }}{% endfor %}
-  </div>
-  {%- endif %}
 
   <aside class="suggest">
     <div>
-      <h2 class="h3">Want your deck in the rotation?</h2>
-      <p>Make it public on Moxfield, set the format to Canadian Highlander, and keep tuning it. Recently updated lists with more than {{ decks.rules.minViews }} views make the rotation.</p>
+      <h2 class="h3">Want your deck on here?</h2>
+      <p>Make it public on Moxfield with the format set to Canadian Highlander and keep working on it. When we refresh this page we pull in recently updated lists with more than {{ decks.rules.minViews }} views.</p>
     </div>
     <a class="btn btn--ghost" href="https://mtgdecks.net/Canadian-Highlander">Tournament results ↗</a>
   </aside>

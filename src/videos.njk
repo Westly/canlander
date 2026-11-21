@@ -1,0 +1,47 @@
+---
+layout: layouts/base.njk
+title: Videos
+description: Canadian Highlander videos to learn the format, watch people try it for the first time, and catch full matches from LoadingReadyRun's North 100.
+pageClass: videos
+permalink: /videos/
+---
+<header class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Videos</p>
+    <h1 class="page-head__title">Watch some Canlander</h1>
+    <p class="page-head__lede">A lot of people pick up the format by watching it first. These are some of the best videos we've found, from quick explainers to full matches.</p>
+    <nav class="vidnav" aria-label="Video sections">
+      {%- for sec in videos.sections %}<a href="#{{ sec.id }}">{{ sec.title }}</a>{% endfor %}
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  {%- for sec in videos.sections %}
+  <section class="vidsec" id="{{ sec.id }}">
+    <div class="section__head section__head--split">
+      <h2 class="h2">{{ sec.title }}</h2>
+      <p class="section__lede">{{ sec.blurb }}{% if sec.playlist %} <a href="{{ sec.playlist.url }}">{{ sec.playlist.label }}</a>{% endif %}</p>
+    </div>
+    <ul class="vidgrid">
+      {%- for v in sec.videos %}
+      <li>
+        <a class="vid" href="https://www.youtube.com/watch?v={{ v.id }}">
+          <span class="vid__thumb"><img src="https://i.ytimg.com/vi/{{ v.id }}/hqdefault.jpg" alt="" width="480" height="360" loading="lazy"><span class="vid__play" aria-hidden="true"></span></span>
+          <span class="vid__title">{{ v.title }}</span>
+          <span class="vid__channel mono">{{ v.channel }}</span>
+        </a>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endfor %}
+
+  <aside class="suggest">
+    <div>
+      <h2 class="h3">Know a video that should be here?</h2>
+      <p>Post it in the Discord and we'll take a look.</p>
+    </div>
+    <a class="btn btn--ghost" href="{{ site.discord }}">Discord ↗</a>
+  </aside>
+</div>

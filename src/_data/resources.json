@@ -4,7 +4,7 @@
     { "id": "community", "name": "Community", "blurb": "Where players hang out, find games, and argue about Wrenn and Six." },
     { "id": "learn", "name": "Reading", "blurb": "Primers and introductions worth your time." },
     { "id": "listen", "name": "Podcasts & Video", "blurb": "For the drive home from the game store." },
-    { "id": "decks", "name": "Decks & Results", "blurb": "What's winning, what's showing up, and lists to steal from." },
+    { "id": "decks", "name": "Decks & Results", "blurb": "What's winning, what people are playing, and lists to borrow." },
     { "id": "tools", "name": "Deckbuilding Tools", "blurb": "Builders that understand singleton and count your points for you." },
     { "id": "play", "name": "Play Online", "blurb": "No local scene yet? These get you a game tonight." }
   ],
@@ -83,7 +83,7 @@
       "name": "Introduction to Canadian Highlander",
       "url": "https://magic.wizards.com/en/news/feature/introduction-canadian-highlander-2016-05-17",
       "category": "learn",
-      "description": "Wizards of the Coast's 2016 feature that introduced a lot of players to the format. Points have changed since, the spirit hasn't."
+      "description": "Wizards of the Coast's 2016 feature that introduced a lot of players to the format. The points have changed since then, but it's still a good intro."
     },
     {
       "name": "Hipsters of the Coast Primer",
