@@ -1,0 +1,151 @@
+{
+  "categories": [
+    { "id": "official", "name": "Official", "blurb": "Where the rules and the points list actually live. When in doubt, these win." },
+    { "id": "community", "name": "Community", "blurb": "Where players hang out, find games, and argue about Wrenn and Six." },
+    { "id": "learn", "name": "Reading", "blurb": "Primers and introductions worth your time." },
+    { "id": "listen", "name": "Podcasts & Video", "blurb": "For the drive home from the game store." },
+    { "id": "decks", "name": "Decks & Results", "blurb": "What's winning, what's showing up, and lists to steal from." },
+    { "id": "tools", "name": "Deckbuilding Tools", "blurb": "Builders that understand singleton and count your points for you." },
+    { "id": "play", "name": "Play Online", "blurb": "No local scene yet? These get you a game tonight." }
+  ],
+  "items": [
+    {
+      "name": "canadianhighlander.ca",
+      "url": "https://canadianhighlander.ca/",
+      "category": "official",
+      "featured": true,
+      "description": "The format's home, run by the Canlander Council. Rules, history, and every points update announcement."
+    },
+    {
+      "name": "The Points List",
+      "url": "https://canadianhighlander.ca/points-list/",
+      "category": "official",
+      "featured": true,
+      "description": "The current list of pointed cards and their costs. Bookmark it. It changes a few times a year."
+    },
+    {
+      "name": "Rules & Format History",
+      "url": "https://canadianhighlander.ca/about/",
+      "category": "official",
+      "description": "Deck construction rules, the extra bans on top of Vintage, and how the format grew out of Victoria in 1999."
+    },
+    {
+      "name": "Council Articles",
+      "url": "https://canadianhighlander.ca/articles/",
+      "category": "official",
+      "description": "Points update announcements with the council's reasoning, plus survey reports."
+    },
+    {
+      "name": "Vintage Banned & Restricted List",
+      "url": "https://magic.wizards.com/en/banned-restricted-list",
+      "category": "official",
+      "description": "Canlander starts from the Vintage banned list. Restricted cards are fine (it's singleton anyway)."
+    },
+    {
+      "name": "Canadian Highlander Discord",
+      "url": "https://discord.gg/UtNxCXhSuP",
+      "category": "community",
+      "featured": true,
+      "description": "The main community server. Weekly Cockatrice and webcam events, deck help, points-update discussion."
+    },
+    {
+      "name": "Canadian Highlander Facebook Group",
+      "url": "https://www.facebook.com/groups/288447914624649",
+      "category": "community",
+      "description": "The long-running Facebook group. Good for local event posts and trades."
+    },
+    {
+      "name": "Canadian Highlander on YouTube",
+      "url": "https://www.youtube.com/channel/UCbdfxCOi0vvWXFqSHfrywvw",
+      "category": "listen",
+      "description": "The format's YouTube channel: gameplay and event coverage."
+    },
+    {
+      "name": "North 100",
+      "url": "https://podcasts.apple.com/podcast/id1281297790",
+      "category": "listen",
+      "featured": true,
+      "description": "LoadingReadyRun's Canlander podcast, running since 2017. Set reviews, deck techs, points-list talk."
+    },
+    {
+      "name": "What is Canadian Highlander? (LRR)",
+      "url": "https://www.youtube.com/watch?v=sLo76slMBAQ",
+      "category": "listen",
+      "description": "A short video explainer from LoadingReadyRun. Send it to the friend you're trying to recruit."
+    },
+    {
+      "name": "Introduction to Canadian Highlander",
+      "url": "https://magic.wizards.com/en/news/feature/introduction-canadian-highlander-2016-05-17",
+      "category": "learn",
+      "description": "Wizards of the Coast's 2016 feature that introduced a lot of players to the format. Points have changed since, the spirit hasn't."
+    },
+    {
+      "name": "Hipsters of the Coast Primer",
+      "url": "https://www.hipstersofthecoast.com/2020/01/introduction-to-canadian-highlander-guide-primer/",
+      "category": "learn",
+      "description": "A friendly primer with good advice on brewing and bringing the format to your playgroup."
+    },
+    {
+      "name": "Draftsim Format Guide",
+      "url": "https://draftsim.com/mtg-canadian-highlander/",
+      "category": "learn",
+      "description": "A thorough overview of rules, the points system, and common archetypes."
+    },
+    {
+      "name": "MTGDecks: Canadian Highlander",
+      "url": "https://mtgdecks.net/Canadian-Highlander",
+      "category": "decks",
+      "featured": true,
+      "description": "The biggest results archive: weeklies, store events, and majors, with metagame breakdowns."
+    },
+    {
+      "name": "MTGTop8: Canadian Highlander",
+      "url": "https://mtgtop8.com/format?f=CHL",
+      "category": "decks",
+      "description": "Long-running event archive with older results going back years."
+    },
+    {
+      "name": "Melee",
+      "url": "https://melee.gg/",
+      "category": "decks",
+      "description": "Many larger paper events register and publish standings and decklists here."
+    },
+    {
+      "name": "Moxfield",
+      "url": "https://www.moxfield.com/",
+      "category": "tools",
+      "featured": true,
+      "description": "Has Canadian Highlander as a format and shows your points total and legality as you build."
+    },
+    {
+      "name": "MTGGoldfish",
+      "url": "https://www.mtggoldfish.com/",
+      "category": "tools",
+      "description": "Deck editor supports Canadian Highlander and checks points automatically."
+    },
+    {
+      "name": "Scryfall",
+      "url": "https://scryfall.com/",
+      "category": "tools",
+      "description": "The best card search there is. You'll live here while brewing a 100-card singleton deck."
+    },
+    {
+      "name": "Cockatrice",
+      "url": "https://cockatrice.github.io/",
+      "category": "play",
+      "description": "Free, open-source client. The Discord's Cockatrice weekly runs here."
+    },
+    {
+      "name": "SpellTable",
+      "url": "https://spelltable.wizards.com/",
+      "category": "play",
+      "description": "Play with your real cards over webcam. Free from Wizards. Used for the Discord's webcam weekly."
+    },
+    {
+      "name": "Convoke",
+      "url": "https://convoke.games/",
+      "category": "play",
+      "description": "Another webcam platform for paper Magic, newer and growing."
+    }
+  ]
+}

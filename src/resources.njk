@@ -1,0 +1,55 @@
+---
+layout: layouts/base.njk
+title: Resources
+description: Discords, official sources, tournament results, decklists, podcasts, and tools for Canadian Highlander players.
+pageClass: resources
+permalink: /resources/
+---
+<header class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Resources</p>
+    <h1 class="page-head__title">The good links, <em>sorted.</em></h1>
+    <p class="page-head__lede">Official sources, community spaces, results archives, and the tools people actually use. Something missing or broken? <a href="{{ site.repo }}/issues/new?title=Resource%20suggestion">Tell us</a>.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="filter" role="toolbar" aria-label="Filter resources by category" data-filter hidden>
+    <button type="button" class="filter__btn" aria-pressed="true" data-filter-value="all">All <span class="mono">{{ resources.items.length }}</span></button>
+    {%- for cat in resources.categories %}
+    <button type="button" class="filter__btn" aria-pressed="false" data-filter-value="{{ cat.id }}">{{ cat.name }} <span class="mono">{{ (resources.items | byCategory(cat.id)).length }}</span></button>
+    {%- endfor %}
+  </div>
+
+  <div class="directory">
+    {%- for cat in resources.categories %}
+    {%- set items = resources.items | byCategory(cat.id) %}
+    <section class="directory__group" id="{{ cat.id }}" data-group="{{ cat.id }}">
+      <header class="directory__head">
+        <span class="directory__n mono">{{ loop.index | pad }}</span>
+        <h2 class="directory__title">{{ cat.name }}</h2>
+        <p class="directory__blurb">{{ cat.blurb }}</p>
+      </header>
+      <ul class="directory__list">
+        {%- for r in items %}
+        <li>
+          <a class="entry" href="{{ r.url }}" rel="noopener">
+            <span class="entry__name">{{ r.name }}{% if r.featured %} <span class="entry__star" title="Start here">Start here</span>{% endif %}</span>
+            <span class="entry__desc">{{ r.description }}</span>
+            <span class="entry__domain mono">{{ r.url | domain }} <span aria-hidden="true">↗</span></span>
+          </a>
+        </li>
+        {%- endfor %}
+      </ul>
+    </section>
+    {%- endfor %}
+  </div>
+
+  <aside class="suggest">
+    <div>
+      <h2 class="h3">Run an event, a podcast, or a deck site?</h2>
+      <p>We'd like to list it. Open an issue on GitHub, or edit <code>src/_data/resources.json</code> and send a pull request. One entry is four lines.</p>
+    </div>
+    <a class="btn btn--ghost" href="{{ site.repo }}/issues/new?title=Resource%20suggestion">Suggest a link</a>
+  </aside>
+</div>

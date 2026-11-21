@@ -1,0 +1,21 @@
+---
+layout: layouts/base.njk
+pageClass: post
+---
+<article class="post">
+  <header class="post__head wrap wrap--narrow">
+    <p class="eyebrow"><a href="/news/">News</a>{% if kind %} · {{ kind }}{% endif %}</p>
+    <h1 class="post__title">{{ title }}</h1>
+    {%- if dek %}<p class="post__dek">{{ dek }}</p>{% endif %}
+    <p class="post__meta mono"><time datetime="{{ page.date | isoDate }}">{{ page.date | longDate }}</time>{% if author %} · {{ author }}{% endif %}</p>
+  </header>
+  <div class="post__body prose wrap wrap--narrow">
+    {{ content | safe }}
+    {%- if source %}
+    <p class="source">Source: <a href="{{ source }}">{{ sourceLabel or (source | domain) }}</a></p>
+    {%- endif %}
+  </div>
+  <footer class="post__foot wrap wrap--narrow">
+    <a class="link-arrow" href="/news/"><span aria-hidden="true">←</span> All news</a>
+  </footer>
+</article>

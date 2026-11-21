@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://canlander.org/sitemap.xml

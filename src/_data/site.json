@@ -1,0 +1,16 @@
+{
+  "title": "Canlander",
+  "domain": "canlander.org",
+  "url": "https://canlander.org",
+  "description": "A plain-spoken guide to Canadian Highlander: the 100-card, one-of-each, ten-points-to-spend Magic: The Gathering format from Victoria, BC.",
+  "official": {
+    "home": "https://canadianhighlander.ca/",
+    "points": "https://canadianhighlander.ca/points-list/",
+    "rules": "https://canadianhighlander.ca/about/",
+    "articles": "https://canadianhighlander.ca/articles/",
+    "discord": "https://discord.gg/UtNxCXhSuP"
+  },
+  "repo": "https://github.com/Westly/canlander",
+  "nextPointsUpdate": "2026-12-01",
+  "nextPointsUpdateNote": "The council announces changes the day before they take effect."
+}

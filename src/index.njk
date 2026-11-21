@@ -1,0 +1,171 @@
+---
+layout: layouts/base.njk
+title: Canlander
+pageClass: home
+---
+{%- set hand = [
+  { name: "Lightning Bolt", type: "Instant", pts: 0, tone: "r" },
+  { name: "Counterspell", type: "Instant", pts: 0, tone: "u" },
+  { name: "Swords to Plowshares", type: "Instant", pts: 0, tone: "w" },
+  { name: "Sol Ring", type: "Artifact", pts: 3, tone: "a" },
+  { name: "Black Lotus", type: "Artifact", pts: 7, tone: "a" }
+] -%}
+<section class="hero">
+  <div class="hero__lamp" aria-hidden="true"></div>
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow">Canadian Highlander · since 1999, Victoria BC</p>
+      <h1 class="hero__title">Every card ever printed.<br>One copy of each.<br><em>Ten points</em> to spend.</h1>
+      <p class="hero__lede">Canlander is a 100-card singleton format for people who love old, powerful, and ridiculous Magic. Almost nothing is banned. Instead, the strongest cards cost points, and you only get ten.</p>
+      <div class="hero__actions">
+        <a class="btn btn--brass" href="/learn/">Learn the format</a>
+        <a class="link-arrow" href="{{ site.official.points }}">See the points list <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <figure class="hand" aria-label="Five example cards that add up to exactly ten points">
+      <div class="hand__fan">
+        {%- for c in hand %}
+        <div class="mcard mcard--{{ c.tone }}" style="--i:{{ loop.index0 }}">
+          <div class="mcard__top"><span class="mcard__badge{% if c.pts == 0 %} is-zero{% endif %}">{{ c.pts }}</span><span class="mcard__name">{{ c.name }}</span></div>
+          <div class="mcard__face">
+            <span class="mcard__pts{% if c.pts == 0 %} is-zero{% endif %}">{{ c.pts }}</span>
+            <span class="mcard__ptslabel">{{ "points" if c.pts != 1 else "point" }}</span>
+          </div>
+          <div class="mcard__type">{{ c.type }}</div>
+        </div>
+        {%- endfor %}
+      </div>
+      <figcaption class="hand__caption"><span class="mono">0 + 0 + 0 + 3 + 7 = 10</span> A legal hand. Lotus and Sol Ring use up the whole budget; the other ninety-eight cards have to be free.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <div class="ticker" data-countdown="{{ site.nextPointsUpdate }}">
+      <div class="ticker__cell">
+        <span class="ticker__k">Next points update</span>
+        <span class="ticker__v"><time datetime="{{ site.nextPointsUpdate }}">{{ site.nextPointsUpdate | longDate }}</time> <span class="ticker__count" data-countdown-out></span></span>
+      </div>
+      {%- set latest = collections.news[0] %}
+      {%- if latest %}
+      <div class="ticker__cell ticker__cell--wide">
+        <span class="ticker__k">Latest</span>
+        <a class="ticker__v" href="{{ latest.url }}">{{ latest.data.title }}</a>
+      </div>
+      {%- endif %}
+      <div class="ticker__cell">
+        <span class="ticker__k">Points budget</span>
+        <span class="ticker__v">10 per deck</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section indexcard-section">
+  <div class="wrap split">
+    <div class="split__aside">
+      <p class="eyebrow">§ 1 &nbsp;The rules</p>
+      <h2 class="h2">The whole format fits on an index card.</h2>
+      <p>That's not a figure of speech. If you've played Commander or built a cube, you already know most of it. The rest is one list of cards with numbers next to them.</p>
+      <a class="link-arrow" href="/learn/#rules">The rules, in more detail <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="indexcard" role="group" aria-label="The rules of Canadian Highlander">
+      <div class="indexcard__head">
+        <span>Canadian Highlander</span>
+        <span class="mono">Deck construction</span>
+      </div>
+      <ol class="indexcard__list">
+        <li><b>100 cards</b>, minimum. No maximum, but you'll want exactly 100.</li>
+        <li><b>One copy of each card</b>, except basic lands and cards that say otherwise.</li>
+        <li><b>No sideboard.</b> One game, one deck, no companions.</li>
+        <li><b>Ten points</b> to spend on cards from the points list. Everything else is free.</li>
+        <li><b>Banned:</b> the Vintage banned list, plus a few oddballs (stickers, Acorn, silver border, dexterity, sub-games).</li>
+      </ol>
+      <p class="indexcard__foot">Two players. Twenty life. Vintage card pool.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--felt">
+  <div class="wrap">
+    <div class="essay">
+      <p class="eyebrow">§ 2 &nbsp;Why people fall for it</p>
+      <h2 class="h2 essay__title">It plays like a cube draft where you picked every card.</h2>
+      <div class="essay__cols">
+        <p>Most competitive formats settle into a handful of decks that play out the same way every time. Canlander doesn't, because it can't: with only one copy of anything, you almost never draw the same opening twice. Your best card shows up some games and not others, so you build around ideas instead of specific cards.</p>
+        <p>The points list is what keeps it honest. Black Lotus is legal, but it eats seven of your ten points. You can have all five Moxen, or you can have Time Walk and a couple of tutors, but you can't have everything. Every deck is a short list of hard choices, and that's where the fun is.</p>
+        <p>It's also friendlier to newer players than its card pool suggests. A well-built deck with zero points can and does win events. Many local scenes and webcam leagues are proxy-friendly, so you can try the format before you've bought a single expensive card.</p>
+      </div>
+      <blockquote class="pull">
+        <p>Nothing is banned for being too good. It just costs more.</p>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">§ 3 &nbsp;Start here</p>
+      <h2 class="h2">Four steps from curious to sleeved up.</h2>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <span class="step__n">01</span>
+        <h3 class="step__t">Learn the rules</h3>
+        <p>Ten minutes, tops. Read the short version, then skim the points list.</p>
+        <a class="link-arrow" href="/learn/">Learn <span aria-hidden="true">→</span></a>
+      </li>
+      <li class="step">
+        <span class="step__n">02</span>
+        <h3 class="step__t">Borrow a decklist</h3>
+        <p>Copy a recent list from a weekly event and change it as you learn. Nobody minds.</p>
+        <a class="link-arrow" href="/resources/#decks">Find decks <span aria-hidden="true">→</span></a>
+      </li>
+      <li class="step">
+        <span class="step__n">03</span>
+        <h3 class="step__t">Find a game</h3>
+        <p>Weekly Cockatrice and webcam events run online. Ask your local store, too.</p>
+        <a class="link-arrow" href="/resources/#play">Play online <span aria-hidden="true">→</span></a>
+      </li>
+      <li class="step">
+        <span class="step__n">04</span>
+        <h3 class="step__t">Say hello</h3>
+        <p>The Discord is where points updates get argued about and newcomers get help.</p>
+        <a class="link-arrow" href="{{ site.official.discord }}">Join Discord <span aria-hidden="true">↗</span></a>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section section--rule">
+  <div class="wrap two-up">
+    <div>
+      <div class="section__head section__head--row">
+        <h2 class="h3">News</h2>
+        <a class="link-arrow" href="/news/">All news <span aria-hidden="true">→</span></a>
+      </div>
+      <ul class="ledger">
+        {%- for post in collections.news | limit(4) %}
+        <li class="ledger__row">
+          <time class="ledger__date mono" datetime="{{ post.date | isoDate }}">{{ post.date | shortDate }}</time>
+          <a class="ledger__title" href="{{ post.url }}">{{ post.data.title }}</a>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <div>
+      <div class="section__head section__head--row">
+        <h2 class="h3">Most useful links</h2>
+        <a class="link-arrow" href="/resources/">All resources <span aria-hidden="true">→</span></a>
+      </div>
+      <ul class="ledger">
+        {%- for r in resources.items | featured | limit(6) %}
+        <li class="ledger__row">
+          <span class="ledger__date mono">{{ r.url | domain }}</span>
+          <a class="ledger__title" href="{{ r.url }}" rel="noopener">{{ r.name }} <span aria-hidden="true" class="ext">↗</span></a>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </div>
+</section>

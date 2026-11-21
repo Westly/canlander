@@ -1,0 +1,168 @@
+---
+layout: layouts/base.njk
+title: Learn the format
+description: The rules of Canadian Highlander, how the points list works, and practical advice for building and playing your first 100-card singleton deck.
+pageClass: learn
+permalink: /learn/
+---
+{%- set toc = [
+  { id: "rules", n: "01", label: "The rules" },
+  { id: "points", n: "02", label: "How points work" },
+  { id: "playing", n: "03", label: "Playing a game" },
+  { id: "building", n: "04", label: "Your first deck" },
+  { id: "cards", n: "05", label: "Getting cards" },
+  { id: "glossary", n: "06", label: "Glossary" },
+  { id: "faq", n: "07", label: "Questions" }
+] -%}
+<header class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Learn</p>
+    <h1 class="page-head__title">Canadian Highlander, <em>from the beginning.</em></h1>
+    <p class="page-head__lede">Everything a new player needs, in the order you'll need it. Read the first two sections and you can sit down and play. The rest will make you better at it.</p>
+  </div>
+</header>
+
+<div class="wrap docs">
+  <aside class="docs__toc" aria-label="On this page">
+    <p class="eyebrow">On this page</p>
+    <ol>
+      {%- for t in toc %}
+      <li><a href="#{{ t.id }}"><span class="mono">{{ t.n }}</span> {{ t.label }}</a></li>
+      {%- endfor %}
+    </ol>
+    <a class="docs__official" href="{{ site.official.rules }}">Official rules <span aria-hidden="true">↗</span></a>
+  </aside>
+
+  <article class="docs__body prose">
+
+    <section id="rules" class="docs__section">
+      <p class="docs__num mono">01</p>
+      <h2>The rules</h2>
+      <p>Canadian Highlander (Canlander for short) is a two-player constructed format. You build a deck from nearly any Magic card ever printed, and you play it against one opponent, starting at 20 life, with normal Magic rules.</p>
+      <dl class="rules-table">
+        <div><dt>Deck size</dt><dd>At least 100 cards. There's no maximum, but almost everyone plays exactly 100.</dd></div>
+        <div><dt>Copies</dt><dd>One of each card. Basic lands, and cards that explicitly allow any number (like Relentless Rats), are the exceptions.</dd></div>
+        <div><dt>Sideboard</dt><dd>None. That also means companions don't work as companions.</dd></div>
+        <div><dt>Points</dt><dd>Your deck may contain no more than 10 points' worth of cards from the <a href="{{ site.official.points }}">points list</a>.</dd></div>
+        <div><dt>Banned</dt><dd>The <a href="https://magic.wizards.com/en/banned-restricted-list">Vintage banned list</a>, plus a handful of extra categories: ante cards, Conspiracies, cards with stickers or attractions, dexterity cards, Acorn and silver-bordered cards, sub-game cards, and cards Wizards has removed for racist depictions.</dd></div>
+        <div><dt>Restricted</dt><dd>Doesn't matter. Everything is one-of already.</dd></div>
+      </dl>
+      <p class="aside-note">The Canlander Council maintains the official rules at <a href="{{ site.official.rules }}">canadianhighlander.ca</a>. This page is a plain-English summary; theirs is the one that counts.</p>
+    </section>
+
+    <section id="points" class="docs__section">
+      <p class="docs__num mono">02</p>
+      <h2>How points work</h2>
+      <p>Most formats deal with overpowered cards by banning them. Canlander doesn't. Instead, a few dozen of the format's strongest cards have a point value, somewhere from 1 to 7 or more. Every other card in Magic is worth zero.</p>
+      <p>You get ten points per deck. You can spend them however you like: one huge card, a handful of small ones, or none at all. A deck with zero points is completely legal and often competitive.</p>
+      <p>The council revisits the list a few times a year. Cards get added when they start warping the format, get bumped up when they're still too strong, and occasionally come off the list when they've been tamed.</p>
+
+      <div class="sandbox" data-sandbox data-budget="{{ points.budget }}">
+        <div class="sandbox__head">
+          <div>
+            <p class="eyebrow">Try it</p>
+            <h3 class="sandbox__title">Spend ten points.</h3>
+          </div>
+          <p class="sandbox__asof mono">Sample values · {{ points.asOfLabel }}</p>
+        </div>
+        <div class="meter" aria-hidden="true">
+          {%- for i in range(0, points.budget) %}<span class="meter__pip"></span>{%- endfor %}
+        </div>
+        <p class="sandbox__status" aria-live="polite" data-status>Tap cards below to add them to your deck.</p>
+        <ul class="sandbox__cards">
+          {%- for c in points.sample %}
+          <li>
+            <button type="button" class="chip" data-pts="{{ c.points }}" data-name="{{ c.name }}" aria-pressed="false" title="{{ c.why }}">
+              <span class="chip__name">{{ c.name }}</span>
+              <span class="chip__pts mono">{{ c.points }}</span>
+            </button>
+          </li>
+          {%- endfor %}
+        </ul>
+        <div class="sandbox__foot">
+          <button type="button" class="link-btn" data-reset>Clear</button>
+          <a class="link-arrow" href="{{ site.official.points }}">Full, current list <span aria-hidden="true">↗</span></a>
+        </div>
+        <noscript><p class="aside-note">The sandbox needs JavaScript, but the numbers are above: Black Lotus 7, Sol Ring 3, and so on.</p></noscript>
+      </div>
+      <p class="aside-note">The sandbox uses a small sample of cards and may lag behind the newest update. Always check the <a href="{{ site.official.points }}">official list</a> before an event.</p>
+    </section>
+
+    <section id="playing" class="docs__section">
+      <p class="docs__num mono">03</p>
+      <h2>Playing a game</h2>
+      <p>Games are one-on-one, start at 20 life, and use the regular rules of Magic, including the usual mulligan. If you've played any constructed format, there's nothing new to learn at the table.</p>
+      <p>What does feel different is the rhythm. With a 100-card deck you'll see a fraction of your cards each game, so games are less scripted than in 60-card formats. Expect to win some games on the back of a card you didn't know you'd draw, and lose some to a card you forgot existed.</p>
+      <p>Event structure varies. Many online weeklies are single games (best-of-one); paper events are often best-of-three. Either way there's no sideboarding between games, so your main deck has to handle everything.</p>
+    </section>
+
+    <section id="building" class="docs__section">
+      <p class="docs__num mono">04</p>
+      <h2>Your first deck</h2>
+      <p>The easiest way in is to copy a recent decklist from an <a href="/resources/#decks">event result</a> and adjust it to your collection. If you'd rather build from scratch, here's what experienced players tend to say.</p>
+      <ol class="numbered">
+        <li><b>Pick a plan, not a card.</b> Aggro, midrange, control, or combo. Since you'll rarely draw any specific card, build around a strategy that lots of cards support.</li>
+        <li><b>Spend points on purpose.</b> A point should buy something your deck actually wants. Zero points spent well beats ten points spent on cards that don't fit.</li>
+        <li><b>Get consistency from redundancy.</b> You can't play four Lightning Bolts, but you can play eight cheap burn spells. Group cards by job and make sure each job has enough bodies.</li>
+        <li><b>Count mana sources, not just lands.</b> Plenty of decks land somewhere around 36 to 42 lands; aggressive decks and decks full of cheap mana rocks go lower. Treat that as a starting point, not a rule.</li>
+        <li><b>Play flexible answers.</b> No sideboard means narrow hate cards sit dead in your hand half the time. Removal that hits many card types earns its slot.</li>
+        <li><b>Play it, then cut.</b> Your first hundred will have a few duds. The cards you're never happy to draw are the ones to replace.</li>
+      </ol>
+    </section>
+
+    <section id="cards" class="docs__section">
+      <p class="docs__num mono">05</p>
+      <h2>Getting cards</h2>
+      <p>Yes, Black Lotus is legal. No, you don't need one. Pointed cards are capped at ten points per deck, so a deck's power comes mostly from its ninety-odd free cards, and plenty of those are cheap.</p>
+      <ul>
+        <li><b>Start online.</b> <a href="https://cockatrice.github.io/">Cockatrice</a> is free and has every card, so you can test a deck before buying anything.</li>
+        <li><b>Ask about proxies.</b> Many casual groups and webcam events allow them. Policies vary, so check with the organizer first.</li>
+        <li><b>Raid your Commander binder.</b> A lot of Commander staples are Canlander staples too. Just remember that some (Sol Ring, for one) cost points here.</li>
+      </ul>
+    </section>
+
+    <section id="glossary" class="docs__section">
+      <p class="docs__num mono">06</p>
+      <h2>Glossary</h2>
+      <dl class="glossary">
+        <div><dt>Canlander</dt><dd>Short for Canadian Highlander. You'll also see CanLander and CHL.</dd></div>
+        <div><dt>Highlander</dt><dd>Any singleton format, after the film tagline "there can be only one."</dd></div>
+        <div><dt>Points list</dt><dd>The official list of cards that cost points to include.</dd></div>
+        <div><dt>Pointed card</dt><dd>A card on the points list. "Is that pointed?" means "does it cost points?"</dd></div>
+        <div><dt>Zero-pointer</dt><dd>A deck that spends no points. Usually aggressive or midrange, and very much viable.</dd></div>
+        <div><dt>The Council</dt><dd>The volunteer group that maintains the points list and rules.</dd></div>
+        <div><dt>Power Nine</dt><dd>Black Lotus, the five Moxen, Ancestral Recall, Time Walk, and Timetwister. All legal here; most of them pointed.</dd></div>
+        <div><dt>Weekly</dt><dd>A recurring event, usually online over Cockatrice or webcam.</dd></div>
+        <div><dt>7-Point Highlander</dt><dd>Also called Australian Highlander. A different, 60-card format with its own list. Don't mix them up.</dd></div>
+      </dl>
+    </section>
+
+    <section id="faq" class="docs__section">
+      <p class="docs__num mono">07</p>
+      <h2>Questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Is Canlander an official Wizards of the Coast format?</summary>
+          <p>No. It's a fan-run format with its own council and points list. Wizards has written about it and hosted events for it, but doesn't maintain it.</p>
+        </details>
+        <details>
+          <summary>Can I turn my Commander deck into a Canlander deck?</summary>
+          <p>Often, yes. Drop the commander rules (any colours are fine), make sure it's 100 cards, then check it against the points list. Sol Ring, Mana Crypt, and the tutors add up fast.</p>
+        </details>
+        <details>
+          <summary>How often does the points list change?</summary>
+          <p>A few times a year, on a roughly quarterly schedule. The council announces changes the day before they take effect and explains its reasoning in an article. We post a summary in <a href="/news/">News</a>.</p>
+        </details>
+        <details>
+          <summary>Do I need expensive cards to win?</summary>
+          <p>No. Results archives are full of strong zero-point and low-point decks. Power helps, but the cap keeps it from deciding games on its own.</p>
+        </details>
+        <details>
+          <summary>Where do I find people to play with?</summary>
+          <p>The <a href="{{ site.official.discord }}">Canadian Highlander Discord</a> runs weekly online events and is the fastest way to find a game. See <a href="/resources/#play">Play Online</a> for clients.</p>
+        </details>
+      </div>
+    </section>
+
+  </article>
+</div>
