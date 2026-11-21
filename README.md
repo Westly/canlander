@@ -4,6 +4,8 @@ A beginner-friendly guide to **Canadian Highlander**, the 100-card singleton Mag
 
 The official rules and points list live at [canadianhighlander.ca](https://canadianhighlander.ca/). This site summarizes and links to them.
 
+**Updating the site (points, decks, news, publishing):** see [MAINTAINING.md](MAINTAINING.md). Helper scripts are in `tools/`.
+
 ---
 
 ## Preview the site on your computer
