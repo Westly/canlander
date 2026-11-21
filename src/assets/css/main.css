@@ -226,19 +226,19 @@ em { font-style: italic; }
 
 /* The hand of cards */
 .hand { margin: 0; display: flex; flex-direction: column; align-items: center; }
-.hand__fan { position: relative; width: 100%; max-width: 560px; height: 420px; }
+.hand__fan { position: relative; width: 100%; max-width: 560px; aspect-ratio: 5 / 4; }
 .hand__card {
-  --w: 200px;
+  --w: 34%;
   --off: calc(var(--i) - 2);
-  position: absolute; left: 50%; bottom: 26px; width: var(--w); margin-left: calc(var(--w) / -2);
+  position: absolute; left: 50%; bottom: 12%; width: var(--w); margin-left: calc(var(--w) / -2);
   transform-origin: 50% 125%;
-  transform: translateX(calc(var(--off) * 66px)) rotate(calc(var(--off) * 7deg)) translateY(calc(var(--off) * var(--off) * 5px));
+  transform: translateX(calc(var(--off) * 33%)) rotate(calc(var(--off) * 7deg)) translateY(calc(var(--off) * var(--off) * 2.5%));
   transition: transform .45s var(--ease);
   animation: deal .9s var(--ease) backwards;
   animation-delay: calc(var(--i) * 90ms + 120ms);
 }
-.hand__fan:hover .hand__card { transform: translateX(calc(var(--off) * 76px)) rotate(calc(var(--off) * 8deg)) translateY(calc(var(--off) * var(--off) * 5px)); }
-.hand__fan .hand__card:hover { transform: translateX(calc(var(--off) * 76px)) rotate(calc(var(--off) * 8deg)) translateY(-30px); z-index: 5; }
+.hand__fan:hover .hand__card { transform: translateX(calc(var(--off) * 38%)) rotate(calc(var(--off) * 8deg)) translateY(calc(var(--off) * var(--off) * 2.5%)); }
+.hand__fan .hand__card:hover { transform: translateX(calc(var(--off) * 38%)) rotate(calc(var(--off) * 8deg)) translateY(-14%); z-index: 5; }
 @keyframes deal { from { opacity: 0; transform: translateX(0) translateY(60px) rotate(0deg); } }
 .hand__caption { max-width: 380px; text-align: center; color: var(--parchment-3); font-size: .9rem; line-height: 1.5; }
 .hand__caption .mono { display: block; color: var(--brass); font-size: .82rem; margin-bottom: .35rem; letter-spacing: .04em; }
@@ -648,9 +648,7 @@ a.ticker__v:hover { color: var(--brass-hi); }
   .nav { display: none; }
   .menu-toggle { display: inline-block; }
   .masthead__inner { min-height: 64px; }
-  .hand__fan { height: 260px; }
-  .hand__card { --w: 118px; transform: translateX(calc(var(--off) * 36px)) rotate(calc(var(--off) * 8deg)) translateY(calc(var(--off) * var(--off) * 3px)); }
-  .hand__fan:hover .hand__card, .hand__fan .hand__card:hover { transform: translateX(calc(var(--off) * 36px)) rotate(calc(var(--off) * 8deg)) translateY(calc(var(--off) * var(--off) * 3px)); }
+  .hand__fan:hover .hand__card, .hand__fan .hand__card:hover { transform: translateX(calc(var(--off) * 33%)) rotate(calc(var(--off) * 7deg)) translateY(calc(var(--off) * var(--off) * 2.5%)); }
   .hand .mtg__pts { min-width: 28px; height: 28px; font-size: .95rem; top: -7px; right: -7px; }
   .ticker { grid-template-columns: 1fr; }
   .ticker__cell + .ticker__cell { padding-left: 0; border-left: 0; border-top: 1px solid var(--hair); }
