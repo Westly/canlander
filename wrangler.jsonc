@@ -8,5 +8,7 @@
     "directory": "./_site",
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
-  }
+  },
+  // Enables Cloudflare Worker Previews: every non-main branch gets its own preview URL.
+  "previews": {}
 }
