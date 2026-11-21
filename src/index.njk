@@ -5,14 +5,6 @@ seoTitle: "Canlander · Canadian Highlander, the 100-card Magic format"
 pageClass: home
 ---
 {%- from "partials/macros.njk" import mtgcard, quote, decktile -%}
-{%- set vault = [
-  { name: "Black Lotus", pts: 7 },
-  { name: "Ancestral Recall", pts: 8 },
-  { name: "Time Walk", pts: 5 },
-  { name: "Mox Sapphire", pts: 3 },
-  { name: "Mana Drain", pts: 1 },
-  { name: "Strip Mine", pts: 1 }
-] -%}
 <section class="hero">
   <div class="hero__lamp" aria-hidden="true"></div>
   <div class="wrap hero__grid">
@@ -25,25 +17,11 @@ pageClass: home
         <a class="link-arrow" href="/play/">Find a game this weekend <span aria-hidden="true">→</span></a>
       </div>
     </div>
-    <div class="vault" data-vault data-budget="10">
-      <div class="vault__head">
-        <p class="vault__title">Spend your ten points</p>
-        <p class="vault__sub">Tap a card to add it to your deck.</p>
-      </div>
-      <div class="vault__grid" role="group" aria-label="Pick cards, up to ten points">
-        {%- for c in vault %}
-        <button class="vault__item" type="button" aria-pressed="false" data-pts="{{ c.pts }}" data-name="{{ c.name }}" style="--i:{{ loop.index0 }}">
-          <span class="vault__tag" aria-hidden="true"><span>{{ c.pts }}</span></span>
-          {{ mtgcard(c.name, null, "normal", true) }}
-          <span class="visually-hidden">{{ c.name }}, {{ c.pts }} points</span>
-        </button>
-        {%- endfor %}
-      </div>
-      <div class="vault__wallet">
-        <div class="vault__meter" aria-hidden="true">{% for i in range(0, 10) %}<i></i>{% endfor %}</div>
-        <p class="vault__status" data-vault-status aria-live="polite"><b data-vault-left>10</b> points left</p>
-      </div>
-      <a class="vault__next link-arrow" href="/build/" data-vault-next hidden>Now for the other 90-odd cards <span aria-hidden="true">→</span></a>
+    <figure class="showcase" aria-label="Black Lotus, Time Walk and Mox Sapphire">
+      <div class="showcase__card showcase__card--back2">{{ mtgcard("Mox Sapphire", null, "normal", true) }}</div>
+      <div class="showcase__card showcase__card--back1">{{ mtgcard("Time Walk", null, "normal", true) }}</div>
+      <div class="showcase__card showcase__card--front">{{ mtgcard("Black Lotus", null, "normal", true) }}</div>
+    </figure>
     </div>
   </div>
 

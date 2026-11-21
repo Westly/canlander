@@ -141,37 +141,6 @@
     });
   }
 
-  /* Hero vault: spend up to ten points */
-  const vault = $("[data-vault]");
-  if (vault) {
-    const budget = +vault.dataset.budget || 10;
-    const items = $$(".vault__item", vault);
-    const pips = $$(".vault__meter i", vault);
-    const status = $("[data-vault-status]", vault);
-    const next = $("[data-vault-next]", vault);
-    const spent = () => items.filter((b) => b.getAttribute("aria-pressed") === "true").reduce((n, b) => n + +b.dataset.pts, 0);
-    const render = (msg) => {
-      const s = spent(), left = budget - s;
-      pips.forEach((p, i) => p.classList.toggle("is-spent", i < s));
-      const picked = items.filter((b) => b.getAttribute("aria-pressed") === "true").map((b) => b.dataset.name);
-      if (msg) status.innerHTML = msg;
-      else if (left === 0) status.innerHTML = "All ten spent. Nice.";
-      else status.innerHTML = `<b>${left}</b> point${left === 1 ? "" : "s"} left`;
-      next.hidden = left !== 0;
-      vault.dataset.picked = picked.join(", ");
-    };
-    items.forEach((b) => b.addEventListener("click", () => {
-      const on = b.getAttribute("aria-pressed") === "true";
-      if (!on && spent() + +b.dataset.pts > budget) {
-        b.classList.remove("is-denied"); void b.offsetWidth; b.classList.add("is-denied");
-        render(`${b.dataset.name} costs ${b.dataset.pts}. You've got <b>${budget - spent()}</b> left.`);
-        return;
-      }
-      b.setAttribute("aria-pressed", String(!on));
-      render();
-    }));
-  }
-
   /* Weekly events: show the start time in the reader's own time zone */
   const weeklies = $$("[data-weekly]");
   if (weeklies.length && window.Intl) {
