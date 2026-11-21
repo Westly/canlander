@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {%- set pageTitle = seoTitle or ((title + " · " + site.title) if title and title != site.title else site.title + " · Canadian Highlander, the 100-card Magic format") %}
   {%- set pageDesc = description or site.description %}
-  {%- set isPost = page.inputPath and "/news/" in page.inputPath and page.fileSlug != "news" %}
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDesc }}">
   {%- if noindex %}
@@ -17,7 +16,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="{{ pageTitle }}">
   <meta property="og:description" content="{{ pageDesc }}">
-  <meta property="og:type" content="{{ 'article' if isPost else 'website' }}">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:image" content="{{ site.url }}/assets/og.jpg">
   <meta property="og:image:width" content="1200">
@@ -44,23 +43,9 @@
     "about": { "@type": "Game", "name": "Canadian Highlander", "alternateName": "Canlander", "description": "A 100-card singleton Magic: The Gathering format with a ten-point points list, created in Victoria, BC." }
   } | json | safe }}</script>
   {%- endif %}
-  {%- if isPost %}
-  <script type="application/ld+json">{{ {
-    "@context": "https://schema.org",
-    "@type": "NewsArticle",
-    "headline": title,
-    "description": pageDesc,
-    "datePublished": page.date | isoDate,
-    "mainEntityOfPage": site.url + page.url,
-    "image": site.url + "/assets/og.jpg",
-    "author": { "@type": "Organization", "name": "Canlander", "url": site.url + "/" },
-    "publisher": { "@type": "Organization", "name": "Canlander", "url": site.url + "/", "logo": { "@type": "ImageObject", "url": site.url + "/apple-touch-icon.png" } }
-  } | json | safe }}</script>
-  {%- endif %}
   <link rel="preload" href="/assets/fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="alternate" type="application/atom+xml" title="Canlander news" href="/feed.xml">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="page-{{ pageClass or 'default' }}">

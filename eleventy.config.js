@@ -21,7 +21,6 @@ export default function (eleventyConfig) {
     }
     return [...groups.entries()].sort((a, b) => b[0] - a[0]).map(([points, cards]) => ({ points, cards }));
   });
-  eleventyConfig.addFilter("firstOfKind", (posts, kind) => (posts || []).find((p) => p.data.kind === kind) || (posts || [])[0]);
   eleventyConfig.addFilter("pips", (colors) => String(colors || "").split(""));
   eleventyConfig.addFilter("relDate", (d) => {
     const dt = new Date(d);
@@ -30,11 +29,6 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/static": "/" });
-
-  // News collection, newest first
-  eleventyConfig.addCollection("news", (api) =>
-    api.getFilteredByGlob("src/news/*.md").sort((a, b) => b.date - a.date)
-  );
 
   // Dates
   const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -61,6 +55,11 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("limit", (arr, n) => (arr || []).slice(0, n));
   eleventyConfig.addFilter("byCategory", (items, cat) => items.filter((i) => i.category === cat));
   eleventyConfig.addFilter("featured", (items) => items.filter((i) => i.featured));
+  // Home page links: skip official/community (they're in "From the council"), featured first.
+  eleventyConfig.addFilter("usefulLinks", (items, n = 4) => {
+    const pool = (items || []).filter((i) => !["official", "community"].includes(i.category));
+    return [...pool.filter((i) => i.featured), ...pool.filter((i) => !i.featured)].slice(0, n);
+  });
   eleventyConfig.addFilter("json", (v) => JSON.stringify(v));
 
   // Every link that leaves the site opens in a new tab.

@@ -31,10 +31,9 @@ pageClass: home
         <span class="ticker__k">Next points update</span>
         <span class="ticker__v"><time datetime="{{ site.nextPointsUpdate }}">{{ site.nextPointsUpdate | longDate }}</time> <span class="ticker__count" data-countdown-out></span> <span class="ext" aria-hidden="true">↗</span></span>
       </a>
-      {%- set latestPoints = collections.news | firstOfKind("Points update") %}
-      <a class="ticker__cell ticker__cell--wide" href="{{ latestPoints.url }}">
+      <a class="ticker__cell ticker__cell--wide" href="{{ site.official.articles }}">
         <span class="ticker__k">Latest points change</span>
-        <span class="ticker__v">{{ latestPoints.data.title }}</span>
+        <span class="ticker__v">The {{ points.asOfLabel }}, explained by the council <span class="ext" aria-hidden="true">↗</span></span>
       </a>
       <a class="ticker__cell" href="{{ site.official.points }}">
         <span class="ticker__k">Official points list</span>
@@ -264,14 +263,19 @@ pageClass: home
   <div class="wrap two-up">
     <div>
       <div class="section__head section__head--row">
-        <h2 class="h3">News</h2>
-        <a class="link-arrow" href="/news/">All news <span aria-hidden="true">→</span></a>
+        <h2 class="h3">From the council</h2>
+        <a class="link-arrow" href="{{ site.official.home }}">canadianhighlander.ca <span aria-hidden="true" class="ext">↗</span></a>
       </div>
       <ul class="ledger">
-        {%- for post in collections.news | limit(4) %}
+        {%- for l in [
+          { k: "Points list", t: "The official list, " + points.asOfLabel, u: site.official.points },
+          { k: "Announcements", t: "Points changes and the reasoning behind them", u: site.official.articles },
+          { k: "Rules", t: "Deck construction and the ten-point budget", u: site.official.rules },
+          { k: "Community", t: "The Canadian Highlander Discord", u: site.discord }
+        ] %}
         <li class="ledger__row">
-          <time class="ledger__date mono" datetime="{{ post.date | isoDate }}">{{ post.date | shortDate }}</time>
-          <a class="ledger__title" href="{{ post.url }}">{{ post.data.title }}</a>
+          <span class="ledger__date mono">{{ l.k }}</span>
+          <a class="ledger__title" href="{{ l.u }}">{{ l.t }} <span aria-hidden="true" class="ext">↗</span></a>
         </li>
         {%- endfor %}
       </ul>
@@ -282,7 +286,7 @@ pageClass: home
         <a class="link-arrow" href="/resources/">All resources <span aria-hidden="true">→</span></a>
       </div>
       <ul class="ledger">
-        {%- for r in resources.items | featured | limit(6) %}
+        {%- for r in resources.items | usefulLinks(4) %}
         <li class="ledger__row">
           <span class="ledger__date mono">{{ r.url | domain }}</span>
           <a class="ledger__title" href="{{ r.url }}" rel="noopener">{{ r.name }} <span aria-hidden="true" class="ext">↗</span></a>

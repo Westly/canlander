@@ -40,6 +40,8 @@ The push tab needs a fine-grained GitHub token with **Contents: read and write o
 
 ## 2. Make the change
 
+The site has no news section, and Westly doesn't want one. Point people to the council's articles on canadianhighlander.ca instead. The home page ticker and the "From the council" links update themselves from `points.json` and `site.json`.
+
 ### A. Points update (quarterly; next one is 2026-12-01)
 
 The council posts its changes on canadianhighlander.ca the day before they take effect.
@@ -54,12 +56,7 @@ The council posts its changes on canadianhighlander.ca the day before they take 
    - Run `await firstPrinting(["New Card", ...])` in the push tab and paste the lines it returns.
    - **Always use the card's first printing.** Universes Beyond art is fine when it's the first or only printing. Skip promos, except where the promo is the true first printing (Mana Crypt).
 5. Search the pages for hard-coded mentions of the changed cards: `grep -rn "Card Name" src --include=*.njk --include=*.json`. Fix any copy that quotes the old value.
-6. Write a news post: `src/news/YYYY-MM-DD-season-year-points-update.md`.
-   - Copy the front matter from the last points post (`title`, `dek`, `kind: Points update`, `date`, `source`, `sourceLabel`).
-   - Include a `change-table` of before and after values.
-   - Add a short, upbeat "What it means if you're new" section.
-   - End with the next update date.
-7. Re-run the deck spend. Either do a full refresh (B below) or run `npm run decks` on the existing snapshot, so every deck's spend uses the new points.
+6. Re-run the deck spend. Either do a full refresh (B below) or run `npm run decks` on the existing snapshot, so every deck's spend uses the new points.
 
 ### B. Refresh the deck pool
 
@@ -80,7 +77,6 @@ Never call Moxfield's API directly, and never use Westly's browser cookies or se
 | Council members | `src/_data/council.json` |
 | Places to play | `src/_data/play.json` |
 | Quotes | `src/_data/quotes.json` |
-| News | `src/news/*.md` |
 | Page copy | `src/*.njk` |
 
 Suggestions from visitors arrive as GitHub issues on the repo.

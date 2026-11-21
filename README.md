@@ -4,7 +4,7 @@ A beginner-friendly guide to **Canadian Highlander**, the 100-card singleton Mag
 
 The official rules and points list live at [canadianhighlander.ca](https://canadianhighlander.ca/). This site summarizes and links to them.
 
-**Updating the site (points, decks, news, publishing):** see [MAINTAINING.md](MAINTAINING.md). Helper scripts are in `tools/`.
+**Updating the site (points, decks, publishing):** see [MAINTAINING.md](MAINTAINING.md). Helper scripts are in `tools/`.
 
 ---
 
@@ -56,23 +56,6 @@ Edit `src/_data/resources.json`. Each link is one block:
 Categories: `official`, `community`, `learn`, `listen`, `decks`, `tools`, `play`.
 `"featured": true` adds a "Start here" tag and puts it on the home page.
 
-### Write a news post
-
-Add a Markdown file to `src/news/`, named `YYYY-MM-DD-short-title.md`:
-
-```markdown
----
-title: "Headline"
-dek: One-sentence summary shown in lists.
-kind: Points update
-date: 2026-12-01
-source: https://canadianhighlander.ca/...
-sourceLabel: "Canlander Council: Winter 2026 Points Update"
----
-
-Your post, in Markdown.
-```
-
 ### Card images
 
 Card images are hotlinked from Scryfall. Each card the site shows has an entry in `src/_data/cards.json` (name → Scryfall id, set, artist). To add a card, look it up on scryfall.com, copy the id from the card's API link, and add a line.
@@ -97,7 +80,6 @@ Settings (pinned authors, minimum views, how many decks) are at the top of the s
 
 1. Change `nextPointsUpdate` in `src/_data/site.json` (drives the home-page countdown).
 2. Update the list and `asOf` / `asOfLabel` in `src/_data/points.json` (drives the price list, the Build page grid and the sandbox). Add any newly pointed card to `cards.json`.
-3. Write a short news post linking to the council's announcement.
 
 ## Project layout
 
@@ -106,7 +88,6 @@ src/
   _data/          site settings, resources, points sample
   _includes/      page layouts, header and footer
   assets/         CSS, JavaScript, self-hosted fonts
-  news/           news posts (Markdown)
   static/         favicon, robots.txt, Cloudflare _headers
   index.njk       home page
   learn.njk       Learn page
