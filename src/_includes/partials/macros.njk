@@ -1,7 +1,12 @@
 {#- A real Magic card from Scryfall, with an optional points badge. -#}
 {% macro mtgcard(name, pts=null, size="normal", eager=false, cls="") -%}
-<figure class="mtg {{ cls }}">
+{%- set meta = name | cardMeta %}
+<figure class="mtg {{ cls }}{% if meta.ub %} mtg--text{% endif %}">
+  {%- if meta.ub %}
+  <span class="mtg__text" role="img" aria-label="{{ name }}"><span>{{ name }}</span></span>
+  {%- else %}
   <img src="{{ name | cardImg(size) }}" alt="{{ name }}" width="488" height="680" {% if not eager %}loading="lazy" {% endif %}decoding="async">
+  {%- endif %}
   {%- if pts !== null %}<span class="mtg__pts{% if pts == 0 %} is-zero{% endif %}" aria-label="{{ pts }} points">{{ pts }}</span>{% endif %}
 </figure>
 {%- endmacro %}
@@ -23,7 +28,7 @@
 {% macro decktile(d, authors) -%}
 {%- set au = authors[d.author] -%}
 <a class="deck{% if d.pinned %} deck--pinned{% endif %}" href="{{ d.url }}">
-  <span class="deck__art" style="background-image:url('{{ d.cover }}')"></span>
+  <span class="deck__art" style="background-image:url('{{ d.coverCard | cardImg("art_crop") }}')"></span>
   <span class="deck__body">
     <span class="deck__top">
       <span class="deck__arch">{{ d.archetype }}</span>

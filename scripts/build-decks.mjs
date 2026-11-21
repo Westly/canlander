@@ -8,6 +8,7 @@
 // • Colours come from the mana symbols on the deck page (2+ pips of a colour).
 // • Archetype, colours or a display name can be fixed by hand in
 //   scripts/deck-overrides.json:  { "<deck id>": { "archetype": "Tempo" } }
+//   (also "coverCard": any card name in src/_data/cards.json)
 //   Hand edits already in decks.json are kept for decks that are still there.
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 
@@ -21,6 +22,24 @@ const prevFile = read("src/_data/decks.json", { decks: [], authors: {} });
 const previous = Object.fromEntries((prevFile.decks || []).map((d) => [d.id, d]));
 previous.__authors = prevFile.authors || {};
 const overrides = read("scripts/deck-overrides.json", {});
+// Deck tiles use Scryfall art from src/_data/cards.json (never Moxfield covers),
+// so we control exactly which printings appear. Universes Beyond cards are skipped.
+const CARDS = read("src/_data/cards.json", {});
+const artOk = (name) => CARDS[name] && !CARDS[name].ub;
+const ARCHETYPE_ART = {
+  "Death & Taxes": "Thalia, Guardian of Thraben", "Aggro-prison": "Thalia, Guardian of Thraben",
+  Aggro: "Ragavan, Nimble Pilferer", Tempo: "Force of Will", Control: "Force of Will",
+  Combo: "Time Vault", "Artifact combo": "Time Vault", Artifacts: "Paradox Engine", "Artifact aggro": "Paradox Engine",
+  Reanimator: "Griselbrand", "Creature combo": "Natural Order", Ramp: "Natural Order",
+  Blink: "Snapcaster Mage", Midrange: "Fable of the Mirror-Breaker",
+};
+const usedCovers = new Set();
+const pickCover = (pointed, archetype) => {
+  const options = pointed.filter(artOk);
+  const pick = options.find((c) => !usedCovers.has(c)) || options[0] || ARCHETYPE_ART[archetype] || "Fable of the Mirror-Breaker";
+  usedCovers.add(pick);
+  return pick;
+};
 const snapshot = raw.snapshot;
 
 const cleanName = (name) => {
@@ -76,7 +95,8 @@ const decks = raw.decks.map((d) => {
     // Page didn't render during the snapshot: keep what we had, if anything.
     if (!prev.id) { console.warn(`  skipped ${d.id} (no data)`); return null; }
     if (!authors[d.author] && previous.__authors?.[d.author]) authors[d.author] = previous.__authors[d.author];
-    return { ...prev, views: d.views ?? prev.views, cover: d.cover || prev.cover, pinned: !!d.pinned };
+    const { cover, ...rest } = prev;
+    return { ...rest, views: d.views ?? prev.views, coverCard: artOk(prev.coverCard) ? prev.coverCard : pickCover([], prev.archetype), pinned: !!d.pinned };
   }
   const pointed = (d.cards || []).filter((c) => points[c]).sort((a, b) => points[b] - points[a] || a.localeCompare(b));
   const sum = pointed.reduce((s, c) => s + points[c], 0);
@@ -91,13 +111,14 @@ const decks = raw.decks.map((d) => {
     };
   }
   const name = fix.name || cleanName(d.name);
+  const archetype = fix.archetype || prev.archetype || archetypeFor(name, d.cards);
   return {
     id: d.id,
     url: d.url || `https://moxfield.com/decks/${d.id}`,
     name,
     colors: fix.colors || (d.pips && Object.keys(d.pips).length ? colorsFrom(d.pips) : prev.colors) || "C",
-    archetype: fix.archetype || prev.archetype || archetypeFor(name, d.cards),
-    cover: d.cover || prev.cover,
+    archetype,
+    coverCard: fix.coverCard && artOk(fix.coverCard) ? fix.coverCard : pickCover(pointed, archetype),
     points: total,
     spend: spend.join(" · ") || "No pointed cards",
     lands: Number.isFinite(d.lands) ? d.lands : prev.lands,
