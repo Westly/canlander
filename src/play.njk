@@ -2,7 +2,7 @@
 layout: layouts/base.njk
 title: Play online
 seoTitle: "Play Canadian Highlander online · Canlander"
-description: "Where to play Canadian Highlander online: weekly Discord tournaments, monthly leagues on webcam, Cockatrice and MTGO, and pickup games."
+description: "Where to play Canadian Highlander online: weekly Discord tournaments, monthly leagues over Discord video and Cockatrice, and pickup games."
 pageClass: play
 permalink: /play/
 ---
@@ -50,7 +50,7 @@ permalink: /play/
 
     <ol class="howto">
       <li><span class="howto__n mono">01</span><div><h3>Join the Discord</h3><p>Sign-ups, pairings and the full event rules are all posted in the tournament channels on the <a href="{{ site.discord }}">Discord</a>.</p></div></li>
-      <li><span class="howto__n mono">02</span><div><h3>Get set up</h3><p>For webcam, you need a camera pointed at your play area. For Cockatrice, install the client and load your list before the start time.</p></div></li>
+      <li><span class="howto__n mono">02</span><div><h3>Get set up</h3><p>Webcam games run over Discord's own video, so all you need is a camera pointed at your play area. For Cockatrice, install the client and load your list before the start time.</p></div></li>
       <li><span class="howto__n mono">03</span><div><h3>Play your rounds</h3><p>Message your opponent, play your match and report the result. Keep an eye on the clock, fifty minutes goes quickly.</p></div></li>
       <li><span class="howto__n mono">04</span><div><h3>Top of the table</h3><p>The best records after three rounds play the final. Good finishes through the year can get you invited to the year-end invitational.</p></div></li>
     </ol>
@@ -64,7 +64,7 @@ permalink: /play/
         <p class="eyebrow">Monthly leagues</p>
         <h2 class="h2">Can't make the weekend?</h2>
       </div>
-      <p class="section__lede">There are three async leagues each month. You get your pairings, sort out a time with your opponent, and play before the round closes. The top eight play off at the end of the month.</p>
+      <p class="section__lede">There are two async leagues each month. You get your pairings, sort out a time with your opponent, and play before the round closes. The top eight play off at the end of the month.</p>
     </div>
     <div class="leagues">
       {%- for l in play.leagues %}
@@ -86,14 +86,14 @@ permalink: /play/
     <div class="split__aside">
       <p class="eyebrow">Pickup games</p>
       <h2 class="h2">Just want a game?</h2>
-      <p>Post in the looking-for-game channel and say how you want to play (webcam, Cockatrice or MTGO). There's usually someone around. If it's your first time, mention it. People are happy to slow down and explain what their cards do.</p>
+      <p>Post in the looking-for-game channel and say how you want to play (Discord video or Cockatrice). There's usually someone around. If it's your first time, mention it. People are happy to slow down and explain what their cards do.</p>
       <a class="btn btn--ghost" href="{{ site.discord }}">Find a match ↗</a>
     </div>
     <div class="lfg" aria-label="What to post when looking for a game">
       <p class="lfg__label mono">A good looking-for-game post</p>
       <p class="lfg__post"><span class="lfg__tag">LFG</span> Webcam · Boros Aggro · new to the format, happy to go slow</p>
       <ul class="lfg__parts">
-        <li><b>How</b> webcam, Cockatrice or MTGO</li>
+        <li><b>How</b> Discord video or Cockatrice</li>
         <li><b>What</b> the deck you're bringing</li>
         <li><b>Who</b> first game, casual, or testing for the weekly</li>
       </ul>
@@ -104,8 +104,9 @@ permalink: /play/
 <section class="section section--rule" id="tables">
   <div class="wrap">
     <div class="section__head">
-      <p class="eyebrow">Clients</p>
-      <h2 class="h2">Ways to play online</h2>
+      <p class="eyebrow">How people play</p>
+      <h2 class="h2">Discord and Cockatrice</h2>
+      <p class="section__lede">The big, dedicated Canlander crowd is on the Discord, so that's where to start. Webcam games use Discord's built-in video, and digital games use Cockatrice.</p>
     </div>
     <div class="tables">
       {%- for t in play.clients %}
@@ -129,7 +130,7 @@ permalink: /play/
     <div class="prose">
       <p>The Discord's webcam tournaments allow proxies. They should show the card's full Oracle text and be clearly marked as proxies. A printout sleeved in front of a basic land works fine.</p>
       <p>In paper it depends on the store. Yellowjacket Comics in Victoria, where the format started, allows ten proxies per deck, and a lot of stores allow more. Check before the event.</p>
-      <p>Looking for paper games near you? There's a <a href="{{ site.official.home }}">list of regular events</a> linked from the official site, and the Discord has regional channels.</p>
+      <p>Looking for paper games near you? The community keeps a <a href="https://docs.google.com/spreadsheets/d/1rbxNvhaLTG7QiWo02uE711MHdxOY_qvjhuKMj2pHqYk">sheet of in-person Canlander game nights</a>, and the Discord has regional channels.</p>
     </div>
   </div>
 </section>

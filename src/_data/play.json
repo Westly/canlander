@@ -3,18 +3,53 @@
   "source": "https://canadianhighlander.ca/2025/01/06/2026-new-player-primer/",
   "discordMembers": "8,000",
   "weeklies": [
-    { "name": "Webcam Weekly", "day": "Saturday", "dayIndex": 6, "hour": 10, "platform": "Webcam", "blurb": "Paper cards (or proxies) on your own table, played over a camera. It's the closest thing to playing in person." },
-    { "name": "Cockatrice Weekly", "day": "Sunday", "dayIndex": 0, "hour": 10, "platform": "Cockatrice", "blurb": "Played on Cockatrice, where every card ever printed is free to use. A good first tournament if you're still building your paper deck." }
+    {
+      "name": "Webcam Weekly",
+      "day": "Saturday",
+      "dayIndex": 6,
+      "hour": 10,
+      "platform": "Webcam",
+      "blurb": "Paper cards (or proxies) on your own table, played over Discord's built-in video. It's the closest thing to playing in person."
+    },
+    {
+      "name": "Cockatrice Weekly",
+      "day": "Sunday",
+      "dayIndex": 0,
+      "hour": 10,
+      "platform": "Cockatrice",
+      "blurb": "Played on Cockatrice, where every card ever printed is free to use. A good first tournament if you're still building your paper deck."
+    }
   ],
   "leagues": [
-    { "name": "Webcam Async League", "platform": "Webcam", "format": "Four rounds of Swiss or a round robin, then Top 8.", "lists": "None, or locked & open", "note": "Same as the weekly, just on your own schedule." },
-    { "name": "Cockatrice Async League", "platform": "Cockatrice", "format": "Four rounds of Swiss or a round robin, then Top 8.", "lists": "None, or locked & open", "note": "All you need is a computer." },
-    { "name": "MTGO Async League", "platform": "Magic Online", "format": "Play five opponents of your choice, or a round robin, then Top 8.", "lists": "Locked & closed", "note": "For people who already have a collection on MTGO." }
+    {
+      "name": "Webcam Async League",
+      "platform": "Webcam",
+      "format": "Four rounds of Swiss or a round robin, then Top 8.",
+      "lists": "None, or locked & open",
+      "note": "Same as the weekly, just on your own schedule. Games run over Discord video."
+    },
+    {
+      "name": "Cockatrice Async League",
+      "platform": "Cockatrice",
+      "format": "Four rounds of Swiss or a round robin, then Top 8.",
+      "lists": "None, or locked & open",
+      "note": "All you need is a computer."
+    }
   ],
   "clients": [
-    { "name": "SpellTable", "kind": "Webcam", "url": "https://spelltable.wizards.com/", "desc": "Wizards' free webcam table that runs in your browser. Point a camera at your play area and go.", "cost": "Free" },
-    { "name": "Convoke", "kind": "Webcam", "url": "https://convoke.games/", "desc": "Another free webcam option, with card recognition built in.", "cost": "Free" },
-    { "name": "Cockatrice", "kind": "Digital", "url": "https://cockatrice.github.io/", "desc": "Free and open source, with every card. Great for testing a list before you buy anything.", "cost": "Free" },
-    { "name": "Magic Online", "kind": "Digital", "url": "https://www.mtgo.com/", "desc": "Wizards' digital client, used for the MTGO league. A lot of Canlander staples are much cheaper here than in paper.", "cost": "Paid cards" }
+    {
+      "name": "Discord video",
+      "kind": "Webcam",
+      "url": "https://discord.gg/WtCHsAjcPM",
+      "desc": "Webcam games run on Discord's own video calls. Point a camera at your play area, hop into a voice channel with your opponent and play with your real cards or proxies.",
+      "cost": "Free"
+    },
+    {
+      "name": "Cockatrice",
+      "kind": "Digital",
+      "url": "https://cockatrice.github.io/",
+      "desc": "Free and open source, with every card. The Discord's Cockatrice weekly and league run here, and it's great for testing a list before you buy anything.",
+      "cost": "Free"
+    }
   ]
 }

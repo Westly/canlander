@@ -1,12 +1,40 @@
 {
   "categories": [
-    { "id": "official", "name": "Official", "blurb": "The rules and the points list. When in doubt, these win." },
-    { "id": "community", "name": "Community", "blurb": "Where players hang out, find games, and argue about Wrenn and Six." },
-    { "id": "learn", "name": "Reading", "blurb": "Primers and introductions worth your time." },
-    { "id": "listen", "name": "Podcasts & Video", "blurb": "For the drive home from the game store." },
-    { "id": "decks", "name": "Decks & Results", "blurb": "What's winning, what people are playing, and lists to borrow." },
-    { "id": "tools", "name": "Deckbuilding Tools", "blurb": "Builders that understand singleton and count your points for you." },
-    { "id": "play", "name": "Play Online", "blurb": "Play from home tonight." }
+    {
+      "id": "official",
+      "name": "Official",
+      "blurb": "The rules and the points list. When in doubt, these win."
+    },
+    {
+      "id": "community",
+      "name": "Community",
+      "blurb": "Where players hang out, find games, and argue about Wrenn and Six."
+    },
+    {
+      "id": "learn",
+      "name": "Reading",
+      "blurb": "Primers and introductions worth your time."
+    },
+    {
+      "id": "listen",
+      "name": "Podcasts & Video",
+      "blurb": "For the drive home from the game store."
+    },
+    {
+      "id": "decks",
+      "name": "Decks & Events",
+      "blurb": "Winning lists, card stats, and where to find a game in person."
+    },
+    {
+      "id": "tools",
+      "name": "Deckbuilding Tools",
+      "blurb": "Builders that understand singleton and count your points for you."
+    },
+    {
+      "id": "play",
+      "name": "Play Online",
+      "blurb": "Everything runs through the Discord: Discord video for webcam games, Cockatrice for digital."
+    }
   ],
   "items": [
     {
@@ -55,16 +83,22 @@
       "description": "The long-running Facebook group. Good for local event posts and trades."
     },
     {
+      "name": "North 100 Showdown",
+      "url": "https://www.youtube.com/playlist?list=PLzRiDUMuwrleJLb_yZbFk0XxDJZLcyOQ3",
+      "category": "listen",
+      "featured": true,
+      "description": "LoadingReadyRun's gameplay series: over a hundred full matches with commentary. The best-produced and biggest collection of Canlander games there is."
+    },
+    {
       "name": "Canadian Highlander on YouTube",
       "url": "https://www.youtube.com/channel/UCbdfxCOi0vvWXFqSHfrywvw",
       "category": "listen",
       "description": "The format's YouTube channel: gameplay and event coverage."
     },
     {
-      "name": "North 100",
+      "name": "North 100 (podcast)",
       "url": "https://podcasts.apple.com/podcast/id1281297790",
       "category": "listen",
-      "featured": true,
       "description": "LoadingReadyRun's Canlander podcast, running since 2017. Set reviews, deck techs, points-list talk."
     },
     {
@@ -98,23 +132,30 @@
       "description": "A thorough overview of rules, the points system, and common archetypes."
     },
     {
+      "name": "Canlander Winner's Archive",
+      "url": "https://moxfield.com/users/CanlanderWinnersArchive",
+      "category": "decks",
+      "featured": true,
+      "description": "Winning decklists from Canlander events, collected on Moxfield. The best place to find a proven list to start from."
+    },
+    {
+      "name": "Canlandex",
+      "url": "https://canlandex.com/",
+      "category": "decks",
+      "featured": true,
+      "description": "Search decks, events and card stats, see the common point spreads for each archetype, and get deck suggestions based on your collection."
+    },
+    {
+      "name": "Paper Canadian Highlander Games",
+      "url": "https://docs.google.com/spreadsheets/d/1rbxNvhaLTG7QiWo02uE711MHdxOY_qvjhuKMj2pHqYk",
+      "category": "decks",
+      "description": "A community Google Sheet of in-person Canlander game nights by city: store, day, time, organizer and proxy rules."
+    },
+    {
       "name": "MTGDecks: Canadian Highlander",
       "url": "https://mtgdecks.net/Canadian-Highlander",
       "category": "decks",
-      "featured": true,
       "description": "The biggest results archive: weeklies, store events, and majors, with metagame breakdowns."
-    },
-    {
-      "name": "MTGTop8: Canadian Highlander",
-      "url": "https://mtgtop8.com/format?f=CHL",
-      "category": "decks",
-      "description": "Long-running event archive with older results going back years."
-    },
-    {
-      "name": "Melee",
-      "url": "https://melee.gg/",
-      "category": "decks",
-      "description": "Many larger paper events register and publish standings and decklists here."
     },
     {
       "name": "Moxfield",
@@ -136,22 +177,16 @@
       "description": "The best card search there is. You'll live here while brewing a 100-card singleton deck."
     },
     {
+      "name": "Discord video",
+      "url": "https://discord.gg/WtCHsAjcPM",
+      "category": "play",
+      "description": "Webcam games on the Discord run over its built-in video calls. Join the server, find an opponent, and play with your own cards or proxies."
+    },
+    {
       "name": "Cockatrice",
       "url": "https://cockatrice.github.io/",
       "category": "play",
-      "description": "Free, open-source client. The Discord's Cockatrice weekly runs here."
-    },
-    {
-      "name": "SpellTable",
-      "url": "https://spelltable.wizards.com/",
-      "category": "play",
-      "description": "Play with your real cards over webcam. Free from Wizards. Used for the Discord's webcam weekly."
-    },
-    {
-      "name": "Convoke",
-      "url": "https://convoke.games/",
-      "category": "play",
-      "description": "Another webcam platform for paper Magic, newer and growing."
+      "description": "Free, open-source client with every card. The Discord's Cockatrice weekly and league run here."
     }
   ]
 }

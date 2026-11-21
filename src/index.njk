@@ -60,7 +60,7 @@ pageClass: home
         <h3 class="hook__t">Your favourite old cards are playable again.</h3>
         <p>Time Walk, the Moxen, Mana Drain. Cards most people only ever see in binders get sleeved up and cast here every week.</p>
         {{ quote(quotes.nonsense) }}
-        <a class="link-arrow hook__more" href="/build/#points">See what everything costs <span aria-hidden="true">→</span></a>
+        <a class="link-arrow hook__more" href="{{ site.official.points }}">See what everything costs <span aria-hidden="true" class="ext">↗</span></a>
       </div>
     </div>
 
@@ -168,7 +168,7 @@ pageClass: home
         <p class="eyebrow">The points list</p>
         <h2 class="h2">The most expensive cards in the format</h2>
       </div>
-      <p class="section__lede">{{ points.list.length }} cards cost points. These seven cost five or more. Pick one and build the rest of your deck around it. <a href="/build/#points">See all {{ points.list.length }}</a>, or check the <a href="{{ site.official.points }}">official list</a>.</p>
+      <p class="section__lede">{{ points.list.length }} cards cost points. These seven cost five or more. Pick one and build the rest of your deck around it. See all {{ points.list.length }} on the <a href="{{ site.official.points }}">official list</a>, or try spending ten in the <a href="/build/#points">build guide</a>.</p>
     </div>
     <div class="pricelist__row">
       {%- for c in points.list %}{% if c.points >= 5 %}

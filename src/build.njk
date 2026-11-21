@@ -16,36 +16,36 @@ permalink: /build/
   { id: "checklist", n: "06", label: "Before you sleeve up" }
 ] -%}
 {%- set archetypes = [
-  { name: "Midrange", art: "Fable of the Mirror-Breaker", tag: "The most played family",
-    how: "Cheap interaction, efficient threats, and a stream of card advantage. Midrange wins by trading one-for-one early and being the last player with gas. Sultai, Jund, Rakdos and the four-colour “Jeskai Black” piles all live here.",
+  { name: "Combo", art: "Time Vault", tag: "Assemble the engine, win on the spot",
+    how: "Combo decks spend their points on one engine and the tutors to find it. Time Vault with Voltaic Key takes every turn from then on. Breach storm loops Underworld Breach and fast mana into a lethal storm count. Citadel decks use Bolas's Citadel to play their whole library off the top. Flash Hulk flashes in Protean Hulk and lets its death trigger assemble a win.",
+    pts: "The engine itself (Time Vault and Flash are 7, Underworld Breach 3) plus fast mana and tutors like Vampiric Tutor and Imperial Seal.",
+    keys: "Time Vault, Voltaic Key, Underworld Breach, Bolas's Citadel, Flash, Protean Hulk" },
+  { name: "Control", art: "Force of Will", tag: "Answer everything, win late",
+    how: "Counterspells, cheap removal and card advantage, with a few threats that are hard to answer. Jeskai is the classic home for it: blue for counters and card draw, white and red for the best removal in the format.",
+    pts: "Ancestral Recall, Time Walk, Mana Drain, or the Moxen in your colours.",
+    keys: "Force of Will, Counterspell, Mana Drain, Swords to Plowshares, Lightning Bolt" },
+  { name: "Creature combo & midrange", art: "Nadu, Winged Wisdom", tag: "Creatures that can win on their own",
+    how: "These decks play like midrange until a creature engine takes over. Most of them are built around Nadu, Winged Wisdom, which turns cheap creatures and lands into a stream of value or an outright win. Goblins does the same with a pile of goblins that find and power up each other.",
+    pts: "Nadu is one point. The rest usually goes on Time Walk, fast mana or tutors.",
+    keys: "Nadu, Winged Wisdom, Goblin Matron, Goblin Recruiter, Natural Order" },
+  { name: "Midrange", art: "Fable of the Mirror-Breaker", tag: "Trade early, win with card quality",
+    how: "Cheap interaction, efficient threats, and a stream of card advantage. Midrange wins by trading one-for-one early and being the last player with gas. Rakdos, Jund and Dimir tempo are the most common builds.",
     pts: "Moxen in your colours, Time Walk, or a spread of strong one-pointers like Psychic Frog, Tamiyo and Wrenn and Six.",
-    keys: "Thoughtseize, Orcish Bowmasters, Fable of the Mirror-Breaker, Psychic Frog, Abrupt Decay" },
-  { name: "Aggro", art: "Ragavan, Nimble Pilferer", tag: "Win before power matters",
-    how: "A low curve of one- and two-drops backed by burn. Aggro gets on the board fast and closes games quickly.",
-    pts: "Often very little. Fast mana like Sol Ring or a Mox helps, but plenty of red decks spend their points on Strip Mine and a couple of one-pointers.",
-    keys: "Ragavan, Goblin Guide, Lightning Bolt, Chain Lightning, Fireblast" },
-  { name: "Death & Taxes", art: "Thalia, Guardian of Thraben", tag: "Tax, disrupt, attack",
-    how: "White creatures that each make the opponent's life harder: Thalia taxes spells, Aven Mindcensor blunts tutors and fetchlands, Strip Mine and Wasteland attack mana. Equipment turns small bodies into a clock.",
-    pts: "Sol Ring and Mox Pearl to deploy threats early, plus Strip Mine, Urza's Saga, Ancient Tomb and White Plume Adventurer.",
-    keys: "Thalia, Adeline, Aven Mindcensor, Stoneforge Mystic, Wasteland" },
-  { name: "Tempo & control", art: "Force of Will", tag: "Counter things, then win",
-    how: "Counterspells, cheap card selection and a handful of threats that are hard to answer. Tempo decks get ahead and protect the lead. Control decks answer everything and win late. Blood Moon “Blue Moon” builds are a fan favourite.",
-    pts: "Ancestral Recall, Time Walk, Mana Drain, or Mox Sapphire with True-Name Nemesis and Tamiyo.",
-    keys: "Force of Will, Counterspell, Brainstorm, Blood Moon, True-Name Nemesis" },
-  { name: "Artifact combo", art: "Time Vault", tag: "Infinite turns, infinite mana",
-    how: "Time Vault plus Voltaic Key or Manifold Key takes every turn from here on. Tolarian Academy and Paradox Engine decks generate absurd mana from artifacts. Both are powerful but easy to disrupt.",
-    pts: "The engine itself (Time Vault is 7, Tolarian Academy 2) and the fast mana or tutors to find it.",
-    keys: "Time Vault, Voltaic Key, Paradox Engine, Urza's Saga, Mana Vault" },
-  { name: "Graveyard & creature combo", art: "Griselbrand", tag: "Cheat the big thing out",
-    how: "Reanimator puts a huge creature into the graveyard and brings it back on turn two. Flash Hulk flashes in Protean Hulk and lets its death trigger assemble a win. Natural Order and Cradle builds go creature-heavy.",
-    pts: "Reanimate and Natural Order are one point each; Flash costs seven; tutors fill the rest.",
-    keys: "Reanimate, Entomb, Griselbrand, Protean Hulk, Natural Order" }
+    keys: "Thoughtseize, Orcish Bowmasters, Fable of the Mirror-Breaker, Psychic Frog, Ragavan" },
+  { name: "Aggro", art: "Thalia, Guardian of Thraben", tag: "Pressure from turn one",
+    how: "Death & Taxes plays white creatures that each make the opponent's life harder: Thalia taxes spells, Aven Mindcensor blunts tutors and fetchlands, Strip Mine and Wasteland attack mana. Monsters decks play the biggest, most efficient creatures in their colours and run the opponent over.",
+    pts: "All ten, usually on fast mana and strong one-pointers: Sol Ring, Mox Pearl, Strip Mine, Urza's Saga, Ancient Tomb, White Plume Adventurer.",
+    keys: "Thalia, Adeline, Aven Mindcensor, Stoneforge Mystic, Wasteland" }
 ] -%}
 <header class="page-head">
   <div class="wrap">
     <p class="eyebrow">Build</p>
     <h1 class="page-head__title">How to build a Canlander deck</h1>
     <p class="page-head__lede">Building a deck mostly comes down to three things: what you spend your ten points on, how the deck wins, and how to get a hundred one-ofs to work together.</p>
+    <div class="callout">
+      <p class="callout__title">Building your first deck? Start with someone else's.</p>
+      <p>Canlander is a hard format to brew for. The points, a hundred singletons and a fast metagame all pull in different directions, and proven lists have already worked that out. Pick a list you like from the <a href="/decks/">deck rotation</a>, the <a href="https://moxfield.com/users/CanlanderWinnersArchive">Winner's Archive</a> or <a href="https://canlandex.com/">Canlandex</a>, play it for a while, then make it your own. This guide explains why those lists look the way they do.</p>
+    </div>
   </div>
 </header>
 
@@ -71,7 +71,7 @@ permalink: /build/
         <div><dt>Consistency</dt><dd>Tutors that turn your deck into a smaller, more predictable one. Demonic, Vampiric, Mystical and Enlightened Tutor, Imperial Seal, Merchant Scroll.</dd></div>
         <div><dt>An engine</dt><dd>The single card your combo is built around. Flash, Time Vault, Underworld Breach, Tinker, Tolarian Academy, Thassa's Oracle.</dd></div>
       </dl>
-      <p>A combo deck should spend on its engine and the tutors to find it. A midrange deck usually wants raw power it can cast early. An aggro deck often wants very little, because its best cards are already free.</p>
+      <p>Every competitive deck spends all ten points, so the question is what to spend them on. A combo deck spends on its engine and the tutors to find it. Midrange usually wants raw power it can cast early. Aggro spends on fast mana and cheap pointed threats that let it curve out a turn ahead.</p>
 
       <h3>Five ways to spend ten</h3>
       <p>See them in action in the <a href="/decks/">deck rotation</a>.</p>
@@ -157,22 +157,30 @@ permalink: /build/
         </article>
         {%- endfor %}
       </div>
-      <p>Not sure which suits you? Try a few on Cockatrice and see which one you enjoy playing.</p>
+      <p>Not sure which suits you? Borrow a list from each family, play a few games on Cockatrice, and see which one you enjoy.</p>
     </section>
 
     <section id="mana" class="docs__section">
       <p class="docs__num mono">03</p>
       <h2>Build the mana</h2>
       <h3>You need fewer lands than you think</h3>
-      <p>New players bring Commander instincts and register 36 to 40 lands. Competitive Canlander decks play far fewer, because the games are one-on-one, curves are low, and free cantrips like Brainstorm, Ponder and Preordain dig for land drops.</p>
+      <p>New players often register 36 to 40 lands. Competitive Canlander decks play far fewer, because the games are one-on-one, curves are low, and cheap cantrips like Brainstorm, Ponder and Preordain dig for land drops.</p>
       <div class="stat">
         {%- set ls = decks.decks | landStats %}
         <p class="stat__big">{{ ls.lo }}–{{ ls.hi }}</p>
         <p class="stat__label">Lands in most decks on the rotation. Median {{ ls.median }}, often plus a modal double-faced spell or two.</p>
       </div>
       <p>A sensible starting point is <b>34 lands</b> for midrange, <b>32–33</b> for low-curve aggro and tempo, and <b>35–36</b> for control, ramp and decks with expensive top ends. If you run three or more fast-mana pieces (Moxen, Sol Ring, Mana Crypt, Ancient Tomb), shave a land.</p>
-      <h3>Play the best lands, plus a few basics</h3>
-      <p>A hundred-card deck has room for every fetchland, original dual and shockland in your colours, and you should play them. Fetches also feed Wrenn and Six, delirium and landfall. Blood Moon, Wasteland and Strip Mine are played too, so a few basics of your main colour keep you covered.</p>
+      <h3>Expect your mana to be attacked</h3>
+      <p>Mana denial is everywhere in Canlander, and it decides a lot of games. Plan for it from the first card you add. Most of it comes in three forms:</p>
+      <dl class="rules-table">
+        <div><dt>Blood Moon effects</dt><dd>Blood Moon, Magus of the Moon and friends turn every nonbasic land into a Mountain. A greedy three-colour mana base can lose on the spot.</dd></div>
+        <div><dt>Search hate</dt><dd>Aven Mindcensor, Leonin Arbiter, Opposition Agent and similar cards punish fetchlands and tutors. Crack fetches early when you can.</dd></div>
+        <div><dt>Land destruction</dt><dd>Strip Mine and Wasteland are in almost every deck that can play them, and they love hitting your only source of a colour or your Urza's Saga.</dd></div>
+      </dl>
+      <p>The answer is in how you build. Play basics of your main colour, keep the colour count low, and don't lean on one land for a whole colour. Plenty of decks play these cards themselves, so consider which of them your deck wants too.</p>
+      <h3>Play the best lands you can</h3>
+      <p>A hundred-card deck has room for every fetchland, original dual and shockland in your colours, and you should play them. Fetches also feed Wrenn and Six, delirium and landfall. Just leave room for the basics from the section above.</p>
       <h3>Two or three colours is a great place to start</h3>
       <p>Fewer colours means smoother mana and more consistent games. The council has said it wants to <a href="https://canadianhighlander.ca/2025/03/26/2025-year-start-points-update-survey-report/">“promote lower color decks over four color decks”</a>, and the points list has been nudged that way. For a first deck, two colours with a light splash is the easiest to pilot.</p>
     </section>
@@ -219,11 +227,11 @@ permalink: /build/
       <h2>Before you sleeve up</h2>
       <ul class="checklist">
         <li>Exactly 100 cards, one of each, basics excepted.</li>
-        <li>Ten points or fewer on <a href="{{ site.official.points }}">today's list</a>.</li>
+        <li>All ten points spent, checked against <a href="{{ site.official.points }}">today's list</a>.</li>
         <li>Your points help your game plan.</li>
         <li>32–36 lands, adjusted for fast mana and curve.</li>
         <li>At least fourteen pieces of cheap interaction.</li>
-        <li>A few basics, in case of Blood Moon.</li>
+        <li>Enough basics to survive Blood Moon, Wasteland and search hate.</li>
         <li>Every card is live against every deck.</li>
       </ul>
       <p>Then go play some games. You'll learn more from ten games than from any guide.</p>

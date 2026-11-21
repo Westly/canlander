@@ -56,7 +56,7 @@ permalink: /learn/
       <p class="docs__num mono">02</p>
       <h2>How points work</h2>
       <p>Instead of banning the strongest cards, Canlander gives {{ points.list.length }} of them a point value, from 1 up to Ancestral Recall at 8. Every other card is worth zero.</p>
-      <p>Each deck gets ten points. Spend them on one big card, a bunch of small ones, or nothing at all. Plenty of good decks play zero points.</p>
+      <p>Each deck gets ten points. Spend them on one big card or a handful of smaller ones. Every competitive deck uses all ten, so the real question is which pointed cards do the most for your deck.</p>
       
       <div class="cardrow">
         {{ mtgcard("Ancestral Recall", 8, "normal") }}{{ mtgcard("Black Lotus", 7, "normal") }}{{ mtgcard("Time Walk", 5, "normal") }}{{ mtgcard("Sol Ring", 3, "normal") }}{{ mtgcard("Strip Mine", 1, "normal") }}{{ mtgcard("Timetwister", 0, "normal") }}
@@ -76,8 +76,8 @@ permalink: /learn/
     <section id="building" class="docs__section">
       <p class="docs__num mono">04</p>
       <h2>Building a deck</h2>
-      <p>The easiest way to start is with someone else's list. Pick one from the <a href="/decks/">decks page</a> or a recent <a href="/resources/#decks">event result</a>, play it for a week, then start changing it. When you're ready to build from scratch, the <a href="/build/">build guide</a> covers spending points, choosing a plan, land counts and filling a hundred slots.</p>
-      <p class="aside-note">The short version: decide what your ten points are for, play 32 to 36 lands, pack at least fourteen cheap interaction spells, and pick cards that are good against every deck, since your main deck plays every game.</p>
+      <p>Start with someone else's list. Canlander is a hard format to brew for, and a proven list has already solved the points, the mana and the matchups. Pick one from the <a href="/decks/">decks page</a>, the <a href="https://moxfield.com/users/CanlanderWinnersArchive">Winner's Archive</a> or <a href="https://canlandex.com/">Canlandex</a>, play it for a while, then start changing it. When you're ready to build from scratch, the <a href="/build/">build guide</a> covers spending points, choosing a plan, land counts and filling a hundred slots.</p>
+      <p class="aside-note">The short version: spend all ten points on cards that fit your plan, play 32 to 36 lands, pack at least fourteen cheap interaction spells, and pick cards that are good against every deck, since your main deck plays every game.</p>
     </section>
 
     <section id="cards" class="docs__section">
@@ -87,7 +87,7 @@ permalink: /learn/
       <ul>
         <li><b>Start online.</b> <a href="https://cockatrice.github.io/">Cockatrice</a> is free and has every card, so you can test a deck before buying anything.</li>
         <li><b>Use proxies.</b> The Discord webcam events are proxy friendly, and so are a lot of local groups. For paper events, check the store's proxy policy.</li>
-        <li><b>Raid your Commander binder.</b> A lot of Commander staples are Canlander staples too. Just remember that some (Sol Ring, for one) cost points here.</li>
+        <li><b>Copy a proven list.</b> Starting from a winning deck means every card you buy has already earned its slot.</li>
       </ul>
     </section>
 
@@ -99,10 +99,10 @@ permalink: /learn/
         <div><dt>Highlander</dt><dd>Any singleton format, after the film tagline "there can be only one."</dd></div>
         <div><dt>Points list</dt><dd>The official list of cards that cost points to include.</dd></div>
         <div><dt>Pointed card</dt><dd>A card on the points list. "Is that pointed?" means "does it cost points?"</dd></div>
-        <div><dt>Zero-pointer</dt><dd>A deck that spends no points. Usually aggressive or midrange, and very much viable.</dd></div>
+        <div><dt>Mana denial</dt><dd>Cards that attack your lands or stop you finding them: Blood Moon effects, search hate like Aven Mindcensor, and Strip Mine and Wasteland. You'll see a lot of it.</dd></div>
         <div><dt>The Council</dt><dd>The volunteer group that maintains the points list and rules.</dd></div>
         <div><dt>Power Nine</dt><dd>Black Lotus, the five Moxen, Ancestral Recall, Time Walk, and Timetwister. All legal here; most of them pointed.</dd></div>
-        <div><dt>Weekly</dt><dd>A recurring event, usually online over Cockatrice or webcam.</dd></div>
+        <div><dt>Weekly</dt><dd>A recurring event, usually online over Cockatrice or Discord video.</dd></div>
         <div><dt>7-Point Highlander</dt><dd>Also called Australian Highlander. A different, 60-card format with its own list.</dd></div>
       </dl>
     </section>
@@ -116,16 +116,16 @@ permalink: /learn/
           <p>It's a fan-run format with its own council and points list. Wizards has written about it and hosted events for it.</p>
         </details>
         <details>
-          <summary>Can I turn my Commander deck into a Canlander deck?</summary>
-          <p>It's usually easier to start fresh. Canlander is a one-on-one duel at twenty life, so low curves and cheap interaction shine. Start from a <a href="/decks/">Canlander list</a> and swap in your favourite cards from your Commander decks. And check the points list, because Sol Ring, Mana Crypt and the tutors add up fast.</p>
+          <summary>Should I build my first deck from scratch?</summary>
+          <p>Not your first one. Canlander asks you to think about Magic in its own way: one-on-one at twenty life, low curves, cheap interaction, and a lot of mana denial. Grab a list from the <a href="/decks/">decks page</a>, play it, and change it as you learn what you like.</p>
         </details>
         <details>
           <summary>How often does the points list change?</summary>
           <p>A few times a year, on a roughly quarterly schedule. The council announces changes the day before they take effect and explains its reasoning in an article. You can read those on <a href="{{ site.official.articles }}">canadianhighlander.ca</a>.</p>
         </details>
         <details>
-          <summary>Can a budget deck win?</summary>
-          <p>Absolutely. Results archives are full of strong zero-point and low-point decks, and the ten-point cap keeps everyone on even footing.</p>
+          <summary>Do I have to spend all ten points?</summary>
+          <p>The rules let you spend fewer, but competitive decks always spend all ten. If you don't own a pointed card yet, the Discord's webcam events allow proxies, so you can still play the full list.</p>
         </details>
         <details>
           <summary>Where do I find people to play with?</summary>
@@ -141,9 +141,9 @@ permalink: /learn/
   "@type": "FAQPage",
   "mainEntity": [
     { "@type": "Question", "name": "Is Canlander an official Wizards of the Coast format?", "acceptedAnswer": { "@type": "Answer", "text": "It's a fan-run format with its own council and points list. Wizards has written about it and hosted events for it." } },
-    { "@type": "Question", "name": "Can I turn my Commander deck into a Canlander deck?", "acceptedAnswer": { "@type": "Answer", "text": "It's usually easier to start fresh. Canlander is a one-on-one duel at twenty life, so low curves and cheap interaction shine. Start from a Canlander list and swap in your favourite cards from your Commander decks, and check the points list." } },
+    { "@type": "Question", "name": "Should I build my first deck from scratch?", "acceptedAnswer": { "@type": "Answer", "text": "Not your first one. Canlander asks you to think about Magic in its own way: one-on-one at twenty life, low curves, cheap interaction, and a lot of mana denial. Grab a list, play it, and change it as you learn what you like." } },
     { "@type": "Question", "name": "How often does the points list change?", "acceptedAnswer": { "@type": "Answer", "text": "A few times a year, on a roughly quarterly schedule. The council announces changes the day before they take effect and explains its reasoning in an article." } },
-    { "@type": "Question", "name": "Can a budget deck win?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Results archives are full of strong zero-point and low-point decks, and the ten-point cap keeps everyone on even footing." } },
-    { "@type": "Question", "name": "Where do I find people to play with?", "acceptedAnswer": { "@type": "Answer", "text": "The Canadian Highlander Discord runs weekly online events on webcam and Cockatrice and is the fastest way to find a game." } }
+    { "@type": "Question", "name": "Do I have to spend all ten points?", "acceptedAnswer": { "@type": "Answer", "text": "The rules let you spend fewer, but competitive decks always spend all ten. If you don't own a pointed card yet, the Discord's webcam events allow proxies, so you can still play the full list." } },
+    { "@type": "Question", "name": "Where do I find people to play with?", "acceptedAnswer": { "@type": "Answer", "text": "The Canadian Highlander Discord runs weekly online events over Discord video and Cockatrice and is the fastest way to find a game." } }
   ]
 } | json | safe }}</script>

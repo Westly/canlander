@@ -578,6 +578,16 @@ a.ticker__v:hover { color: var(--brass-hi); }
 .skeleton td:first-child { color: var(--parchment); font-family: var(--serif); font-size: 1rem; white-space: nowrap; }
 .skeleton td:nth-child(2) { font-family: var(--mono); color: var(--brass-hi); white-space: nowrap; }
 .skeleton__note { font-size: .82rem !important; color: var(--parchment-3) !important; margin: .9rem 0 0 !important; }
+@media (max-width: 600px) {
+  .skeleton { padding: 1.1rem 1.1rem 1rem; }
+  .skeleton thead { display: none; }
+  .skeleton table, .skeleton tbody, .skeleton tr, .skeleton td { display: block; }
+  .skeleton tr { padding: .7rem 0; border-bottom: 1px solid var(--hair); }
+  .skeleton td { padding: 0; border: 0; }
+  .skeleton td:first-child { display: inline; white-space: normal; }
+  .skeleton td:nth-child(2) { display: inline; margin-left: .5rem; }
+  .skeleton td:nth-child(3) { margin-top: .25rem; font-size: .88rem; }
+}
 .prose ul.checklist li::before { content: "✓"; width: auto; height: auto; background: none; color: var(--brass); top: 0; font-size: .9rem; }
 
 /* Responsive ---------------------------------------------------------------- */
@@ -588,7 +598,7 @@ a.ticker__v:hover { color: var(--brass-hi); }
   .steps { grid-template-columns: 1fr 1fr; }
   .step:nth-child(3) { border-left: 0; padding-left: 0; }
   .step:nth-child(n+3) { border-top: 1px solid var(--hair); margin-top: 1.75rem; }
-  .docs { grid-template-columns: 1fr; }
+  .docs { grid-template-columns: minmax(0, 1fr); }
   .docs__toc { position: static; padding-bottom: 1.5rem; border-bottom: 1px solid var(--hair); }
   .docs__toc ol { columns: 2; }
   .directory__group { grid-template-columns: 1fr; gap: 1rem; }
@@ -697,7 +707,7 @@ a.ticker__v:hover { color: var(--brass-hi); }
 .howto__n { color: var(--brass); font-size: .8rem; padding-top: .3rem; }
 .howto h3 { margin: 0 0 .35rem; font-size: 1.02rem; font-weight: 600; }
 .howto p { margin: 0; font-size: .93rem; color: var(--parchment-2); }
-.leagues { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2.5vw, 1.5rem); }
+.leagues { display: grid; grid-template-columns: repeat(2, 1fr); max-width: 56rem; gap: clamp(1rem, 2.5vw, 1.5rem); }
 .league { padding: 1.6rem; border: 1px solid rgba(236,223,196,.12); border-radius: 6px; background: rgba(15,13,11,.35); }
 .league__platform { margin: 0 0 .6rem; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--brass); }
 .league__name { margin: 0 0 .7rem; font-family: var(--serif); font-weight: 400; font-size: 1.3rem; }
@@ -713,7 +723,7 @@ a.ticker__v:hover { color: var(--brass-hi); }
 .lfg__tag { display: inline-block; margin-right: .5rem; padding: .05rem .4rem; border-radius: 3px; background: var(--brass); color: #1a140b; font-family: var(--mono); font-size: .72rem; font-weight: 500; vertical-align: 2px; }
 .lfg__parts { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; font-size: .93rem; color: var(--parchment-2); }
 .lfg__parts b { display: inline-block; min-width: 3.5rem; font-family: var(--mono); font-size: .72rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--brass); }
-.tables { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.tables { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 56rem; }
 .tablecard { display: flex; flex-direction: column; gap: .5rem; padding: 1.4rem; border: 1px solid var(--hair); border-radius: 6px; text-decoration: none; color: var(--parchment); transition: border-color .25s, transform .25s var(--ease); }
 .tablecard:hover { border-color: var(--brass); transform: translateY(-2px); color: var(--parchment); }
 .tablecard__kind { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--parchment-3); }
@@ -806,3 +816,8 @@ a.ticker__v:hover { color: var(--brass-hi); }
 @media (max-width: 1000px) { .vidgrid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .vidgrid { grid-template-columns: 1fr; } }
 
+
+/* Build page: first-deck callout */
+.callout { margin-top: 1.75rem; max-width: 46rem; padding: 1.1rem 1.3rem; border: 1px solid var(--hair-2); border-left: 3px solid var(--brass); border-radius: 4px; background: rgba(0,0,0,.22); }
+.callout p { margin: 0; color: var(--parchment-2); font-size: .98rem; line-height: 1.55; }
+.callout .callout__title { font-family: var(--serif); font-variation-settings: "opsz" 36; font-size: 1.2rem; color: var(--parchment); margin-bottom: .45rem; }
