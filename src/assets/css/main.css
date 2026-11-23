@@ -105,6 +105,7 @@ a:hover { color: var(--brass-hi); text-decoration-color: var(--brass); }
 
 .wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
 .wrap--narrow { max-width: calc(720px + 2 * var(--gutter)); }
+.wrap--narrow.prose { max-width: calc(720px + 2 * var(--gutter)); }
 .mono { font-family: var(--mono); font-feature-settings: "zero" 0; letter-spacing: 0; }
 
 /* Type -------------------------------------------------------------------- */
@@ -240,7 +241,7 @@ a.ticker__v:hover { color: var(--brass-hi); }
 .ticker__count { font-family: var(--mono); font-size: .78rem; color: var(--brass); margin-left: .5rem; }
 
 /* Sections ---------------------------------------------------------------- */
-.section { padding: clamp(4rem, 9vw, 7.5rem) 0; position: relative; }
+.section { padding: clamp(3.5rem, 7vw, 6rem) 0; position: relative; }
 .section--rule { border-top: 1px solid var(--hair); }
 .section__head { margin-bottom: 2.75rem; max-width: 46rem; }
 .section__head--row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; max-width: none; margin-bottom: 1.25rem; padding-bottom: .9rem; border-bottom: 1px solid var(--hair-2); }
@@ -316,6 +317,7 @@ a.ticker__v:hover { color: var(--brass-hi); }
 .page-head__title em { color: var(--brass-hi); font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1; }
 .page-head__lede { max-width: 40rem; font-size: 1.12rem; color: var(--parchment-2); margin: 0; }
 .page-head .hero__actions { margin-top: 2.25rem; }
+.page-head__title:last-child { margin-bottom: 0; }
 /* A section straight after the page header shouldn't add its own top padding on top of the header's margin. */
 .page-head + .section { padding-top: 0; }
 
@@ -759,6 +761,7 @@ a.ticker__v:hover { color: var(--brass-hi); }
 .chapters { list-style: none; padding: 0; margin: clamp(1rem, 3vw, 2rem) 0 0; position: relative; }
 .chapters::before { content: ""; position: absolute; left: 7.5rem; top: 0; bottom: 0; width: 1px; background: linear-gradient(180deg, transparent, var(--hair-2) 6%, var(--hair-2) 94%, transparent); }
 .chapter { position: relative; display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) 200px; gap: 0 clamp(1.75rem, 4vw, 3.5rem); padding: clamp(2rem, 4vw, 3rem) 0; }
+.chapter:first-child { padding-top: .25rem; }
 .chapter + .chapter { border-top: 1px solid rgba(201,164,92,.08); }
 .chapter__year { position: relative; text-align: right; padding-right: 1.6rem; }
 .chapter__year::after { content: ""; position: absolute; right: -5px; top: .9rem; width: 9px; height: 9px; border-radius: 50%; background: var(--table); border: 1px solid var(--brass); }
@@ -803,6 +806,7 @@ a.ticker__v:hover { color: var(--brass-hi); }
 .vidnav a { padding: .4rem .8rem; border: 1px solid var(--hair-2); border-radius: 999px; font-size: .85rem; text-decoration: none; color: var(--parchment-2); }
 .vidnav a:hover { border-color: var(--brass); color: var(--brass-hi); }
 .vidsec { padding: clamp(2.5rem, 5vw, 4rem) 0 0; scroll-margin-top: 90px; }
+.wrap > .vidsec:first-child { padding-top: 0; }
 .vidsec + .vidsec { border-top: 1px solid var(--hair); margin-top: clamp(2.5rem, 5vw, 4rem); }
 .vidgrid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.25rem, 2.5vw, 1.75rem) 1.25rem; }
 .vid { display: flex; flex-direction: column; gap: .5rem; text-decoration: none; color: var(--parchment); }
