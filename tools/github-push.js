@@ -2,12 +2,13 @@
  * canlander.org: push changes to GitHub from a browser tab.
  * ----------------------------------------------------------
  * Claude's cloud workspace can't reach github.com, so changes are pushed with the
- * GitHub REST API from a tab in the built-in browser (any https page works; a
- * cdn.jsdelivr.net page is a good blank canvas because it has no CSP).
+ * GitHub REST API from a github.com tab in the built-in browser
+ * (e.g. https://github.com/settings/personal-access-tokens).
  *
  * Setup in the tab:
- *   1. window.__TOK = "<fine-grained PAT: Contents read/write on Westly/canlander>"
- *      Never write the token to a file, a commit or the chat.
+ *   1. window.__TOK = localStorage.getItem('canlander_pat')
+ *      (fine-grained PAT, Contents read/write on Westly/canlander, saved in the
+ *      built-in browser's github.com storage). Never write it to a file, a commit or the chat.
  *   2. Paste this whole file.
  *
  * Typical flow:

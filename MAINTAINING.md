@@ -23,8 +23,9 @@ Claude's cloud workspace can't reach GitHub, Scryfall or Moxfield. The built-in 
    - Stage the repo files from Westly's folder. Leave out `node_modules`, `_site` and `print`. That's about 57 files, which takes two stage calls.
    - Copy them to `/home/claude/canlander`, then run `git init && git add -A && git commit -m baseline` and `npm install`.
 2. **Open the push tab.**
-   - Open `https://cdn.jsdelivr.net/npm/@fontsource-variable/fraunces@5.3.0/package.json` in the built-in browser. Any page with no CSP works.
-   - Set `window.__TOK` (see Token below), then paste `tools/github-push.js` and `tools/first-printing.js` into the tab with the javascript tool.
+   - Open `https://github.com/settings/personal-access-tokens` in the built-in browser. GitHub's own pages can call api.github.com, and the saved token lives in this origin's storage.
+   - Run `window.__TOK = localStorage.getItem('canlander_pat')` (see Token below), then paste `tools/github-push.js` into the tab with the javascript tool.
+   - Scryfall lookups (`tools/first-printing.js`) may be blocked by GitHub's page rules. Run those from a `cdn.jsdelivr.net` tab instead; they need no token.
 3. **Check the copy is current.**
    - Run `tools/local-shas.sh` in the workspace, then `await syncCheck(<that JSON>)` in the tab.
    - `src/assets/og.jpg` always differs. That's harmless and known, so never push it.
@@ -32,11 +33,11 @@ Claude's cloud workspace can't reach GitHub, Scryfall or Moxfield. The built-in 
 
 ### Token
 
-The push tab needs a fine-grained GitHub token with **Contents: read and write on `Westly/canlander` only**. The current one expires on 2026-12-21.
+The push tab needs a fine-grained GitHub token with **Contents: read and write on `Westly/canlander` only**.
 
-- If Westly gives a token in chat, use it.
-- Otherwise, ask Westly for permission to create one at github.com/settings/personal-access-tokens/new in the built-in browser, where he's signed in. Use a 90-day expiry and that single repo and permission.
-- The token lives only in `window.__TOK` in that tab. Never write it to a file, a commit, the project notes or the chat.
+- **Saved token:** Westly asked for the token to be kept between sessions. It's stored in the built-in browser's persistent profile, in github.com's localStorage under `canlander_pat` (expiry date under `canlander_pat_expires`; current token `canlander-claude-publish-2026-11` expires **2027-02-21**). Load it with `localStorage.getItem('canlander_pat')` from a github.com tab. Don't ask Westly to log in while it's valid.
+- **Never** copy the token into a file, a commit, the project notes or the chat, and never print it in tool output.
+- If it's missing, expired or returns 401: ask Westly for permission to create a new one at github.com/settings/personal-access-tokens/new (90 days, only Westly/canlander, Contents read/write). GitHub may ask him to confirm by email (sudo mode); he does that step. Then save it back to `canlander_pat` and update the expiry.
 
 ## 2. Make the change
 
