@@ -315,6 +315,9 @@ a.ticker__v:hover { color: var(--brass-hi); }
 .page-head__title { font-family: var(--serif); font-variation-settings: "opsz" 144, "SOFT" 20; font-weight: 380; font-size: clamp(2.4rem, 1.3rem + 4vw, 4.4rem); line-height: 1; letter-spacing: -.025em; max-width: 16ch; margin-bottom: 1.4rem; text-wrap: balance; }
 .page-head__title em { color: var(--brass-hi); font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1; }
 .page-head__lede { max-width: 40rem; font-size: 1.12rem; color: var(--parchment-2); margin: 0; }
+.page-head .hero__actions { margin-top: 2.25rem; }
+/* A section straight after the page header shouldn't add its own top padding on top of the header's margin. */
+.page-head + .section { padding-top: 0; }
 
 /* Docs layout -------------------------------------------------------------- */
 .docs { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: clamp(2rem, 6vw, 6rem); padding-bottom: 6rem; }
